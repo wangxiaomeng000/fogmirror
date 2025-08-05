@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>雾镜 - 完整流程测试</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .test-section h2 {
+            margin: 0 0 15px 0;
+            color: #4A90E2;
+            font-size: 18px;
+        }
+        
+        button {
+            background: #4A90E2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        
+        button:hover {
+            background: #357ABD;
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .result-box {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .status {
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .image-preview {
+            max-width: 300px;
+            max-height: 200px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background: #e0e0e0;
+            margin: 0 5px;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .step.active {
+            background: #4A90E2;
+            color: white;
+        }
+        
+        .step.completed {
+            background: #28a745;
+            color: white;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        
+        .upload-btn {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .upload-btn:hover {
+            background: #218838;
+        }
+        
+        .keywords-box {
+            margin: 10px 0;
+        }
+        
+        .keyword {
+            display: inline-block;
+            background: #4A90E2;
+            color: white;
+            padding: 4px 12px;
+            margin: 4px;
+            border-radius: 15px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧭 雾镜 - 完整流程测试</h1>
+        <p class="subtitle">测试图片识别 → 事实提取 → 认知地图的完整流程</p>
+        
+        <div class="step-indicator">
+            <div class="step" id="step1">1. 选择图片</div>
+            <div class="step" id="step2">2. 图片分析</div>
+            <div class="step" id="step3">3. 事实对话</div>
+            <div class="step" id="step4">4. 认知地图</div>
+        </div>
+        
+        <!-- 步骤1：选择图片 -->
+        <div class="test-section">
+            <h2>步骤1：选择测试图片</h2>
+            <label class="upload-btn">
+                选择本地图片
+                <input type="file" id="fileInput" accept="image/*" onchange="handleFile(event)">
+            </label>
+            <button onclick="useTestImage('exhibition')">使用展览测试图</button>
+            <button onclick="useTestImage('river')">使用河流测试图</button>
+            <button onclick="useTestImage('document')">使用文档测试图</button>
+            
+            <div id="imagePreview"></div>
+        </div>
+        
+        <!-- 步骤2：图片分析 -->
+        <div class="test-section">
+            <h2>步骤2：Claude视觉分析</h2>
+            <button id="analyzeBtn" onclick="analyzeImage()" disabled>开始分析图片</button>
+            <div class="status" id="analyzeStatus" style="display:none"></div>
+            <div class="result-box" id="analyzeResult" style="display:none"></div>
+            <div class="keywords-box" id="imageKeywords" style="display:none"></div>
+        </div>
+        
+        <!-- 步骤3：事实对话 -->
+        <div class="test-section">
+            <h2>步骤3：基于图片的事实追问</h2>
+            <input type="text" id="userInput" placeholder="回答AI的问题..." style="width: 70%; padding: 10px; margin-right: 10px;">
+            <button id="chatBtn" onclick="sendMessage()" disabled>发送</button>
+            <div class="result-box" id="chatHistory" style="display:none; height: 200px;"></div>
+        </div>
+        
+        <!-- 步骤4：认知地图 -->
+        <div class="test-section">
+            <h2>步骤4：查看认知地图数据</h2>
+            <button id="mapBtn" onclick="getCognitiveMap()" disabled>获取认知地图</button>
+            <div class="result-box" id="mapResult" style="display:none"></div>
+        </div>
+        
+        <!-- 完整测试 -->
+        <div class="test-section" style="background: #e3f2fd;">
+            <h2>🚀 一键完整测试</h2>
+            <button onclick="runFullTest()" style="background: #ff5722;">运行完整流程测试</button>
+            <div class="status" id="fullTestStatus" style="display:none"></div>
+        </div>
+    </div>
+
+    <script>
+        let selectedFile = null;
+        let sessionId = 'test-' + Date.now();
+        let currentStep = 1;
+        
+        function updateStep(step) {
+            for (let i = 1; i <= 4; i++) {
+                const stepEl = document.getElementById(`step${i}`);
+                if (i < step) {
+                    stepEl.className = 'step completed';
+                } else if (i === step) {
+                    stepEl.className = 'step active';
+                } else {
+                    stepEl.className = 'step';
+                }
+            }
+            currentStep = step;
+        }
+        
+        // 处理文件选择
+        function handleFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            selectedFile = file;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                document.getElementById('imagePreview').innerHTML = 
+                    `<img src="${e.target.result}" class="image-preview">`;
+                document.getElementById('analyzeBtn').disabled = false;
+                updateStep(2);
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        // 使用测试图片
+        function useTestImage(type) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 400;
+            canvas.height = 300;
+            const ctx = canvas.getContext('2d');
+            
+            // 绘制不同的测试图
+            switch(type) {
+                case 'exhibition':
+                    // 模拟展览照片
+                    ctx.fillStyle = '#2a2a2a';
+                    ctx.fillRect(0, 0, 400, 300);
+                    ctx.fillStyle = '#4a4a4a';
+                    ctx.fillRect(50, 50, 120, 90);
+                    ctx.fillRect(230, 50, 120, 90);
+                    ctx.fillStyle = 'white';
+                    ctx.font = '16px Arial';
+                    ctx.fillText('Climate Change Exhibition', 100, 250);
+                    ctx.font = '12px Arial';
+                    ctx.fillText('2024.03.15', 160, 270);
+                    break;
+                    
+                case 'river':
+                    // 模拟河流照片
+                    ctx.fillStyle = '#87CEEB';
+                    ctx.fillRect(0, 0, 400, 150);
+                    ctx.fillStyle = '#4a4a4a';
+                    ctx.fillRect(0, 150, 400, 150);
+                    ctx.fillStyle = '#8B4513';
+                    ctx.fillRect(0, 140, 400, 20);
+                    ctx.fillStyle = '#666';
+                    ctx.font = '14px Arial';
+                    ctx.fillText('Polluted River - 2019', 250, 290);
+                    break;
+                    
+                case 'document':
+                    // 模拟文档照片
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(0, 0, 400, 300);
+                    ctx.strokeStyle = '#333';
+                    ctx.strokeRect(40, 40, 320, 220);
+                    ctx.fillStyle = 'black';
+                    ctx.font = '20px Arial';
+                    ctx.fillText('离婚协议书', 140, 80);
+                    ctx.font = '14px Arial';
+                    ctx.fillText('日期：2019年3月15日', 50, 120);
+                    ctx.fillText('甲方：张某', 50, 150);
+                    ctx.fillText('乙方：李某', 50, 180);
+                    break;
+            }
+            
+            canvas.toBlob((blob) => {
+                selectedFile = new File([blob], `test-${type}.png`, { type: 'image/png' });
+                document.getElementById('imagePreview').innerHTML = 
+                    `<img src="${canvas.toDataURL()}" class="image-preview">`;
+                document.getElementById('analyzeBtn').disabled = false;
+                updateStep(2);
+            });
+        }
+        
+        // 分析图片
+        async function analyzeImage() {
+            if (!selectedFile) return;
+            
+            updateStep(2);
+            const statusEl = document.getElementById('analyzeStatus');
+            const resultEl = document.getElementById('analyzeResult');
+            const keywordsEl = document.getElementById('imageKeywords');
+            
+            statusEl.style.display = 'block';
+            statusEl.className = 'status info';
+            statusEl.textContent = '正在分析图片...';
+            
+            const formData = new FormData();
+            formData.append('image', selectedFile);
+            
+            try {
+                const response = await fetch('http://localhost:3001/api/vision/analyze', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    statusEl.className = 'status success';
+                    statusEl.textContent = '✅ 图片分析成功！使用模型：' + data.model;
+                    
+                    resultEl.style.display = 'block';
+                    resultEl.textContent = JSON.stringify(data.analysis, null, 2);
+                    
+                    // 提取关键词
+                    const keywords = extractKeywords(data.analysis);
+                    if (keywords.length > 0) {
+                        keywordsEl.style.display = 'block';
+                        keywordsEl.innerHTML = '<strong>提取的关键词：</strong><br>' +
+                            keywords.map(k => `<span class="keyword">${k}</span>`).join('');
+                    }
+                    
+                    document.getElementById('chatBtn').disabled = false;
+                    updateStep(3);
+                    
+                    // 自动开始对话
+                    setTimeout(() => startChat(data.analysis), 1000);
+                } else {
+                    statusEl.className = 'status error';
+                    statusEl.textContent = '❌ 分析失败：' + data.error;
+                }
+            } catch (error) {
+                statusEl.className = 'status error';
+                statusEl.textContent = '❌ 网络错误：' + error.message;
+            }
+        }
+        
+        // 提取关键词
+        function extractKeywords(analysis) {
+            const keywords = new Set();
+            const text = Object.values(analysis).filter(v => typeof v === 'string').join(' ');
+            
+            // 时间
+            const timePatterns = /(\d{4}年|\d{1,2}月|\d{1,2}[日号]|2019|2024)/g;
+            const times = text.match(timePatterns);
+            if (times) times.forEach(t => keywords.add(t));
+            
+            // 地点
+            const placePatterns = /(展览|展厅|河流|协议|污染)/g;
+            const places = text.match(placePatterns);
+            if (places) places.forEach(p => keywords.add(p));
+            
+            return Array.from(keywords);
+        }
+        
+        // 开始对话
+        async function startChat(imageAnalysis) {
+            const chatHistory = document.getElementById('chatHistory');
+            chatHistory.style.display = 'block';
+            
+            // 发送图片分析结果到认知地图系统
+            const formData = new FormData();
+            formData.append('content', '我想分享这张图片');
+            formData.append('sessionId', sessionId);
+            formData.append('image', selectedFile);
+            formData.append('imageAnalysis', JSON.stringify(imageAnalysis));
+            
+            try {
+                const response = await fetch('http://localhost:3001/api/chat/message', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    chatHistory.innerHTML = `<strong>AI:</strong> ${data.message.content}\n\n`;
+                    document.getElementById('mapBtn').disabled = false;
+                }
+            } catch (error) {
+                chatHistory.innerHTML = `<strong>错误:</strong> ${error.message}\n\n`;
+            }
+        }
+        
+        // 发送消息
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const content = input.value.trim();
+            if (!content) return;
+            
+            const chatHistory = document.getElementById('chatHistory');
+            chatHistory.innerHTML += `<strong>用户:</strong> ${content}\n`;
+            
+            input.value = '';
+            
+            try {
+                const response = await fetch('http://localhost:3001/api/chat/message', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content, sessionId })
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    chatHistory.innerHTML += `<strong>AI:</strong> ${data.message.content}\n\n`;
+                    chatHistory.scrollTop = chatHistory.scrollHeight;
+                    updateStep(4);
+                }
+            } catch (error) {
+                chatHistory.innerHTML += `<strong>错误:</strong> ${error.message}\n\n`;
+            }
+        }
+        
+        // 获取认知地图
+        async function getCognitiveMap() {
+            const resultEl = document.getElementById('mapResult');
+            resultEl.style.display = 'block';
+            resultEl.textContent = '获取认知地图...';
+            
+            try {
+                const response = await fetch(`http://localhost:3001/api/cognitive-map/${sessionId}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultEl.textContent = JSON.stringify(data.cognitiveMap, null, 2);
+                    updateStep(4);
+                } else {
+                    resultEl.textContent = '获取失败：' + data.error;
+                }
+            } catch (error) {
+                resultEl.textContent = '网络错误：' + error.message;
+            }
+        }
+        
+        // 运行完整测试
+        async function runFullTest() {
+            const statusEl = document.getElementById('fullTestStatus');
+            statusEl.style.display = 'block';
+            statusEl.className = 'status info';
+            statusEl.textContent = '开始完整流程测试...';
+            
+            // 1. 使用测试图片
+            await new Promise(resolve => {
+                useTestImage('exhibition');
+                setTimeout(resolve, 1000);
+            });
+            
+            // 2. 分析图片
+            await analyzeImage();
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // 3. 发送测试消息
+            document.getElementById('userInput').value = '这是2024年3月在北京看的展览';
+            await sendMessage();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // 4. 获取认知地图
+            await getCognitiveMap();
+            
+            statusEl.className = 'status success';
+            statusEl.textContent = '✅ 完整流程测试完成！';
+        }
+        
+        // 检查服务器
+        async function checkServers() {
+            try {
+                // 检查Claude视觉服务器
+                const visionResponse = await fetch('http://localhost:3001/api/health');
+                const visionData = await visionResponse.json();
+                console.log('视觉服务器:', visionData);
+                
+                if (!visionData.hasApiKey) {
+                    alert('请确保OpenRouter API密钥已配置');
+                }
+            } catch (error) {
+                alert('请先启动 vision-claude-server.js');
+            }
+        }
+        
+        // 初始化
+        updateStep(1);
+        checkServers();
+        
+        // 回车发送消息
+        document.getElementById('userInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+</body>
+</html>

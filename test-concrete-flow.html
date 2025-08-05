@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>具体化AI对话测试 - 图片分析版</title>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: Arial; padding: 20px; max-width: 1000px; margin: 0 auto; background: #f0f0f0; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 3px 15px rgba(0,0,0,0.1); }
+        h1 { color: #333; text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 30px; }
+        
+        .chat-container { display: flex; gap: 20px; height: 500px; }
+        .chat-box { flex: 1; border: 1px solid #e0e0e0; padding: 20px; overflow-y: auto; background: #fafafa; border-radius: 10px; }
+        .analysis-panel { width: 300px; border: 1px solid #e0e0e0; padding: 20px; overflow-y: auto; background: #f5f5ff; border-radius: 10px; }
+        
+        .message { margin: 15px 0; padding: 12px 16px; border-radius: 10px; max-width: 80%; }
+        .user-msg { background: #e3f2fd; margin-left: auto; text-align: right; }
+        .ai-msg { background: #f3e5f5; }
+        
+        .input-area { margin-top: 20px; }
+        .input-row { display: flex; gap: 10px; margin-bottom: 10px; }
+        textarea { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; resize: vertical; min-height: 60px; }
+        button { padding: 12px 24px; background: #5e35b1; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #4527a0; }
+        
+        .image-upload { margin-bottom: 10px; }
+        .image-upload input[type="file"] { 
+            padding: 10px; 
+            border: 2px dashed #ddd; 
+            border-radius: 8px; 
+            width: 100%; 
+            cursor: pointer;
+        }
+        
+        .uploaded-image { max-width: 200px; max-height: 150px; margin: 10px 0; border-radius: 8px; }
+        
+        .analysis-section { margin-bottom: 20px; }
+        .analysis-section h3 { color: #5e35b1; margin-bottom: 10px; }
+        .analysis-item { background: white; padding: 8px 12px; margin: 5px 0; border-radius: 5px; font-size: 14px; }
+        
+        .status { text-align: center; color: #666; margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 8px; }
+        .connected { background: #d4edda; color: #155724; }
+        
+        .demo-buttons { text-align: center; margin-top: 20px; }
+        .demo-button { background: #ff5722; margin: 0 5px; }
+        .demo-button:hover { background: #e64a19; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 具体化AI情感支持系统</h1>
+        <p class="subtitle">AI会分析图片内容，并基于具体细节与您对话</p>
+        
+        <div class="status" id="status">连接状态：检查中...</div>
+        
+        <div class="chat-container">
+            <div class="chat-box" id="chatBox">
+                <div class="ai-msg message">你好！我在这里倾听。如果你愿意，可以分享照片和想法，我会仔细观察并与你深入交流。</div>
+            </div>
+            
+            <div class="analysis-panel">
+                <h3>🔍 AI观察分析</h3>
+                <div id="imageAnalysis" class="analysis-section">
+                    <div class="analysis-item">等待图片上传...</div>
+                </div>
+                
+                <h3>💭 情感洞察</h3>
+                <div id="emotionalAnalysis" class="analysis-section">
+                    <div class="analysis-item">等待对话开始...</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="input-area">
+            <div class="image-upload">
+                <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+                <div id="imagePreview"></div>
+            </div>
+            <div class="input-row">
+                <textarea id="messageInput" placeholder="分享你的想法和感受..." onkeypress="if(event.key==='Enter' && !event.shiftKey) { event.preventDefault(); sendMessage(); }"></textarea>
+                <button onclick="sendMessage()">发送</button>
+            </div>
+        </div>
+        
+        <div class="demo-buttons">
+            <button class="demo-button" onclick="runDemo1()">演示: 展览照片</button>
+            <button class="demo-button" onclick="runDemo2()">演示: 老照片回忆</button>
+            <button class="demo-button" onclick="runDemo3()">演示: 日常分享</button>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3001/api';
+        let sessionId = 'concrete-test-' + Date.now();
+        let selectedImage = null;
+        
+        async function checkStatus() {
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                const data = await response.json();
+                document.getElementById('status').textContent = 
+                    `✅ 已连接 | ${data.mode} | AI服务：${data.ai}`;
+                document.getElementById('status').className = 'status connected';
+            } catch (error) {
+                document.getElementById('status').textContent = '❌ 连接失败';
+            }
+        }
+        
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                selectedImage = file;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('imagePreview').innerHTML = 
+                        `<img src="${e.target.result}" class="uploaded-image">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        async function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const content = input.value.trim();
+            if (!content && !selectedImage) return;
+            
+            // 显示用户消息
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = 'message user-msg';
+            userMsgDiv.textContent = content || '（发送了一张图片）';
+            
+            if (selectedImage) {
+                const imgElement = document.createElement('img');
+                imgElement.src = URL.createObjectURL(selectedImage);
+                imgElement.className = 'uploaded-image';
+                userMsgDiv.appendChild(document.createElement('br'));
+                userMsgDiv.appendChild(imgElement);
+            }
+            
+            document.getElementById('chatBox').appendChild(userMsgDiv);
+            input.value = '';
+            
+            try {
+                const formData = new FormData();
+                formData.append('content', content);
+                formData.append('sessionId', sessionId);
+                if (selectedImage) {
+                    formData.append('image', selectedImage);
+                }
+                
+                const response = await fetch(`${API_URL}/chat/message`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // 显示AI回复
+                    addMessage(data.aiMessage.content, 'ai');
+                    
+                    // 更新图片分析
+                    if (data.aiMessage.imageAnalysis) {
+                        updateImageAnalysis(data.aiMessage.imageAnalysis);
+                    }
+                    
+                    // 更新情感分析
+                    if (data.aiMessage.analysis) {
+                        updateEmotionalAnalysis(data.aiMessage.analysis);
+                    }
+                    
+                    // 清除已选图片
+                    selectedImage = null;
+                    document.getElementById('imageInput').value = '';
+                    document.getElementById('imagePreview').innerHTML = '';
+                } else {
+                    addMessage('抱歉，发送失败：' + data.error, 'ai');
+                }
+            } catch (error) {
+                addMessage('抱歉，网络错误：' + error.message, 'ai');
+            }
+            
+            document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight;
+        }
+        
+        function addMessage(content, type) {
+            const chatBox = document.getElementById('chatBox');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}-msg`;
+            messageDiv.textContent = content;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+        
+        function updateImageAnalysis(analysis) {
+            const panel = document.getElementById('imageAnalysis');
+            panel.innerHTML = `
+                <div class="analysis-item"><strong>概览：</strong>${analysis.overview}</div>
+                ${analysis.details.map(d => `<div class="analysis-item">• ${d}</div>`).join('')}
+                <div class="analysis-item"><strong>氛围：</strong>${analysis.atmosphere}</div>
+            `;
+        }
+        
+        function updateEmotionalAnalysis(analysis) {
+            const panel = document.getElementById('emotionalAnalysis');
+            panel.innerHTML = `
+                <div class="analysis-item"><strong>情感基调：</strong>${analysis.emotionalTone.primary} (${(analysis.emotionalTone.intensity * 100).toFixed(0)}%)</div>
+                ${analysis.insights.map(i => `<div class="analysis-item">• ${i}</div>`).join('')}
+                <div class="analysis-item"><strong>建议：</strong>${analysis.suggestions[0]}</div>
+            `;
+        }
+        
+        // 演示功能
+        function runDemo1() {
+            document.getElementById('messageInput').value = '我在环境保护展览上看到这些照片，特别是关于河流污染的部分，让我想起了家乡的变化';
+            // 模拟图片选择
+            document.getElementById('imagePreview').innerHTML = '<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzMzMyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuWxleiniOeFp+eJhzwvdGV4dD48L3N2Zz4=" class="uploaded-image">';
+            addMessage('（演示模式：假设已选择展览照片）', 'ai');
+        }
+        
+        function runDemo2() {
+            document.getElementById('messageInput').value = '翻到这张老照片，是我小时候在河边玩耍的样子，那时候水还很清';
+            document.getElementById('imagePreview').innerHTML = '<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzg3Y2VlYiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjMzMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+56ul5bm055qE5rKz6L65PC90ZXh0Pjwvc3ZnPg==" class="uploaded-image">';
+            addMessage('（演示模式：假设已选择童年照片）', 'ai');
+        }
+        
+        function runDemo3() {
+            document.getElementById('messageInput').value = '今天路过公园，看到这些花开得很好，但总觉得少了什么';
+            document.getElementById('imagePreview').innerHTML = '<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI2ZmYzBjYiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjNjY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+5YWs5Zut6Iqx5py1PC90ZXh0Pjwvc3ZnPg==" class="uploaded-image">';
+            addMessage('（演示模式：假设已选择公园照片）', 'ai');
+        }
+        
+        // 初始化
+        checkStatus();
+        
+        // 聚焦输入框
+        document.getElementById('messageInput').focus();
+    </script>
+</body>
+</html>

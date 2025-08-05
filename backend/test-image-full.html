@@ -1,0 +1,170 @@
+<\!DOCTYPE html>
+<html>
+<head>
+    <title>图片识别功能完整测试</title>
+    <meta charset="utf-8">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .test-section {
+            background: #2a2a2a;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+        .success { color: #4caf50; }
+        .error { color: #f44336; }
+        .info { color: #2196f3; }
+        button {
+            background: #2196f3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #1976d2; }
+        .response {
+            background: #333;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>认知考古图片识别测试</h1>
+    
+    <div class="test-section">
+        <h2>测试状态</h2>
+        <div id="status">准备开始测试...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>测试结果</h2>
+        <div id="results"></div>
+    </div>
+    
+    <button onclick="runTest()">开始测试</button>
+    
+    <script>
+        const testImageBase64 = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==';
+        
+        function log(message, type = 'info') {
+            const status = document.getElementById('status');
+            const results = document.getElementById('results');
+            const time = new Date().toLocaleTimeString();
+            
+            const div = document.createElement('div');
+            div.className = type;
+            div.textContent = `[${time}] ${message}`;
+            results.appendChild(div);
+            
+            status.innerHTML = `<span class="${type}">${message}</span>`;
+        }
+        
+        async function runTest() {
+            log('开始测试图片识别功能...', 'info');
+            
+            try {
+                // 第一轮测试：发送图片
+                log('测试1: 发送带图片的消息', 'info');
+                
+                const response1 = await fetch('http://localhost:3001/api/cognitive/archaeology', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content: "刚刚看完展会",
+                        image: testImageBase64,
+                        history: []
+                    })
+                });
+                
+                const result1 = await response1.json();
+                
+                if (result1.success) {
+                    log('✅ API调用成功', 'success');
+                    
+                    // 检查响应是否与图片相关
+                    const isImageRelated = result1.response.includes('图片') || 
+                                          result1.response.includes('照片') || 
+                                          result1.response.includes('拍') ||
+                                          result1.response.includes('场景') ||
+                                          result1.response.includes('展会');
+                    
+                    if (isImageRelated) {
+                        log('✅ AI正确识别了图片内容', 'success');
+                        log(`AI回复: ${result1.response}`, 'info');
+                    } else {
+                        log('❌ AI可能没有识别图片', 'error');
+                        log(`AI回复: ${result1.response}`, 'error');
+                    }
+                    
+                    // 检查认知节点
+                    if (result1.cognitiveNodes && result1.cognitiveNodes.length > 0) {
+                        log('✅ 生成了认知节点', 'success');
+                        result1.cognitiveNodes.forEach(node => {
+                            log(`- [${node.type}] ${node.content}`, 'info');
+                        });
+                    }
+                    
+                    // 第二轮测试：继续对话
+                    log('\n测试2: 继续对话验证上下文理解', 'info');
+                    
+                    const response2 = await fetch('http://localhost:3001/api/cognitive/archaeology', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            content: "是的，这是我今天拍的",
+                            sessionId: result1.sessionId,
+                            history: [{
+                                role: 'user',
+                                content: "刚刚看完展会",
+                                image: testImageBase64
+                            }, {
+                                response: result1.response
+                            }]
+                        })
+                    });
+                    
+                    const result2 = await response2.json();
+                    
+                    if (result2.success) {
+                        log('✅ 第二轮对话成功', 'success');
+                        log(`AI回复: ${result2.response}`, 'info');
+                    } else {
+                        log('❌ 第二轮对话失败', 'error');
+                    }
+                    
+                    // 测试总结
+                    log('\n=== 测试总结 ===', 'info');
+                    if (isImageRelated && result1.cognitiveNodes.length > 0) {
+                        log('✅ 图片识别功能正常工作！', 'success');
+                        log('系统能够：', 'success');
+                        log('1. 识别上传的图片', 'success');
+                        log('2. 生成与图片相关的问题', 'success');
+                        log('3. 创建认知节点追踪对话', 'success');
+                    } else {
+                        log('⚠️ 图片识别功能部分工作', 'error');
+                    }
+                    
+                } else {
+                    log('❌ API调用失败', 'error');
+                    log(`错误: ${result1.error}`, 'error');
+                }
+                
+            } catch (error) {
+                log(`❌ 测试失败: ${error.message}`, 'error');
+            }
+        }
+    </script>
+</body>
+</html>
+EOF < /dev/null

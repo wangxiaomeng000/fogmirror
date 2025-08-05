@@ -1,0 +1,103 @@
+
+> backend@1.0.0 dev
+> nodemon --exec ts-node src/server.ts
+
+[33m[nodemon] 3.1.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): src/**/*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: local
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: local
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: local
+当前缓存的服务: []
+
+创建AI服务: local
+
+
+
+⚠️  警告: 正在使用LOCAL模拟AI服务，图片识别是假的！
+
+
+✅ 成功创建并缓存服务: local
+返回的服务名称: local
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: local
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: local
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: local
+当前缓存的服务: [ 'local' ]
+
+创建AI服务: local
+
+
+
+⚠️  警告: 正在使用LOCAL模拟AI服务，图片识别是假的！
+
+
+✅ 成功创建并缓存服务: local
+返回的服务名称: local
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: local
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: local
+当前缓存的服务: [ 'local' ]
+
+创建AI服务: local
+
+
+
+⚠️  警告: 正在使用LOCAL模拟AI服务，图片识别是假的！
+
+
+✅ 成功创建并缓存服务: local
+返回的服务名称: local
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: local
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: local
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: local
+当前缓存的服务: [ 'local' ]
+
+创建AI服务: local
+
+
+
+⚠️  警告: 正在使用LOCAL模拟AI服务，图片识别是假的！
+
+
+✅ 成功创建并缓存服务: local
+返回的服务名称: local
+========== 结束获取AI服务 ==========
+

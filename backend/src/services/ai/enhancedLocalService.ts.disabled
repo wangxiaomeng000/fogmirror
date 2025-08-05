@@ -1,0 +1,113 @@
+import { BaseAIService } from './aiInterface';
+import { AnalysisResult } from '../../types';
+
+export class EnhancedLocalService extends BaseAIService {
+  name = 'enhanced-local';
+  
+  constructor(config: any) {
+    super(config);
+    console.log('\n✅ 增强版本地AI服务已初始化，支持模拟图片识别 ✅\n');
+  }
+
+  async analyzeMessage(
+    content: string, 
+    imageBase64?: string,
+    conversationHistory?: any[]
+  ): Promise<{
+    response: string;
+    analysis: AnalysisResult;
+  }> {
+    console.log('EnhancedLocalService: 分析消息，有图片:', !!imageBase64);
+    
+    let response = '';
+    let facts: string[] = [];
+    let insights: string[] = [];
+    let concepts: string[] = [];
+    
+    if (imageBase64) {
+      // 模拟图片分析
+      const imageSize = imageBase64.length;
+      console.log('图片大小:', (imageSize / 1024).toFixed(2), 'KB');
+      
+      // 根据内容生成合适的图片描述
+      if (content && content.includes('合照')) {
+        facts.push('这是一张合照');
+        facts.push('照片中有多个人');
+        facts.push('大家看起来很开心');
+        facts.push('照片拍摄于室内环境');
+        insights.push('这看起来是一个温馨的聚会场景');
+        insights.push('朋友之间的情谊很珍贵');
+        concepts.push('友谊');
+        concepts.push('快乐时光');
+        response = '看到大家都很开心呢！';
+      } else {
+        facts.push('收到一张图片');
+        facts.push(`图片大小: ${(imageSize / 1024).toFixed(2)} KB`);
+        insights.push('用户分享了视觉内容');
+        concepts.push('图片分享');
+        response = '我看到了你的图片';
+      }
+    } else {
+      // 处理纯文本消息
+      if (content && content.includes('焦虑')) {
+        facts.push('用户表达了焦虑情绪');
+        insights.push('用户可能需要情感支持');
+        concepts.push('焦虑');
+        concepts.push('情绪管理');
+        response = '我理解你的感受';
+      } else {
+        facts.push('用户发送了消息');
+        insights.push('用户想要交流');
+        concepts.push('交流');
+        response = '我在听着呢';
+      }
+    }
+    
+    // 添加更多建议
+    const suggestions = [];
+    if (content && content.includes('焦虑')) {
+      suggestions.push('试试深呼吸放松一下');
+      suggestions.push('和信任的人聊聊天');
+    } else if (imageBase64 && content && content.includes('合照')) {
+      suggestions.push('珍惜和朋友在一起的时光');
+      suggestions.push('可以把这些美好时刻记录下来');
+    }
+    
+    return {
+      response,
+      analysis: {
+        facts,
+        insights,
+        concepts,
+        emotionalTone: {
+          primary: imageBase64 ? '愉快' : '平静',
+          intensity: 0.7,
+          confidence: 0.9
+        },
+        suggestions
+      }
+    };
+  }
+
+  async analyzeImageForAbnormalities(imageBase64: string): Promise<string[]> {
+    // 模拟图片异常检测
+    return ['图片内容正常', '没有发现异常内容'];
+  }
+
+  async generateDynamicModelParameters(messages: any[]): Promise<{
+    complexity: number;
+    coherence: number;
+    evolution: number;
+    patterns: string[];
+  }> {
+    const messageCount = messages.length;
+    const hasImages = messages.some(m => m.image);
+    
+    return {
+      complexity: Math.min(0.3 + (messageCount * 0.1), 0.9),
+      coherence: 0.8,
+      evolution: Math.min(0.2 + (messageCount * 0.05), 0.8),
+      patterns: hasImages ? ['visual-sharing', 'multimedia-conversation'] : ['text-conversation']
+    };
+  }
+}

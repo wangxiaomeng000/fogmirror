@@ -1,0 +1,403 @@
+import { BaseAIService } from './aiInterface';
+import { AnalysisResult, EmotionalTone } from '../../types';
+import { minimalDialogueEngine } from '../../config/dialogueEngine';
+import { utteranceAnalyzer } from '../utteranceAnalyzer';
+
+export class LocalAIService extends BaseAIService {
+  name = 'local';
+  
+  constructor(config: any) {
+    super(config);
+    console.error('\n\n⚠️  警告: 正在使用LOCAL模拟AI服务，图片识别是假的！\n\n');
+    // throw new Error('LOCAL服务不应该被使用！请检查配置');
+  }
+  
+  // 对话阶段追踪
+  private conversationStages = new Map<string, 'initial' | 'scene' | 'detail' | 'insight'>();
+  
+  // 对话模式识别
+  private dialoguePatterns = {
+    共情回应: ['心疼你', '不容易', '抱抱', '我懂', '辛苦了', '能理解你'],
+    事件询问: ['发生了什么', '什么事情', '具体是', '比如说', '说说看'],
+    行为探索: ['然后呢', '接下来', '后来呢', '还有呢'],
+    场景细节: ['和谁一起', '聊了什么', '什么感觉', '印象最深的'],
+    情感确认: ['听起来很开心', '一定很难忘', '真不容易', '感觉很温暖'],
+    深入理解: ['为什么呢', '什么感受', '怎么想的', '最触动你的'],
+    支持鼓励: ['真好', '很棒呢', '继续分享', '我在听']
+  };
+  
+  // 记录已经问过的问题类型
+  private askedQuestions = new Map<string, Set<string>>();
+
+  async analyzeMessage(content: string, imageBase64?: string, conversationHistory?: any[]) {
+    // 模拟网络延迟
+    await this.delay(200 + Math.random() * 300);
+    
+    const sessionKey = conversationHistory?.[0]?.id || 'default';
+    let response: string;
+    let imageDescription = '';
+    
+    // 如果有图片，模拟图片识别
+    if (imageBase64) {
+      imageDescription = this.simulateImageRecognition(imageBase64);
+      // 不修改原始内容，保持用户的原话
+    }
+    
+    // 分析用户话语
+    const utterance = utteranceAnalyzer.analyze(content || '');
+    
+    if (!conversationHistory || conversationHistory.length === 0) {
+      // 首次对话
+      response = this.getInitialResponse();
+      this.conversationStages.set(sessionKey, 'initial');
+    } else {
+      const stage = this.conversationStages.get(sessionKey) || 'scene';
+      response = this.generateContextualResponse(content, utterance, stage, conversationHistory);
+    }
+    
+    // 确保回复不超过10个字符
+    if (response.length > 10) {
+      response = response.substring(0, 10);
+    }
+    
+    const analysis = this.generateAnalysis(content, utterance, imageDescription);
+    
+    // 如果有图片，生成更自然的回复
+    if (imageDescription) {
+      // 先描述看到的内容，再自然引导
+      const imageResponse = this.generateImageResponse(imageDescription, content);
+      response = imageResponse;
+    }
+    
+    return { response, analysis };
+  }
+  
+  private getInitialResponse(): string {
+    const responses = ['我在听', '慢慢说', '怎么了', '说说看', '讲讲吧'];
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+  
+  private generateContextualResponse(
+    content: string, 
+    utterance: any, 
+    stage: string,
+    history: any[]
+  ): string {
+    const sessionKey = history[0]?.id || 'default';
+    
+    // 初始化该会话的问题记录
+    if (!this.askedQuestions.has(sessionKey)) {
+      this.askedQuestions.set(sessionKey, new Set());
+    }
+    const asked = this.askedQuestions.get(sessionKey)!;
+    
+    // 分析上下文内容
+    const lastUserMessage = history[history.length - 2]?.content || '';
+    const contextKeywords = this.extractContextKeywords(content, lastUserMessage);
+    
+    // 根据内容选择合适的回应
+    if (content && (content.includes('展会') || content.includes('展览'))) {
+      if (!asked.has('展会细节')) {
+        asked.add('展会细节');
+        return this.getContextualQuestion('展会', content);
+      }
+    }
+    
+    if (content && (content.includes('朋友') || content.includes('聚会'))) {
+      if (!asked.has('朋友细节')) {
+        asked.add('朋友细节');
+        const questions = ['和谁一起', '聊了什么', '印象最深的', '什么感觉'];
+        return questions[Math.floor(Math.random() * questions.length)];
+      }
+    }
+    
+    if (content && (content.includes('坐在地上') || content.includes('聊天'))) {
+      if (!asked.has('聊天内容')) {
+        asked.add('聊天内容');
+        const questions = ['聊了什么', '什么话题', '有趣的事', '大家说了啥'];
+        return questions[Math.floor(Math.random() * questions.length)];
+      }
+    }
+    
+    // 检查是否重复问题
+    const lastAIResponse = history[history.length - 1]?.content || '';
+    
+    // 避免重复同样的问题
+    if (lastAIResponse && content.length < 20) {
+      // 用户给出简短回答，深入询问
+      return this.getFollowUpQuestion(content, contextKeywords);
+    }
+    
+    // 默认根据情感选择合适回应
+    const emotion = utterance.emotionalMarkers[0]?.emotion;
+    if (emotion === '开心' || emotion === '愉快') {
+      return this.getRandomResponse(this.dialoguePatterns.情感确认);
+    }
+    
+    return this.getRandomResponse(this.dialoguePatterns.行为探索);
+  }
+  
+  private getRandomResponse(responses: string[]): string {
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+  
+  private generateImageResponse(imageDescription: string, content: string): string {
+    // 首先描述看到的内容
+    let response = '';
+    
+    if (imageDescription.includes('展览') || imageDescription.includes('艺术')) {
+      const responses = ['看到展览了', '展览看着不错', '好多作品'];
+      response = responses[Math.floor(Math.random() * responses.length)];
+    } else if (imageDescription.includes('风景') || imageDescription.includes('自然')) {
+      const responses = ['景色很美', '看着很放松', '风景不错'];
+      response = responses[Math.floor(Math.random() * responses.length)];
+    } else if (imageDescription.includes('聚会') || imageDescription.includes('朋友')) {
+      const responses = ['大家都在呢', '看着很开心', '气氛不错'];
+      response = responses[Math.floor(Math.random() * responses.length)];
+    } else if (imageDescription.includes('城市')) {
+      const responses = ['很热闹呢', '城市风光', '人很多'];
+      response = responses[Math.floor(Math.random() * responses.length)];
+    }
+    
+    // 根据用户的文字内容调整问题
+    if (content && (content.includes('展会') || content.includes('展览'))) {
+      response = '展会现场呢';
+    } else if (content && (content.includes('聚会') || content.includes('朋友'))) {
+      response = '和朋友们呢';
+    }
+    
+    return response;
+  }
+  
+  private extractContextKeywords(content: string, lastMessage: string): string[] {
+    const keywords: string[] = [];
+    const importantWords = ['展会', '朋友', '聚会', '工作', '家人', '旅行', '学习', '项目'];
+    
+    importantWords.forEach(word => {
+      if ((content && content.includes(word)) || (lastMessage && lastMessage.includes(word))) {
+        keywords.push(word);
+      }
+    });
+    
+    return keywords;
+  }
+  
+  private getContextualQuestion(topic: string, content: string): string {
+    const topicQuestions: Record<string, string[]> = {
+      '展会': ['什么展会', '看了什么', '最喜欢哪个', '什么感受'],
+      '朋友': ['哪些朋友', '认识多久了', '聊了什么', '开心吗'],
+      '工作': ['做什么的', '忙什么呢', '顺利吗', '同事怎样'],
+      '聚会': ['什么聚会', '都有谁', '玩了什么', '聊得开心吗']
+    };
+    
+    const questions = topicQuestions[topic] || ['说说看', '然后呢'];
+    return questions[Math.floor(Math.random() * questions.length)];
+  }
+  
+  private getFollowUpQuestion(content: string, keywords: string[]): string {
+    // 根据简短回答生成跟进问题
+    if (content && (content.includes('就是') || content.includes('没什么'))) {
+      return '具体点呢';
+    }
+    
+    if (keywords.includes('朋友')) {
+      const questions = ['都是谁呀', '认识的吗', '聊得怎样'];
+      return questions[Math.floor(Math.random() * questions.length)];
+    }
+    
+    if (keywords.includes('展会')) {
+      const questions = ['印象深的', '拍照了吗', '最喜欢的'];
+      return questions[Math.floor(Math.random() * questions.length)];
+    }
+    
+    return '还有呢';
+  }
+  
+  private extractKeyword(content: string): string {
+    const words = content.match(/[\u4e00-\u9fa5]{2,4}/g) || [];
+    const emotionalWords = words.filter(word => 
+      ['累', '烦', '怕', '急', '气', '难过', '开心', '紧张', '焦虑', '失望', '压力'].some(emotion => 
+        word.includes(emotion)
+      )
+    );
+    
+    if (emotionalWords.length > 0) {
+      return emotionalWords[0];
+    }
+    
+    return words[Math.floor(Math.random() * words.length)] || '嗯';
+  }
+  
+  private simulateImageRecognition(imageBase64: string): string {
+    // 基于图片大小和内容模拟不同的识别结果
+    const imageSize = imageBase64.length;
+    const recognitionResults = [
+      '展览馆内部，墙上挂着多幅艺术画作，灯光柔和，氛围宁静',
+      '户外风景，有山有水，阳光明媚，给人平和的感觉',
+      '家庭聚会场景，多人围坐在餐桌旁，氛围温馨快乐',
+      '城市街景，建筑物林立，人流熙攘，充满活力',
+      '自然风光，绿树成荫，鸟语花香，令人心旷神怡'
+    ];
+    
+    // 根据图片数据的特征返回不同描述
+    const index = imageSize % recognitionResults.length;
+    return recognitionResults[index];
+  }
+  
+  private generateAnalysis(content: string, utterance: any, imageDescription?: string): AnalysisResult {
+    // 基于话语分析生成层级数据
+    let facts = utterance.facts.map((f: any) => f.content);
+    
+    // 提取具体行为和事件
+    const actionPatterns = [
+      /做了(.+)/g,
+      /在(.+)工作/g,
+      /每天(.+)/g,
+      /总是(.+)/g,
+      /经常(.+)/g,
+      /刚才(.+)/g,
+      /昨天(.+)/g,
+      /(.+)了/g
+    ];
+    
+    // 从内容中提取具体事件
+    actionPatterns.forEach(pattern => {
+      const matches = content.match(pattern);
+      if (matches) {
+        matches.forEach(match => {
+          if (match.length > 3 && match.length < 50 && !facts.includes(match)) {
+            facts.push(match);
+          }
+        });
+      }
+    });
+    
+    // 提取场景细节作为事实
+    if (utterance.sceneDetails?.time) {
+      facts.push(`时间: ${utterance.sceneDetails.time}`);
+    }
+    if (utterance.sceneDetails?.place) {
+      facts.push(`地点: ${utterance.sceneDetails.place}`);
+    }
+    if (utterance.sceneDetails?.people && utterance.sceneDetails.people.length > 0) {
+      facts.push(`涉及人物: ${utterance.sceneDetails.people.join(', ')}`);
+    }
+    
+    // 如果有图片描述，添加到facts中
+    if (imageDescription) {
+      facts.unshift(`图片识别: ${imageDescription}`);
+    }
+    
+    // 确保至少有一个事实
+    if (facts.length === 0) {
+      facts.push(content.substring(0, Math.min(content.length, 50)));
+    }
+    
+    const insights = this.generateInsights(utterance, imageDescription, content);
+    const concepts = this.generateConcepts(insights);
+    
+    const emotionalTone: EmotionalTone = {
+      primary: utterance.emotionalMarkers[0]?.emotion || '探索',
+      intensity: utterance.emotionalMarkers[0]?.intensity || 0.5,
+      confidence: 0.8
+    };
+    
+    return {
+      facts: facts.slice(0, 5), // 限制最多5个事实，避免过多
+      insights,
+      concepts,
+      emotionalTone,
+      suggestions: []
+    };
+  }
+  
+  private generateInsights(utterance: any, imageDescription?: string, content?: string): string[] {
+    const insights = [];
+    
+    // 如果有图片，基于图片内容生成洞察
+    if (imageDescription) {
+      if (imageDescription.includes('艺术') || imageDescription.includes('展览')) {
+        insights.push('通过艺术寻求情感共鸣');
+      } else if (imageDescription.includes('自然') || imageDescription.includes('风景')) {
+        insights.push('在自然中寻找内心平静');
+      } else if (imageDescription.includes('家庭') || imageDescription.includes('聚会')) {
+        insights.push('重视人际连接和温暖');
+      }
+    }
+    
+    if (utterance.avoidanceSignals.length > 0) {
+      insights.push('存在回避某些话题的倾向');
+    }
+    
+    if (utterance.judgments.length > 0) {
+      insights.push(`包含${utterance.judgments[0].type}类型的主观判断`);
+    }
+    
+    if (utterance.emotionalMarkers.length > 1) {
+      insights.push('情绪状态较为复杂');
+    }
+    
+    // 基于内容生成行为洞察
+    if (content) {
+      if (content && (content.includes('每天') || content.includes('总是') || content.includes('经常'))) {
+        insights.push('形成了固定的行为模式');
+      }
+      if (content && (content.includes('加班') || content.includes('熬夜') || content.includes('失眠'))) {
+        insights.push('作息和健康可能受到影响');
+      }
+      if (content && (content.includes('朋友') || content.includes('家人') || content.includes('同事'))) {
+        insights.push('人际关系是重要因素');
+      }
+    }
+    
+    if (insights.length === 0) {
+      insights.push('表达较为客观，情绪稳定');
+    }
+    
+    return insights;
+  }
+  
+  private generateConcepts(insights: string[]): string[] {
+    const conceptMap: Record<string, string[]> = {
+      '回避': ['自我保护机制', '心理防御'],
+      '主观判断': ['认知偏见', '思维定式'],
+      '情绪': ['情绪调节', '自我觉察'],
+      '客观': ['理性思维', '事实导向']
+    };
+    
+    const concepts: string[] = [];
+    
+    insights.forEach(insight => {
+      Object.keys(conceptMap).forEach(key => {
+        if (insight.includes(key)) {
+          concepts.push(...conceptMap[key]);
+        }
+      });
+    });
+    
+    return concepts.length > 0 ? concepts.slice(0, 2) : ['认知模式探索'];
+  }
+  
+  private delay(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  
+  async analyzeImageForAbnormalities(_imageBase64: string): Promise<string[]> {
+    await this.delay(500);
+    return [
+      '图片色调偏暗，可能反映情绪状态',
+      '焦点区域集中，显示关注重点',
+      '构图有序，体现思维方式'
+    ];
+  }
+  
+  async generateDynamicModelParameters(messages: any[]) {
+    const messageCount = messages.length;
+    return {
+      complexity: Math.min(0.3 + (messageCount * 0.05), 1),
+      coherence: 0.6 + Math.random() * 0.3,
+      evolution: Math.min(0.2 + (messageCount * 0.08), 1),
+      patterns: ['情绪变化', '认知发展']
+    };
+  }
+}

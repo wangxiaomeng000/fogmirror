@@ -1,0 +1,353 @@
+
+> backend@1.0.0 dev
+> nodemon --exec ts-node src/server.ts
+
+[33m[nodemon] 3.1.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): src/**/*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: freevision
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: freevision
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: freevision
+当前缓存的服务: []
+
+创建AI服务: freevision
+
+
+
+✅ 免费视觉服务已初始化，提供基于图片特征的智能分析 ✅
+
+
+✅ 成功创建并缓存服务: freevision
+返回的服务名称: freevision
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: freevision
+
+图片分析结果: 较暗的环境，冷色调为主，可能是户外或自然场景，画面内容丰富，可能包含多个人物或复杂场景
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: freevision
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: freevision
+当前缓存的服务: [ 'freevision' ]
+
+创建AI服务: freevision
+
+
+
+✅ 免费视觉服务已初始化，提供基于图片特征的智能分析 ✅
+
+
+✅ 成功创建并缓存服务: freevision
+返回的服务名称: freevision
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: freevision
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: freevision
+当前缓存的服务: [ 'freevision' ]
+
+创建AI服务: freevision
+
+
+
+✅ 免费视觉服务已初始化，提供基于图片特征的智能分析 ✅
+
+
+✅ 成功创建并缓存服务: freevision
+返回的服务名称: freevision
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: freevision
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: freevision
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: freevision
+当前缓存的服务: [ 'freevision' ]
+
+创建AI服务: freevision
+
+
+
+✅ 免费视觉服务已初始化，提供基于图片特征的智能分析 ✅
+
+
+✅ 成功创建并缓存服务: freevision
+返回的服务名称: freevision
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: freevision
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: freevision
+当前缓存的服务: [ 'freevision' ]
+
+创建AI服务: freevision
+
+
+
+✅ 免费视觉服务已初始化，提供基于图片特征的智能分析 ✅
+
+
+✅ 成功创建并缓存服务: freevision
+返回的服务名称: freevision
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: freevision
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: freevision
+当前缓存的服务: [ 'freevision' ]
+
+创建AI服务: freevision
+
+
+
+✅ 免费视觉服务已初始化，提供基于图片特征的智能分析 ✅
+
+
+✅ 成功创建并缓存服务: freevision
+返回的服务名称: freevision
+========== 结束获取AI服务 ==========
+
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: openrouter
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: ⚙️  override existing env vars with { override: true }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: openrouter
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/chat-session.routes.ts(2,10): error TS2724: '"../models/Session"' has no exported member named 'Session'. Did you mean 'ISession'?
+src/routes/chat-session.routes.ts(11,19): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/routes/chat-session.routes.ts(31,49): error TS7030: Not all code paths return a value.
+src/routes/chat-session.routes.ts(53,24): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/routes/chat-session.routes.ts(62,30): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/routes/chat-session.routes.ts(76,55): error TS7030: Not all code paths return a value.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 2724, 2339, 7030, 2339, 7006, 7030 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/chat-session.routes.ts(10,25): error TS2552: Cannot find name 'Session'. Did you mean 'session'?
+src/routes/chat-session.routes.ts(11,19): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/routes/chat-session.routes.ts(31,49): error TS7030: Not all code paths return a value.
+src/routes/chat-session.routes.ts(33,27): error TS2552: Cannot find name 'Session'. Did you mean 'session'?
+src/routes/chat-session.routes.ts(53,24): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/routes/chat-session.routes.ts(56,28): error TS2552: Cannot find name 'Session'. Did you mean 'sessions'?
+src/routes/chat-session.routes.ts(62,30): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/routes/chat-session.routes.ts(76,55): error TS7030: Not all code paths return a value.
+src/routes/chat-session.routes.ts(78,27): error TS2552: Cannot find name 'Session'. Did you mean 'session'?
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [
+    2552, 2339, 7030,
+    2552, 2339, 2552,
+    7006, 7030, 2552
+  ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/chat-session.routes.ts(10,25): error TS2552: Cannot find name 'Session'. Did you mean 'session'?
+src/routes/chat-session.routes.ts(11,19): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/routes/chat-session.routes.ts(31,49): error TS7030: Not all code paths return a value.
+src/routes/chat-session.routes.ts(53,24): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/routes/chat-session.routes.ts(56,28): error TS2552: Cannot find name 'Session'. Did you mean 'sessions'?
+src/routes/chat-session.routes.ts(62,30): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/routes/chat-session.routes.ts(76,55): error TS7030: Not all code paths return a value.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [
+    2552, 2339,
+    7030, 2339,
+    2552, 7006,
+    7030
+  ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/index.ts(3,31): error TS2307: Cannot find module './chat-session.routes' or its corresponding type declarations.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 2307 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: openrouter
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/chat.routes.ts(47,49): error TS7030: Not all code paths return a value.
+src/routes/chat.routes.ts(92,55): error TS7030: Not all code paths return a value.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 7030, 7030 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/chat.routes.ts(92,55): error TS7030: Not all code paths return a value.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 7030 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: openrouter
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001

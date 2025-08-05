@@ -1,0 +1,105 @@
+
+> backend@1.0.0 dev
+> nodemon --exec ts-node src/server.ts
+
+[33m[nodemon] 3.1.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): src/**/*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: real-image
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: real-image
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: real-image
+当前缓存的服务: []
+
+创建AI服务: real-image
+
+
+
+✅ 真实图片识别服务已初始化 ✅
+
+
+✅ 成功创建并缓存服务: real-image
+返回的服务名称: real-image
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: real-image
+
+开始分析图片...
+图片分析结果: 这是一张清晰的照片，光线适中，色彩丰富，包含丰富的细节，能感受到拍摄时的用心
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: real-image
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: real-image
+当前缓存的服务: [ 'real-image' ]
+
+创建AI服务: real-image
+
+
+
+✅ 真实图片识别服务已初始化 ✅
+
+
+✅ 成功创建并缓存服务: real-image
+返回的服务名称: real-image
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: real-image
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: real-image
+当前缓存的服务: [ 'real-image' ]
+
+创建AI服务: real-image
+
+
+
+✅ 真实图片识别服务已初始化 ✅
+
+
+✅ 成功创建并缓存服务: real-image
+返回的服务名称: real-image
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: real-image
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: real-image
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: real-image
+当前缓存的服务: [ 'real-image' ]
+
+创建AI服务: real-image
+
+
+
+✅ 真实图片识别服务已初始化 ✅
+
+
+✅ 成功创建并缓存服务: real-image
+返回的服务名称: real-image
+========== 结束获取AI服务 ==========
+

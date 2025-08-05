@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雾镜 - 认知地图系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        /* 主布局 */
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        /* 3D视图区域 - 占80% */
+        .visualization-area {
+            flex: 1;
+            position: relative;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0a 100%);
+        }
+        
+        #canvas-container {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* 层级指示器 */
+        .layer-indicator {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .layer-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        
+        .layer-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .layer-dot.facts { background: #4A90E2; }
+        .layer-dot.insights { background: #F5A623; }
+        .layer-dot.organism { background: #E85D75; }
+        
+        /* 右侧对话栏 - 占20% */
+        .chat-sidebar {
+            width: 300px;
+            background: #16161a;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid #2a2a2a;
+        }
+        
+        /* 对话标题 */
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .chat-header h3 {
+            font-size: 16px;
+            font-weight: normal;
+            color: #888;
+        }
+        
+        /* 消息区域 */
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            font-size: 14px;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .message.ai {
+            color: #4A90E2;
+        }
+        
+        .message.user {
+            color: #ccc;
+            text-align: right;
+        }
+        
+        /* 输入区域 */
+        .input-area {
+            padding: 15px;
+            border-top: 1px solid #2a2a2a;
+        }
+        
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .input-group input[type="text"] {
+            flex: 1;
+            background: #0a0a0a;
+            border: 1px solid #2a2a2a;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .input-group button {
+            background: #4A90E2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .input-group button:hover {
+            background: #357ABD;
+        }
+        
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            background: #0a0a0a;
+            border: 1px dashed #2a2a2a;
+            color: #888;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        /* 控制面板 */
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .control-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* 关键词节点样式 */
+        .keyword-node {
+            position: absolute;
+            background: rgba(74, 144, 226, 0.9);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .keyword-node:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.8);
+        }
+        
+        .keyword-node.insight {
+            background: rgba(245, 166, 35, 0.9);
+        }
+        
+        /* 加载动画 */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            color: #4A90E2;
+        }
+        
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a3a3a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 主要3D可视化区域 -->
+        <div class="visualization-area">
+            <canvas id="canvas-container"></canvas>
+            
+            <!-- 层级指示器 -->
+            <div class="layer-indicator">
+                <div class="layer-item">
+                    <div class="layer-dot facts"></div>
+                    <span>事实层 - 具体事件</span>
+                </div>
+                <div class="layer-item">
+                    <div class="layer-dot insights"></div>
+                    <span>洞见层 - 新发现</span>
+                </div>
+                <div class="layer-item">
+                    <div class="layer-dot organism"></div>
+                    <span>观念层 - 生态系统</span>
+                </div>
+            </div>
+            
+            <!-- 控制面板 -->
+            <div class="controls">
+                <button class="control-btn" onclick="resetView()">重置视角</button>
+                <button class="control-btn" onclick="toggleRotation()">自动旋转</button>
+                <button class="control-btn" onclick="focusOrganism()">聚焦生物体</button>
+            </div>
+            
+            <div class="loading" id="loading">初始化三维认知地图...</div>
+        </div>
+        
+        <!-- 右侧对话栏 -->
+        <div class="chat-sidebar">
+            <div class="chat-header">
+                <h3>事实收集对话</h3>
+            </div>
+            
+            <div class="messages" id="messages">
+                <div class="message ai">
+                    你好，我是雾镜。请分享一个困扰你的具体事件，或上传相关图片。我会帮你理清事实。
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <input type="file" id="imageInput" accept="image/*" onchange="handleImageUpload(event)">
+                <div class="input-group">
+                    <input type="text" id="messageInput" placeholder="输入具体事实..." 
+                           onkeypress="if(event.key==='Enter') sendMessage()">
+                    <button onclick="sendMessage()">发送</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const API_URL = 'http://localhost:3001/api';
+        let sessionId = 'session-' + Date.now();
+        let selectedImage = null;
+        
+        // Three.js 场景设置
+        let scene, camera, renderer, controls;
+        let nodes = new Map();
+        let connections = [];
+        let organism = null;
+        let autoRotate = true;
+        
+        // 初始化Three.js
+        function initThreeJS() {
+            const container = document.getElementById('canvas-container');
+            
+            // 场景
+            scene = new THREE.Scene();
+            scene.fog = new THREE.Fog(0x0a0a0a, 10, 50);
+            
+            // 相机
+            camera = new THREE.PerspectiveCamera(
+                75, 
+                container.offsetWidth / container.offsetHeight, 
+                0.1, 
+                1000
+            );
+            camera.position.set(0, 10, 20);
+            
+            // 渲染器
+            renderer = new THREE.WebGLRenderer({ 
+                canvas: container,
+                antialias: true,
+                alpha: true 
+            });
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            
+            // 灯光
+            const ambientLight = new THREE.AmbientLight(0x404040);
+            scene.add(ambientLight);
+            
+            const pointLight = new THREE.PointLight(0xffffff, 1);
+            pointLight.position.set(10, 10, 10);
+            scene.add(pointLight);
+            
+            // 添加网格地面
+            const gridHelper = new THREE.GridHelper(30, 30, 0x2a2a2a, 0x1a1a1a);
+            scene.add(gridHelper);
+            
+            // 隐藏加载提示
+            document.getElementById('loading').style.display = 'none';
+            
+            animate();
+        }
+        
+        // 动画循环
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            if (autoRotate) {
+                scene.rotation.y += 0.001;
+            }
+            
+            // 更新生物体动画
+            if (organism) {
+                organism.rotation.y += 0.01;
+                organism.scale.x = 1 + Math.sin(Date.now() * 0.001) * 0.05;
+                organism.scale.y = 1 + Math.sin(Date.now() * 0.001) * 0.05;
+                organism.scale.z = 1 + Math.sin(Date.now() * 0.001) * 0.05;
+            }
+            
+            renderer.render(scene, camera);
+        }
+        
+        // 创建关键词节点
+        function createKeywordNode(keyword, position, type = 'fact') {
+            const color = type === 'fact' ? 0x4A90E2 : 0xF5A623;
+            
+            // 创建文字精灵
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 256;
+            canvas.height = 64;
+            
+            context.fillStyle = type === 'fact' ? '#4A90E2' : '#F5A623';
+            context.fillRect(0, 0, 256, 64);
+            
+            context.fillStyle = 'white';
+            context.font = '24px Arial';
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillText(keyword.text, 128, 32);
+            
+            const texture = new THREE.CanvasTexture(canvas);
+            const material = new THREE.SpriteMaterial({ map: texture });
+            const sprite = new THREE.Sprite(material);
+            
+            sprite.position.set(...position);
+            sprite.scale.set(4, 1, 1);
+            
+            scene.add(sprite);
+            nodes.set(keyword.id, sprite);
+        }
+        
+        // 创建连接线
+        function createConnection(sourceId, targetId) {
+            const source = nodes.get(sourceId);
+            const target = nodes.get(targetId);
+            
+            if (source && target) {
+                const geometry = new THREE.BufferGeometry().setFromPoints([
+                    source.position,
+                    target.position
+                ]);
+                
+                const material = new THREE.LineBasicMaterial({ 
+                    color: 0x4A90E2,
+                    opacity: 0.5,
+                    transparent: true
+                });
+                
+                const line = new THREE.Line(geometry, material);
+                scene.add(line);
+                connections.push(line);
+            }
+        }
+        
+        // 创建生物体模型
+        function createOrganism(params) {
+            if (organism) {
+                scene.remove(organism);
+            }
+            
+            // 创建有机形态
+            const geometry = new THREE.IcosahedronGeometry(3, 2);
+            const material = new THREE.MeshPhongMaterial({
+                color: 0xE85D75,
+                emissive: 0xE85D75,
+                emissiveIntensity: 0.2,
+                wireframe: true
+            });
+            
+            organism = new THREE.Mesh(geometry, material);
+            organism.position.y = 10;
+            
+            // 根据参数调整形态
+            organism.scale.set(
+                1 + params.complexity,
+                1 + params.balance,
+                1 + params.evolution
+            );
+            
+            scene.add(organism);
+        }
+        
+        // 更新认知地图
+        function updateCognitiveMap(mapData) {
+            // 清除旧的节点和连接
+            nodes.forEach(node => scene.remove(node));
+            connections.forEach(conn => scene.remove(conn));
+            nodes.clear();
+            connections = [];
+            
+            // 创建新节点
+            mapData.nodes.forEach(node => {
+                createKeywordNode(node, node.position, node.type);
+            });
+            
+            // 创建连接
+            mapData.connections.forEach(conn => {
+                createConnection(conn.source, conn.target);
+            });
+            
+            // 更新生物体
+            if (mapData.organism) {
+                createOrganism(mapData.organism);
+            }
+        }
+        
+        // 处理图片上传
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                selectedImage = file;
+                addMessage('（已选择图片：' + file.name + '）', 'user');
+            }
+        }
+        
+        // 发送消息
+        async function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const content = input.value.trim();
+            
+            if (!content && !selectedImage) return;
+            
+            // 显示用户消息
+            if (content) {
+                addMessage(content, 'user');
+            }
+            
+            input.value = '';
+            
+            try {
+                const formData = new FormData();
+                formData.append('content', content);
+                formData.append('sessionId', sessionId);
+                
+                if (selectedImage) {
+                    formData.append('image', selectedImage);
+                    selectedImage = null;
+                    document.getElementById('imageInput').value = '';
+                }
+                
+                const response = await fetch(`${API_URL}/chat/message`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('收到响应:', data);
+                
+                if (data.message) {
+                    // 显示AI回复
+                    addMessage(data.message.content, 'ai');
+                    
+                    // 如果有图片分析结果，也显示出来
+                    if (data.imageAnalysis) {
+                        addMessage('[图片分析] ' + data.imageAnalysis.substring(0, 100) + '...', 'system');
+                    }
+                    
+                    // 获取并更新认知地图
+                    fetchCognitiveMap();
+                } else {
+                    addMessage('服务器响应格式错误', 'ai');
+                }
+            } catch (error) {
+                console.error('发送失败:', error);
+                addMessage('发送失败，请重试', 'ai');
+            }
+        }
+        
+        // 获取认知地图数据
+        async function fetchCognitiveMap() {
+            try {
+                const response = await fetch(`${API_URL}/cognitive-map/${sessionId}`);
+                const data = await response.json();
+                if (data.cognitiveMap) {
+                    updateCognitiveMap(data.cognitiveMap);
+                }
+            } catch (error) {
+                console.error('获取认知地图失败:', error);
+            }
+        }
+        
+        // 添加消息到界面
+        function addMessage(content, type) {
+            const messagesDiv = document.getElementById('messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.textContent = content;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        // 控制函数
+        function resetView() {
+            camera.position.set(0, 10, 20);
+            camera.lookAt(0, 0, 0);
+        }
+        
+        function toggleRotation() {
+            autoRotate = !autoRotate;
+        }
+        
+        function focusOrganism() {
+            if (organism) {
+                camera.lookAt(organism.position);
+            }
+        }
+        
+        // 窗口大小调整
+        window.addEventListener('resize', () => {
+            const container = document.getElementById('canvas-container');
+            camera.aspect = container.offsetWidth / container.offsetHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+        });
+        
+        // 初始化
+        window.onload = () => {
+            initThreeJS();
+            document.getElementById('messageInput').focus();
+        };
+    </script>
+</body>
+</html>

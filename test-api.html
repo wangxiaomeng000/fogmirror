@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API测试</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>API测试页面</h1>
+    
+    <div>
+        <h2>发送消息测试</h2>
+        <input type="text" id="message" placeholder="输入消息" value="你好">
+        <button onclick="sendMessage()">发送消息</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const message = document.getElementById('message').value;
+            const resultDiv = document.getElementById('result');
+            
+            resultDiv.innerHTML = '发送中...';
+            
+            try {
+                const response = await fetch('http://localhost:3001/api/chat/message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        content: message,
+                        sessionId: null
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `
+                        <h3>成功!</h3>
+                        <p>用户消息: ${data.userMessage.content}</p>
+                        <p>AI回复: ${data.aiMessage.content}</p>
+                        <p>会话ID: ${data.sessionId}</p>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `<h3>错误:</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<h3>网络错误:</h3><pre>${error.message}</pre>`;
+            }
+        }
+        
+        // 测试基本连接
+        fetch('http://localhost:3001/api/sessions')
+            .then(r => r.json())
+            .then(data => console.log('Sessions API:', data))
+            .catch(err => console.error('Sessions API Error:', err));
+    </script>
+</body>
+</html>

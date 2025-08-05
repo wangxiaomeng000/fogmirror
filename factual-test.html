@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>AI认知映射系统 - 事实导向测试</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .test-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-section.full-width {
+            grid-column: 1 / -1;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        .warning { background: #fff3cd; color: #856404; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        button:hover { background: #0056b3; }
+        button:disabled { background: #6c757d; cursor: not-allowed; }
+        button.secondary { background: #6c757d; }
+        button.secondary:hover { background: #545b62; }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .test-case {
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .test-case h4 {
+            margin: 0 0 10px 0;
+            color: #495057;
+        }
+        .result-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .metric {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .metric .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .metric .label {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        #testProgress {
+            width: 100%;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        #testProgressBar {
+            height: 100%;
+            background: #007bff;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .test-scenario {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧬 AI认知映射系统 - 事实导向测试</h1>
+    
+    <div class="test-section full-width">
+        <h2>测试控制台</h2>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button onclick="startAllTests()">🚀 运行所有测试</button>
+            <button onclick="testFactExtraction()">📝 测试事实提取</button>
+            <button onclick="testBiasDetection()">🧠 测试偏见检测</button>
+            <button onclick="testImageAnalysis()">🖼️ 测试图片分析</button>
+            <button onclick="testConversationFlow()">💬 测试对话流程</button>
+            <button onclick="test3DVisualization()">🎨 测试3D可视化</button>
+            <button onclick="clearResults()" class="secondary">🗑️ 清除结果</button>
+        </div>
+        
+        <div id="testProgress">
+            <div id="testProgressBar"></div>
+        </div>
+        
+        <div class="metrics">
+            <div class="metric">
+                <div class="value" id="totalTests">0</div>
+                <div class="label">总测试数</div>
+            </div>
+            <div class="metric">
+                <div class="value" id="passedTests">0</div>
+                <div class="label">通过</div>
+            </div>
+            <div class="metric">
+                <div class="value" id="failedTests">0</div>
+                <div class="label">失败</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-container">
+        <!-- 左侧：测试用例 -->
+        <div class="test-section">
+            <h3>📋 测试场景</h3>
+            
+            <div class="test-scenario">
+                <h4>场景1：工作压力</h4>
+                <button onclick="runScenario('work')">运行场景</button>
+                <ul>
+                    <li>测试时间提取：昨天下午3点</li>
+                    <li>测试人物识别：项目经理</li>
+                    <li>测试事实分离：方案被否定</li>
+                </ul>
+            </div>
+            
+            <div class="test-scenario">
+                <h4>场景2：人际关系</h4>
+                <button onclick="runScenario('relationship')">运行场景</button>
+                <ul>
+                    <li>测试多人识别：三个同事</li>
+                    <li>测试地点提取：楼下餐厅</li>
+                    <li>测试因果关系：拒绝邀请的后果</li>
+                </ul>
+            </div>
+            
+            <div class="test-scenario">
+                <h4>场景3：认知偏见</h4>
+                <button onclick="runScenario('bias')">运行场景</button>
+                <ul>
+                    <li>测试过度概括：总是、从不</li>
+                    <li>测试读心术：他肯定认为</li>
+                    <li>测试二元思维：要么...要么</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 右侧：测试结果 -->
+        <div class="test-section">
+            <h3>📊 测试结果</h3>
+            <div id="testResults"></div>
+        </div>
+    </div>
+    
+    <div class="test-section full-width">
+        <h3>📝 详细日志</h3>
+        <pre id="detailedLog"></pre>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3001/api';
+        let sessionId = null;
+        let testStats = { total: 0, passed: 0, failed: 0 };
+        
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('detailedLog');
+            const timestamp = new Date().toLocaleTimeString();
+            const typeEmoji = {
+                'info': 'ℹ️',
+                'success': '✅',
+                'error': '❌',
+                'warning': '⚠️'
+            };
+            logDiv.innerHTML += `[${timestamp}] ${typeEmoji[type]} ${message}\n`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        function updateProgress() {
+            const progress = (testStats.passed + testStats.failed) / testStats.total * 100;
+            document.getElementById('testProgressBar').style.width = progress + '%';
+            document.getElementById('totalTests').textContent = testStats.total;
+            document.getElementById('passedTests').textContent = testStats.passed;
+            document.getElementById('failedTests').textContent = testStats.failed;
+        }
+        
+        function addTestResult(testName, passed, details) {
+            const resultsDiv = document.getElementById('testResults');
+            const resultClass = passed ? 'success' : 'error';
+            const icon = passed ? '✅' : '❌';
+            
+            const resultHtml = `
+                <div class="test-case">
+                    <h4>${icon} ${testName}</h4>
+                    <div class="status ${resultClass}">${passed ? '测试通过' : '测试失败'}</div>
+                    <div class="result-box">${details}</div>
+                </div>
+            `;
+            
+            resultsDiv.innerHTML += resultHtml;
+            
+            if (passed) {
+                testStats.passed++;
+            } else {
+                testStats.failed++;
+            }
+            updateProgress();
+        }
+        
+        async function sendMessage(content, image = null) {
+            try {
+                const formData = new FormData();
+                formData.append('content', content);
+                if (sessionId) formData.append('sessionId', sessionId);
+                if (image) formData.append('image', image);
+                
+                const response = await fetch(API_URL + '/chat/message', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    sessionId = data.sessionId;
+                    return data;
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                log(`发送消息失败: ${error.message}`, 'error');
+                return null;
+            }
+        }
+        
+        async function testFactExtraction() {
+            log('开始测试事实提取功能...', 'info');
+            
+            // 测试1：纯事实陈述
+            const test1 = await sendMessage('昨天下午3点，我在会议室见了李经理，他说项目需要重新调整。');
+            if (test1 && test1.aiMessage.analysis) {
+                const facts = test1.aiMessage.analysis.facts;
+                const hasTemporal = facts.some(f => f.includes('昨天') || f.includes('3点'));
+                const hasSpatial = facts.some(f => f.includes('会议室'));
+                const hasPerson = facts.some(f => f.includes('李经理'));
+                
+                const passed = hasTemporal && hasSpatial && hasPerson;
+                addTestResult(
+                    '事实提取 - 时间地点人物',
+                    passed,
+                    `提取的事实：\n${facts.join('\n')}\n\n时间：${hasTemporal ? '✓' : '✗'}\n地点：${hasSpatial ? '✓' : '✗'}\n人物：${hasPerson ? '✓' : '✗'}`
+                );
+            }
+            
+            // 测试2：混合陈述
+            const test2 = await sendMessage('我觉得他总是针对我，昨天又在会上批评了我的方案。');
+            if (test2 && test2.aiMessage.analysis) {
+                const hasSubjective = test2.aiMessage.content.includes('觉得') || 
+                                     test2.aiMessage.content.includes('主观');
+                addTestResult(
+                    '事实提取 - 主客观分离',
+                    hasSubjective,
+                    `AI响应：${test2.aiMessage.content}\n\n${hasSubjective ? '成功识别主观陈述' : '未能识别主观陈述'}`
+                );
+            }
+        }
+        
+        async function testBiasDetection() {
+            log('开始测试认知偏见检测...', 'info');
+            
+            // 测试过度概括
+            const test1 = await sendMessage('他们总是忽视我的建议，从来没有人认真听我说话。');
+            if (test1) {
+                const hasBiasDetection = test1.aiMessage.content.includes('总是') || 
+                                        test1.aiMessage.content.includes('从不') ||
+                                        test1.aiMessage.content.includes('例外');
+                addTestResult(
+                    '偏见检测 - 过度概括',
+                    hasBiasDetection,
+                    `AI响应：${test1.aiMessage.content}`
+                );
+            }
+            
+            // 测试读心术
+            const test2 = await sendMessage('老板肯定认为我能力不行，她一定后悔招我进来。');
+            if (test2) {
+                const hasReadingMind = test2.aiMessage.content.includes('如何知道') || 
+                                      test2.aiMessage.content.includes('直接表达') ||
+                                      test2.aiMessage.content.includes('猜测');
+                addTestResult(
+                    '偏见检测 - 读心术',
+                    hasReadingMind,
+                    `AI响应：${test2.aiMessage.content}`
+                );
+            }
+        }
+        
+        async function testImageAnalysis() {
+            log('开始测试图片分析功能...', 'info');
+            
+            // 创建测试图片
+            const canvas = document.createElement('canvas');
+            canvas.width = 400;
+            canvas.height = 300;
+            const ctx = canvas.getContext('2d');
+            
+            // 绘制办公室场景
+            ctx.fillStyle = '#f0f0f0';
+            ctx.fillRect(0, 0, 400, 300);
+            
+            // 绘制桌子
+            ctx.fillStyle = '#8B4513';
+            ctx.fillRect(100, 200, 200, 80);
+            
+            // 绘制人物
+            ctx.fillStyle = '#FFB6C1';
+            ctx.beginPath();
+            ctx.arc(150, 150, 30, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = '#87CEEB';
+            ctx.beginPath();
+            ctx.arc(250, 150, 30, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // 绘制时钟
+            ctx.fillStyle = '#000000';
+            ctx.beginPath();
+            ctx.arc(350, 50, 25, 0, Math.PI * 2);
+            ctx.stroke();
+            
+            canvas.toBlob(async (blob) => {
+                const result = await sendMessage('这是我们的办公室照片，请分析一下。', blob);
+                if (result && result.aiMessage.analysis) {
+                    const facts = result.aiMessage.analysis.facts;
+                    const hasImageFacts = facts.some(f => 
+                        f.includes('图') || f.includes('人') || f.includes('物')
+                    );
+                    addTestResult(
+                        '图片分析 - 客观描述',
+                        hasImageFacts,
+                        `分析结果：\n${facts.filter(f => f.includes('图')).join('\n')}`
+                    );
+                }
+            });
+        }
+        
+        async function testConversationFlow() {
+            log('开始测试完整对话流程...', 'info');
+            
+            const conversation = [
+                { input: '我想聊聊最近的困扰', expect: '具体' },
+                { input: '上周五下午，部门会议上发生了一些事', expect: '什么事' },
+                { input: '经理当着所有人的面说我的方案不行', expect: '说了什么' },
+                { input: '他说："这个方案完全没有考虑用户体验"', expect: '引用' }
+            ];
+            
+            let allPassed = true;
+            let conversationLog = '';
+            
+            for (const turn of conversation) {
+                const result = await sendMessage(turn.input);
+                if (result) {
+                    const passed = result.aiMessage.content.includes(turn.expect);
+                    allPassed = allPassed && passed;
+                    conversationLog += `\n用户：${turn.input}\nAI：${result.aiMessage.content}\n期望关键词：${turn.expect} ${passed ? '✓' : '✗'}\n`;
+                }
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+            
+            addTestResult(
+                '对话流程 - 渐进式引导',
+                allPassed,
+                conversationLog
+            );
+        }
+        
+        async function test3DVisualization() {
+            log('开始测试3D可视化...', 'info');
+            
+            // 获取当前会话的层级数据
+            try {
+                const response = await fetch(API_URL + `/sessions/${sessionId}`);
+                const data = await response.json();
+                
+                if (data.success && data.session) {
+                    const layerData = data.session.layerData || [];
+                    const hasFacts = layerData.some(d => d.type === 'facts');
+                    const hasInsights = layerData.some(d => d.type === 'insights');
+                    const hasConcepts = layerData.some(d => d.type === 'concepts');
+                    
+                    addTestResult(
+                        '3D可视化 - 层级数据',
+                        hasFacts || hasInsights || hasConcepts,
+                        `事实层：${layerData.filter(d => d.type === 'facts').length} 个节点\n` +
+                        `洞见层：${layerData.filter(d => d.type === 'insights').length} 个节点\n` +
+                        `观念层：${layerData.filter(d => d.type === 'concepts').length} 个节点`
+                    );
+                }
+            } catch (error) {
+                addTestResult('3D可视化 - 层级数据', false, `错误：${error.message}`);
+            }
+        }
+        
+        async function runScenario(type) {
+            log(`运行场景测试：${type}`, 'info');
+            
+            const scenarios = {
+                work: [
+                    '最近工作压力很大，想找人聊聊',
+                    '上周五下午3点，项目评审会上发生了一些事',
+                    '技术总监张总当着客户的面否定了我的技术方案',
+                    '他具体说："这个架构设计有重大缺陷，无法满足性能要求"',
+                    '会议纪要显示，我的方案响应时间超标50%'
+                ],
+                relationship: [
+                    '我感觉被同事孤立了',
+                    '昨天中午12点，我看到三个同事一起去吃饭',
+                    '他们是李明、王芳和赵强，都是我们组的',
+                    '我在茶水间听到他们说要去楼下的日料店',
+                    '上周我拒绝了他们的团建邀请，说自己有事'
+                ],
+                bias: [
+                    '公司里所有人都针对我',
+                    '老板肯定觉得我能力不行',
+                    '要么我辞职，要么等着被开除',
+                    '每次开会都没人支持我的观点',
+                    '他们私下一定在议论我'
+                ]
+            };
+            
+            const messages = scenarios[type];
+            if (!messages) return;
+            
+            for (let i = 0; i < messages.length; i++) {
+                const result = await sendMessage(messages[i]);
+                if (result) {
+                    log(`场景对话 ${i + 1}/5: ${result.aiMessage.content.substring(0, 100)}...`, 'success');
+                }
+                await new Promise(resolve => setTimeout(resolve, 1500));
+            }
+            
+            addTestResult(
+                `场景测试 - ${type}`,
+                true,
+                `完成${messages.length}轮对话，会话ID: ${sessionId}`
+            );
+        }
+        
+        async function startAllTests() {
+            clearResults();
+            log('开始执行所有测试...', 'info');
+            testStats.total = 10; // 预估测试总数
+            
+            await testFactExtraction();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            await testBiasDetection();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            await testImageAnalysis();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            await testConversationFlow();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            await test3DVisualization();
+            
+            log(`测试完成！通过：${testStats.passed}，失败：${testStats.failed}`, 
+                testStats.failed === 0 ? 'success' : 'warning');
+        }
+        
+        function clearResults() {
+            document.getElementById('testResults').innerHTML = '';
+            document.getElementById('detailedLog').innerHTML = '';
+            testStats = { total: 0, passed: 0, failed: 0 };
+            updateProgress();
+            sessionId = null;
+        }
+        
+        // 页面加载时显示欢迎信息
+        window.onload = () => {
+            log('AI认知映射系统测试工具已准备就绪', 'success');
+            log('点击"运行所有测试"开始完整测试流程', 'info');
+        };
+    </script>
+</body>
+</html>

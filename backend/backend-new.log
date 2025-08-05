@@ -1,0 +1,1417 @@
+
+> backend@1.0.0 dev
+> nodemon --exec ts-node src/server.ts
+
+[33m[nodemon] 3.1.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): src/**/*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: []
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+SiliconFlow原始响应: {
+  "content": "这张照片中有四位年轻人，他们看起来很开心，面带微笑。他们戴着紫色的胸牌，其中一位还举着一张紫色的卡片，上面写着“高校参访团”。背景是一个室内的场景，可以看到一些灯光和玻璃门，可能是一个活动场所或会议室。整体氛围显得非常愉快和充满活力。",
+  "analysis": {
+    "facts": [
+      "照片中有四位年轻人",
+      "他们戴着紫色的胸牌",
+      "背景是一个室内的场景",
+      "其中一位举着一张紫色的卡片，上面写着‘高校参访团’"
+    ],
+    "insights": [
+      "这可能是一个高校参访团的活动",
+      "他们看起来很开心，可能是朋友或同学"
+    ],
+    "concepts": [
+      "高校参访团",
+      "友谊"
+    ],
+    "emotionalTone": {
+      "primary": "愉快和活力",
+      "intensity": 0.8,
+      "confidence": 0.9
+    },
+    "suggestions": [
+      "左边那位是...？",
+      "这是什么活动？",
+      "这张照片对你意味着什么？"
+    ]
+  }
+}
+响应类型: string
+是否包含JSON标记: true
+成功解析为JSON
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+SiliconFlow API Error: timeout of 30000ms exceeded
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+SiliconFlow原始响应: {
+  "content": "这张照片展示了四位年轻人在室内拍摄的合照。他们看起来都非常开心，面带微笑，有的还竖起了大拇指。照片的背景可以看到一扇玻璃门和室内的一些装饰，环境看起来像是一个现代的室内场所。每个人身上都挂着紫色的证件，证件上写着‘高校参访团’，表明他们可能是参加某个高校参访活动的成员。",
+  "analysis": {
+    "facts": [
+      "四位年轻人在室内合照",
+      "每个人都挂着紫色的证件，证件上写着‘高校参访团’",
+      "背景是现代室内的玻璃门和装饰"
+    ],
+    "insights": [
+      "这些人可能是在参加某个高校参访活动",
+      "他们的表情和姿态显示出他们的心情愉快"
+    ],
+    "concepts": [
+      "高校参访团",
+      "合照",
+      "友谊"
+    ],
+    "emotionalTone": {
+      "primary": "愉快",
+      "intensity": 0.9,
+      "confidence": 0.9
+    },
+    "suggestions": [
+      "这张照片对你意味着什么？",
+      "能说说那天发生了什么吗？"
+    ]
+  }
+}
+响应类型: string
+是否包含JSON标记: true
+成功解析为JSON
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/aiServiceFactory.ts(76,12): error TS2678: Type '"local"' is not comparable to type 'AIServiceType'.
+src/services/ai/aiServiceFactory.ts(94,12): error TS2678: Type '"enhanced-local"' is not comparable to type 'AIServiceType'.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 2678, 2678 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/aiServiceFactory.ts(90,12): error TS2678: Type '"enhanced-local"' is not comparable to type 'AIServiceType'.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 2678 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: []
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+SiliconFlow原始响应: {
+  "content": "照片中有一个室内场景，四个人站在一起合影。他们看起来都很开心，其中一人在举着一个写着“高校参访团”的牌子。背景中可以看到一些商店和灯光，似乎是在一个商业区或购物中心。每个人的表情都很愉悦，似乎在享受这个时刻。",
+  "analysis": {
+    "facts": [
+      "四个人在室内合影",
+      "一个人举着写有“高校参访团”的牌子",
+      "背景是一个商业区或购物中心"
+    ],
+    "insights": [
+      "这可能是一次集体活动或参访",
+      "大家看起来关系很好，可能是一起参加活动的朋友或同事"
+    ],
+    "concepts": [
+      "集体活动",
+      "友谊",
+      "参访"
+    ],
+    "emotionalTone": {
+      "primary": "愉快",
+      "intensity": 0.8,
+      "confidence": 0.9
+    },
+    "suggestions": [
+      "左边那位是...？",
+      "这是什么活动？",
+      "能说说那天发生了什么吗？"
+    ]
+  }
+}
+响应类型: string
+是否包含JSON标记: true
+成功解析为JSON
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+SiliconFlow原始响应: {
+  "content": "我能理解你现在感到焦虑。焦虑确实是一种令人不适的情绪，但请记住，它通常是暂时的，会随着时间而消退。让我们一起来探索一下，是什么让你今天感到焦虑呢？有时候，把它说出来就能帮助我们更好地理解自己的感受。你愿意和我分享一下吗？",
+  "analysis": {
+    "facts": [
+      "用户今天感到焦虑"
+    ],
+    "insights": [
+      "焦虑通常是暂时的，会随着时间消退",
+      "表达出焦虑的感受有助于更好地理解情绪来源"
+    ],
+    "concepts": [
+      "情绪表达",
+      "焦虑管理"
+    ],
+    "emotionalTone": {
+      "primary": "焦虑",
+      "intensity": 0.6,
+      "confidence": 0.9
+    },
+    "suggestions": [
+      "鼓励用户表达具体的焦虑来源",
+      "建议用户关注焦虑的暂时性"
+    ]
+  }
+}
+响应类型: string
+是否包含JSON标记: true
+成功解析为JSON
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+SiliconFlow原始响应: {
+  "content": "这张照片展示了一群人在室内，背景看起来像是一个商店或展览馆的入口。四个人站在一起，每个人的脸上都洋溢着笑容，显得非常开心。他们似乎正在进行某种活动，因为其中一个人手持一张紫色的卡片，上面写着“高校参访团”，这表明他们可能是学生或教育团体的成员。背景中的商店看起来很现代，灯光明亮，给人一种温馨和舒适的感觉。整体氛围显得轻松愉快，充满了友情和共享的欢乐。",
+  "analysis": {
+    "facts": [
+      "四个人站在一起",
+      "每个人脸上洋溢着笑容",
+      "手持一张紫色卡片，上面写着“高校参访团”",
+      "背景是商店或展览馆的入口"
+    ],
+    "insights": [
+      "这些人可能是学生或教育团体的成员",
+      "照片传达了友情和共享的欢乐"
+    ],
+    "concepts": [
+      "友情",
+      "共享的欢乐",
+      "教育团体的活动"
+    ],
+    "emotionalTone": {
+      "primary": "怀旧和快乐",
+      "intensity": 0.8,
+      "confidence": 0.9
+    },
+    "suggestions": [
+      "你能和我分享一下你们在一起的时光吗？",
+      "这张照片对你意味着什么？",
+      "那天发生了什么特别的事情吗？"
+    ]
+  }
+}
+响应类型: string
+是否包含JSON标记: true
+成功解析为JSON
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+SiliconFlow原始响应: {
+  "content": "当然，我在这里倾听你的心声。工作压力确实是一个常见但不容易应对的问题。请告诉我，是什么特别让你感到压力大？是工作量、同事关系，还是其他方面？分享你的感受可以帮助我们一起找到缓解压力的方法。",
+  "analysis": {
+    "facts": ["用户表达了想要讨论工作压力的意愿"],
+    "insights": ["工作压力可能影响用户的情绪和心理健康", "用户可能正在寻求缓解压力的策略"],
+    "concepts": ["工作压力管理", "情绪支持"],
+    "emotionalTone": {
+      "primary": "焦虑",
+      "intensity": 0.6,
+      "confidence": 0.8
+    },
+    "suggestions": ["鼓励用户具体描述压力来源", "提供倾听和支持", "讨论可能的应对策略"]
+  }
+}
+响应类型: string
+是否包含JSON标记: true
+成功解析为JSON
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+SiliconFlow原始响应: 我完全理解你现在的感受。面对繁重的项目压力，感到力不从心是很正常的。你的工作热情和责任感令人钦佩，但也要记得照顾好自己的身心健康。让我们一起探讨如何更好地管理这些压力：
+
+首先，尝试列出所有项目的优先级，专注于最重要和最紧急的任务。同时，别忘了为自己设定合理的工作时间，适时休息能提高效率。如果可能的话，与同事或上级沟通，看看是否能调整任务分配或寻求帮助。
+
+记住，你并不孤单。很多人都经历过类似的挑战，而你正在积极寻求解决方案，这已经是很大的进步了。你有没有尝试过冥想或深呼吸等放松技巧？这些方法有时能帮助缓解压力。
+
+我很好奇，你觉得哪个建议可能对你最有帮助？或者你有什么其他想法想要分享吗？
+响应类型: string
+是否包含JSON标记: false
+SiliconFlow返回非JSON格式，尝试解析文本
+解析错误: Unexpected token '我', "我完全理解你现在的感"... is not valid JSON
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+SiliconFlow原始响应: 我能感受到你对工作环境中的紧张气氛感到困扰。这种人际关系上的压力确实会让人倍感煎熬，尤其是当你还要同时应对繁重的工作任务时。
+
+让我们一起来思考一下：这种紧张感是从什么时候开始的？是某个特定事件引发的，还是逐渐积累的结果？有时候，当我们专注于工作时，可能会忽略一些细微的人际互动变化。
+
+在这种情况下，我建议你可以：
+1. 尝试与关系紧张的同事进行一次坦诚但温和的对话，表达你的感受和困惑
+2. 主动参与一些团队活动，增进彼此了解
+3. 保持专业态度，专注于工作本身
+
+记住，改善同事关系需要时间和耐心。你已经迈出了寻求帮助的第一步，这很勇敢。你觉得这些建议可行吗？或者你有没有想过其他的解决方法？
+响应类型: string
+是否包含JSON标记: false
+SiliconFlow返回非JSON格式，尝试解析文本
+解析错误: Unexpected token '我', "我能感受到你对工作环"... is not valid JSON
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+SiliconFlow原始响应: {
+  "content": "这张照片显示了四个人站在一个建筑物前，背景看起来像是一个商店或展览厅的入口。每个人脸上都带着笑容，显得非常开心。他们穿着休闲，其中一位还戴着帽子。最右边的人手里拿着一个紫色的徽章，上面写着“高校参访团”，似乎表明他们可能是来自某个大学的参观团。整体氛围给人一种轻松愉快的感觉。",
+  "analysis": {
+    "facts": [
+      "四个人站在建筑物前",
+      "背景是商店或展览厅的入口",
+      "每个人都带着笑容",
+      "穿着休闲，其中一位戴着帽子",
+      "最右边的人拿着紫色徽章，上面写着“高校参访团”"
+    ],
+    "insights": [
+      "这些人可能是朋友或同学",
+      "他们可能刚刚参加了一个展会或活动",
+      "他们的情绪看起来非常积极和愉快"
+    ],
+    "concepts": [
+      "友谊",
+      "共同经历",
+      "积极情绪"
+    ],
+    "emotionalTone": {
+      "primary": "喜悦",
+      "intensity": 0.8,
+      "confidence": 0.9
+    },
+    "suggestions": [
+      "左边那位是你的同学吗？",
+      "你们参加的这个展会是什么类型的活动？",
+      "这张照片对你来说有什么特别的意义吗？"
+    ]
+  }
+}
+响应类型: string
+是否包含JSON标记: true
+成功解析为JSON
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+SiliconFlow原始响应: {
+  "content": "看到你在照片中站在创始人旁边，这一定是个特别的时刻！和创始人一起出现在这样的场合，显示了你在团队中的重要性。展会通常是展示创新和交流想法的好机会，你们一定是带着重要使命去的。和创始人并肩而立，或许你们正在讨论着未来发展的大计？无论如何，这一定是个令人兴奋的经历。希望这次展会为你们带来了新的启发和机遇！",
+  "analysis": {
+    "facts": ["用户在展会照片中站在创始人旁边", "用户是团队中的重要成员"],
+    "insights": ["与创始人并肩而立显示了用户的地位", "展会可能是重要的商务活动"],
+    "concepts": ["团队合作", "商业机遇"],
+    "emotionalTone": {
+      "primary": "自豪",
+      "intensity": 0.8,
+      "confidence": 0.9
+    },
+    "suggestions": ["回顾展会经历，思考可能带来的新机遇", "与团队分享展会收获，促进合作"]
+  }
+}
+响应类型: string
+是否包含JSON标记: true
+成功解析为JSON
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(9,14): error TS2515: Non-abstract class 'CognitiveArchaeologyService' does not implement inherited abstract member generateDynamicModelParameters from class 'BaseAIService'.
+src/services/ai/cognitiveArchaeologyService.ts(111,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(111,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(112,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(112,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(113,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(113,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [
+    2515, 7006,
+    7006, 7006,
+    7006, 7006,
+    7006
+  ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(9,14): error TS2515: Non-abstract class 'CognitiveArchaeologyService' does not implement inherited abstract member generateDynamicModelParameters from class 'BaseAIService'.
+src/services/ai/cognitiveArchaeologyService.ts(111,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(111,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(112,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(112,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(113,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(113,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [
+    2515, 7006,
+    7006, 7006,
+    7006, 7006,
+    7006
+  ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(9,14): error TS2515: Non-abstract class 'CognitiveArchaeologyService' does not implement inherited abstract member generateDynamicModelParameters from class 'BaseAIService'.
+src/services/ai/cognitiveArchaeologyService.ts(112,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(112,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(113,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(113,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(114,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(114,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [
+    2515, 7006,
+    7006, 7006,
+    7006, 7006,
+    7006
+  ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(9,14): error TS2515: Non-abstract class 'CognitiveArchaeologyService' does not implement inherited abstract member generateDynamicModelParameters from class 'BaseAIService'.
+src/services/ai/cognitiveArchaeologyService.ts(112,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(112,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(113,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(113,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(114,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(114,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [
+    2515, 7006,
+    7006, 7006,
+    7006, 7006,
+    7006
+  ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(9,14): error TS2515: Non-abstract class 'CognitiveArchaeologyService' does not implement inherited abstract member generateDynamicModelParameters from class 'BaseAIService'.
+src/services/ai/cognitiveArchaeologyService.ts(112,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(112,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(113,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(113,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(114,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(114,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [
+    2515, 7006,
+    7006, 7006,
+    7006, 7006,
+    7006
+  ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(9,14): error TS2515: Non-abstract class 'CognitiveArchaeologyService' does not implement inherited abstract member generateDynamicModelParameters from class 'BaseAIService'.
+src/services/ai/cognitiveArchaeologyService.ts(112,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(112,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(113,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(113,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(114,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(114,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [
+    2515, 7006,
+    7006, 7006,
+    7006, 7006,
+    7006
+  ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(9,14): error TS2515: Non-abstract class 'CognitiveArchaeologyService' does not implement inherited abstract member generateDynamicModelParameters from class 'BaseAIService'.
+src/services/ai/cognitiveArchaeologyService.ts(121,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(121,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [
+    2515, 7006,
+    7006, 7006,
+    7006, 7006,
+    7006
+  ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(9,14): error TS2515: Non-abstract class 'CognitiveArchaeologyService' does not implement inherited abstract member generateDynamicModelParameters from class 'BaseAIService'.
+src/services/ai/cognitiveArchaeologyService.ts(121,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(121,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [
+    2515, 7006,
+    7006, 7006,
+    7006, 7006,
+    7006
+  ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/aiServiceFactory.ts(115,9): error TS2322: Type 'CognitiveArchaeologyService' is not assignable to type 'AIServiceInterface'.
+  The types returned by 'generateDynamicModelParameters(...)' are incompatible between these types.
+    Type '{ temperature: number; max_tokens: number; top_p: number; frequency_penalty: number; presence_penalty: number; }' is missing the following properties from type 'Promise<{ complexity: number; coherence: number; evolution: number; patterns: string[]; }>': then, catch, finally, [Symbol.toStringTag]
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 2322 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(121,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(121,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 7006, 7006, 7006, 7006, 7006, 7006 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(121,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(121,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 7006, 7006, 7006, 7006, 7006, 7006 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(121,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(121,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 7006, 7006, 7006, 7006, 7006, 7006 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(121,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(121,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 7006, 7006, 7006, 7006, 7006, 7006 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(121,32): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(121,60): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(122,66): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,35): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/services/ai/cognitiveArchaeologyService.ts(123,65): error TS7006: Parameter 'n' implicitly has an 'any' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 7006, 7006, 7006, 7006, 7006, 7006 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/archaeology.routes.ts(11,29): error TS7030: Not all code paths return a value.
+src/routes/archaeology.routes.ts(89,41): error TS7030: Not all code paths return a value.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 7030, 7030 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(157,11): error TS7034: Variable 'nodes' implicitly has type 'any[]' in some locations where its type cannot be determined.
+src/services/ai/cognitiveArchaeologyService.ts(217,7): error TS7005: Variable 'nodes' implicitly has an 'any[]' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 7034, 7005 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(107,29): error TS2339: Property 'extractNodesFromUserInput' does not exist on type 'CognitiveArchaeologyService'.
+src/services/ai/cognitiveArchaeologyService.ts(162,11): error TS7034: Variable 'nodes' implicitly has type 'any[]' in some locations where its type cannot be determined.
+src/services/ai/cognitiveArchaeologyService.ts(222,7): error TS7005: Variable 'nodes' implicitly has an 'any[]' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 2339, 7034, 7005 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(107,64): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'boolean | undefined'.
+  Type 'string' is not assignable to type 'boolean | undefined'.
+src/services/ai/cognitiveArchaeologyService.ts(162,11): error TS7034: Variable 'nodes' implicitly has type 'any[]' in some locations where its type cannot be determined.
+src/services/ai/cognitiveArchaeologyService.ts(222,7): error TS7005: Variable 'nodes' implicitly has an 'any[]' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 2345, 7034, 7005 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/services/ai/cognitiveArchaeologyService.ts(162,11): error TS7034: Variable 'nodes' implicitly has type 'any[]' in some locations where its type cannot be determined.
+src/services/ai/cognitiveArchaeologyService.ts(222,7): error TS7005: Variable 'nodes' implicitly has an 'any[]' type.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 7034, 7005 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001

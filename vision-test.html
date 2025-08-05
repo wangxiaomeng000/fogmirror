@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>图片识别测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        
+        .upload-area {
+            border: 2px dashed #4A90E2;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            background: #f8f9fa;
+            cursor: pointer;
+        }
+        
+        .upload-area.dragging {
+            background: #e3f2fd;
+            border-color: #2196F3;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        
+        .preview {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .preview-image {
+            flex: 1;
+        }
+        
+        .preview-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .analysis-result {
+            flex: 1;
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .analysis-section {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        
+        .analysis-section h3 {
+            margin: 0 0 10px 0;
+            color: #4A90E2;
+            font-size: 16px;
+        }
+        
+        .analysis-section p {
+            margin: 5px 0;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        button {
+            background: #4A90E2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        button:hover {
+            background: #357ABD;
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .status {
+            text-align: center;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status.loading {
+            background: #cce5ff;
+            color: #004085;
+        }
+        
+        .test-images {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .test-btn {
+            background: #28a745;
+            font-size: 14px;
+            padding: 8px 20px;
+            margin: 5px;
+            display: inline-block;
+        }
+        
+        .extracted-keywords {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .keyword {
+            display: inline-block;
+            background: #4A90E2;
+            color: white;
+            padding: 4px 12px;
+            margin: 4px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 图片识别能力测试</h1>
+        
+        <div class="status" id="status">准备就绪</div>
+        
+        <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+            <h3>点击或拖拽图片到此处</h3>
+            <p>支持 JPG、PNG 格式，最大 10MB</p>
+            <input type="file" id="fileInput" accept="image/*" onchange="handleFile(event.target.files[0])">
+        </div>
+        
+        <div class="test-images">
+            <button class="test-btn" onclick="testWithUrl('exhibition')">测试展览照片</button>
+            <button class="test-btn" onclick="testWithUrl('river')">测试河流照片</button>
+            <button class="test-btn" onclick="testWithUrl('people')">测试人物照片</button>
+            <button class="test-btn" onclick="testWithUrl('document')">测试文档照片</button>
+        </div>
+        
+        <div class="preview" id="preview" style="display: none;">
+            <div class="preview-image">
+                <h3>原始图片</h3>
+                <img id="previewImg" src="" alt="预览">
+            </div>
+            
+            <div class="analysis-result">
+                <h3>图片分析结果</h3>
+                <div id="analysisContent">
+                    分析中...
+                </div>
+            </div>
+        </div>
+        
+        <button id="analyzeBtn" onclick="analyzeImage()" disabled>开始分析</button>
+    </div>
+
+    <script>
+        let selectedFile = null;
+        
+        // 拖拽上传
+        const uploadArea = document.getElementById('uploadArea');
+        
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragging');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragging');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragging');
+            
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                handleFile(file);
+            }
+        });
+        
+        // 处理文件选择
+        function handleFile(file) {
+            if (!file) return;
+            
+            selectedFile = file;
+            const reader = new FileReader();
+            
+            reader.onload = (e) => {
+                document.getElementById('preview').style.display = 'flex';
+                document.getElementById('previewImg').src = e.target.result;
+                document.getElementById('analyzeBtn').disabled = false;
+                updateStatus('已选择图片：' + file.name, 'success');
+            };
+            
+            reader.readAsDataURL(file);
+        }
+        
+        // 更新状态
+        function updateStatus(message, type = '') {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = 'status ' + type;
+        }
+        
+        // 分析图片
+        async function analyzeImage() {
+            if (!selectedFile) return;
+            
+            updateStatus('正在分析图片...', 'loading');
+            document.getElementById('analyzeBtn').disabled = true;
+            
+            const formData = new FormData();
+            formData.append('image', selectedFile);
+            
+            try {
+                const response = await fetch('http://localhost:3001/api/vision/test', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayAnalysis(data.analysis);
+                    updateStatus('分析完成！使用方法：' + data.method, 'success');
+                } else {
+                    updateStatus('分析失败：' + data.error, 'error');
+                }
+            } catch (error) {
+                updateStatus('网络错误：' + error.message, 'error');
+                console.error('分析错误:', error);
+            } finally {
+                document.getElementById('analyzeBtn').disabled = false;
+            }
+        }
+        
+        // 显示分析结果
+        function displayAnalysis(analysis) {
+            const content = document.getElementById('analysisContent');
+            content.innerHTML = '';
+            
+            // 如果是纯文本描述
+            if (analysis.description && typeof analysis.description === 'string') {
+                content.innerHTML = `
+                    <div class="analysis-section">
+                        <h3>完整描述</h3>
+                        <p>${analysis.description}</p>
+                    </div>
+                `;
+                
+                // 提取关键词
+                const keywords = extractKeywordsFromText(analysis.description);
+                if (keywords.length > 0) {
+                    content.innerHTML += `
+                        <div class="extracted-keywords">
+                            <h3>提取的关键词</h3>
+                            ${keywords.map(k => `<span class="keyword">${k}</span>`).join('')}
+                        </div>
+                    `;
+                }
+                return;
+            }
+            
+            // 显示结构化分析
+            const sections = [
+                { key: '场景描述', title: '场景与环境' },
+                { key: '人物信息', title: '人物详情' },
+                { key: '物品细节', title: '物品与细节' },
+                { key: '时间线索', title: '时间线索' },
+                { key: '文字内容', title: '文字信息' },
+                { key: '情绪氛围', title: '情绪与氛围' },
+                { key: '特殊细节', title: '特殊发现' }
+            ];
+            
+            sections.forEach(section => {
+                if (analysis[section.key]) {
+                    content.innerHTML += `
+                        <div class="analysis-section">
+                            <h3>${section.title}</h3>
+                            <p>${analysis[section.key]}</p>
+                        </div>
+                    `;
+                }
+            });
+            
+            // 提取所有关键词
+            const allText = Object.values(analysis).filter(v => typeof v === 'string').join(' ');
+            const keywords = extractKeywordsFromText(allText);
+            
+            if (keywords.length > 0) {
+                content.innerHTML += `
+                    <div class="extracted-keywords">
+                        <h3>提取的事实关键词</h3>
+                        ${keywords.map(k => `<span class="keyword">${k}</span>`).join('')}
+                    </div>
+                `;
+            }
+        }
+        
+        // 提取关键词
+        function extractKeywordsFromText(text) {
+            const keywords = new Set();
+            
+            // 时间
+            const timePatterns = /(\d{4}年|\d{1,2}月|\d{1,2}[日号]|早上|中午|下午|晚上|凌晨)/g;
+            const times = text.match(timePatterns);
+            if (times) times.forEach(t => keywords.add(t));
+            
+            // 地点
+            const placePatterns = /(展览|展厅|河流|公园|家|学校|医院|城市|街道|房间)/g;
+            const places = text.match(placePatterns);
+            if (places) places.forEach(p => keywords.add(p));
+            
+            // 人物
+            const peoplePatterns = /(一个人|两个人|很多人|朋友|家人|陌生人)/g;
+            const people = text.match(peoplePatterns);
+            if (people) people.forEach(p => keywords.add(p));
+            
+            // 具体物品
+            const objectPatterns = /(照片|画|河水|垃圾|建筑|树|花|桌子|椅子)/g;
+            const objects = text.match(objectPatterns);
+            if (objects) objects.forEach(o => keywords.add(o));
+            
+            return Array.from(keywords);
+        }
+        
+        // 测试预设图片
+        async function testWithUrl(type) {
+            updateStatus('加载测试图片...', 'loading');
+            
+            // 创建测试图片
+            const canvas = document.createElement('canvas');
+            canvas.width = 400;
+            canvas.height = 300;
+            const ctx = canvas.getContext('2d');
+            
+            // 根据类型绘制不同的测试图
+            switch(type) {
+                case 'exhibition':
+                    ctx.fillStyle = '#333';
+                    ctx.fillRect(0, 0, 400, 300);
+                    ctx.fillStyle = '#666';
+                    ctx.fillRect(50, 50, 100, 100);
+                    ctx.fillRect(250, 50, 100, 100);
+                    ctx.fillStyle = 'white';
+                    ctx.font = '20px Arial';
+                    ctx.fillText('Environmental Exhibition', 100, 250);
+                    break;
+                case 'river':
+                    ctx.fillStyle = '#87CEEB';
+                    ctx.fillRect(0, 0, 400, 150);
+                    ctx.fillStyle = '#8B4513';
+                    ctx.fillRect(0, 150, 400, 150);
+                    ctx.fillStyle = '#228B22';
+                    ctx.fillRect(0, 140, 400, 20);
+                    break;
+                case 'people':
+                    ctx.fillStyle = '#FFE4E1';
+                    ctx.fillRect(0, 0, 400, 300);
+                    ctx.fillStyle = '#8B4513';
+                    ctx.beginPath();
+                    ctx.arc(200, 100, 40, 0, Math.PI * 2);
+                    ctx.fill();
+                    break;
+                case 'document':
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(0, 0, 400, 300);
+                    ctx.fillStyle = 'black';
+                    ctx.font = '16px Arial';
+                    ctx.fillText('离婚协议书', 150, 50);
+                    ctx.fillText('日期：2019年3月15日', 50, 100);
+                    break;
+            }
+            
+            // 转换为文件
+            canvas.toBlob((blob) => {
+                const file = new File([blob], `test-${type}.png`, { type: 'image/png' });
+                handleFile(file);
+                setTimeout(() => analyzeImage(), 500);
+            });
+        }
+        
+        // 检查服务器状态
+        async function checkServer() {
+            try {
+                const response = await fetch('http://localhost:3001/api/health');
+                const data = await response.json();
+                console.log('服务器状态:', data);
+            } catch (error) {
+                updateStatus('服务器未启动，请先启动 vision-test-server.js', 'error');
+            }
+        }
+        
+        // 初始化
+        checkServer();
+    </script>
+</body>
+</html>

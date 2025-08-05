@@ -1,0 +1,137 @@
+
+> backend@1.0.0 dev
+> nodemon --exec ts-node src/server.ts
+
+[33m[nodemon] 3.1.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): src/**/*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: gemini
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: gemini
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: gemini
+当前缓存的服务: []
+
+创建AI服务: gemini
+
+
+
+✅✅✅ GEMINI服务已初始化，将使用真实图片识别 ✅✅✅
+
+
+✅ 成功创建并缓存服务: gemini
+返回的服务名称: gemini
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: gemini
+
+GeminiService: 开始分析消息, 有图片: true
+图片分析失败: TypeError: fetch failed
+    at node:internal/deps/undici/undici:15482:13
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/@google/generative-ai/dist/index.js:397:20)
+    at async generateContent (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/@google/generative-ai/dist/index.js:867:22)
+    at async GeminiService.analyzeMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/services/ai/geminiService.ts:27:33)
+    at async sendMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/controllers/chat.controller.ts:57:36)
+Gemini API error: TypeError: fetch failed
+    at node:internal/deps/undici/undici:15482:13
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/@google/generative-ai/dist/index.js:397:20)
+    at async generateContent (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/@google/generative-ai/dist/index.js:867:22)
+    at async GeminiService.analyzeMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/services/ai/geminiService.ts:65:22)
+    at async sendMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/controllers/chat.controller.ts:57:36)
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: gemini
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: gemini
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: gemini
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: gemini
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: gemini
+当前缓存的服务: []
+
+创建AI服务: gemini
+
+
+
+✅✅✅ GEMINI服务已初始化，将使用真实图片识别 ✅✅✅
+
+
+✅ 成功创建并缓存服务: gemini
+返回的服务名称: gemini
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: gemini
+
+GeminiService: 开始分析消息, 有图片: true
+图片分析失败: TypeError: fetch failed
+    at node:internal/deps/undici/undici:15482:13
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/@google/generative-ai/dist/index.js:397:20)
+    at async generateContent (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/@google/generative-ai/dist/index.js:867:22)
+    at async GeminiService.analyzeMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/services/ai/geminiService.ts:27:33)
+    at async sendMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/controllers/chat.controller.ts:57:36)
+Gemini API error: TypeError: fetch failed
+    at node:internal/deps/undici/undici:15482:13
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/@google/generative-ai/dist/index.js:397:20)
+    at async generateContent (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/@google/generative-ai/dist/index.js:867:22)
+    at async GeminiService.analyzeMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/services/ai/geminiService.ts:65:22)
+    at async sendMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/controllers/chat.controller.ts:57:36)

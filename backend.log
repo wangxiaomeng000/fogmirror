@@ -1,0 +1,16 @@
+
+> backend@1.0.0 start
+> node dist/server.js
+
+[dotenv@17.2.1] injecting env (15) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001

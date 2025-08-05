@@ -1,0 +1,18 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "installCommand": "npm install",
+  "env": {
+    "MONGODB_URI": "@mongodb_uri",
+    "JWT_SECRET": "@jwt_secret",
+    "OPENROUTER_API_KEY": "@openrouter_api_key",
+    "SILICONFLOW_API_KEY": "@siliconflow_api_key",
+    "AI_SERVICE_TYPE": "siliconflow"
+  },
+  "functions": {
+    "api/**/*.ts": {
+      "maxDuration": 30
+    }
+  }
+}

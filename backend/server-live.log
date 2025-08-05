@@ -1,0 +1,991 @@
+
+> backend@1.0.0 dev
+> nodemon --exec ts-node src/server.ts
+
+[33m[nodemon] 3.1.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): src/**/*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: openrouter
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: openrouter
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: openrouter
+当前缓存的服务: []
+
+创建AI服务: openrouter
+
+✅ 成功创建并缓存服务: openrouter
+返回的服务名称: openrouter
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: openrouter
+
+OpenRouter API error: AxiosError: Request failed with status code 403
+    at settle (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/settle.js:19:12)
+    at Unzip.handleStreamEnd (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/adapters/http.js:599:11)
+    at Unzip.emit (node:events:519:35)
+    at Unzip.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/Axios.js:45:41)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OpenRouterService.analyzeMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/services/ai/openRouterService.ts:74:24)
+    at async sendMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/controllers/chat.controller.ts:57:36) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function [FormData]], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer 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',
+      'HTTP-Referer': 'https://ai-emotional-support.app',
+      'X-Title': 'AI Emotional Support Chat',
+      'User-Agent': 'axios/1.11.0',
+      'Content-Length': '609',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    method: 'post',
+    url: 'https://openrouter.ai/api/v1/chat/completions',
+    data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"你是一个心理咨询师。请用简短的话回应用户（少于10个字）。\\n如果用户分享了图片，请在facts中描述图片内容（如人物、场景、氛围等）。\\n返回JSON格式：\\n{\\n  \\"response\\": \\"简短回应\\",\\n  \\"facts\\": [\\"事实1\\", \\"事实2\\", \\"图片描述\\"],\\n  \\"insights\\": [\\"洞察1\\"],\\n  \\"concepts\\": [\\"概念1\\"],\\n  \\"emotionalTone\\": {\\"primary\\": \\"情绪\\", \\"intensity\\": 0.7, \\"confidence\\": 0.8}\\n}"},{"role":"user"},{"role":"user"}],"temperature":0.7,"max_tokens":1500}',
+    allowAbsoluteUrls: true
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: false,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: true,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 609,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'Content-Type: application/json\r\n' +
+      'Authorization: Bearer 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\r\n' +
+      'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+      'X-Title: AI Emotional Support Chat\r\n' +
+      'User-Agent: axios/1.11.0\r\n' +
+      'Content-Length: 609\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: openrouter.ai\r\n' +
+      'Connection: keep-alive\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'POST',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/api/v1/chat/completions',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 403,
+      statusMessage: 'Forbidden',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 24,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'openrouter.ai',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 609,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'openrouter.ai',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'openrouter.ai',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 5000,
+      parser: null,
+      _httpMessage: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 126553,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 1494,
+        Symbol(triggerId): 1492,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'content-type': [Array],
+      authorization: [Array],
+      'http-referer': [Array],
+      'x-title': [Array],
+      'user-agent': [Array],
+      'content-length': [Array],
+      'accept-encoding': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 65536,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 403,
+    statusText: 'Forbidden',
+    headers: Object [AxiosHeaders] {
+      date: 'Tue, 05 Aug 2025 10:15:01 GMT',
+      'content-type': 'application/json',
+      'transfer-encoding': 'chunked',
+      connection: 'keep-alive',
+      'access-control-allow-origin': '*',
+      vary: 'Accept-Encoding',
+      'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+      'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+      'x-content-type-options': 'nosniff',
+      server: 'cloudflare',
+      'cf-ray': '96a587e8bef78b7b-HKG'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      method: 'post',
+      url: 'https://openrouter.ai/api/v1/chat/completions',
+      data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"你是一个心理咨询师。请用简短的话回应用户（少于10个字）。\\n如果用户分享了图片，请在facts中描述图片内容（如人物、场景、氛围等）。\\n返回JSON格式：\\n{\\n  \\"response\\": \\"简短回应\\",\\n  \\"facts\\": [\\"事实1\\", \\"事实2\\", \\"图片描述\\"],\\n  \\"insights\\": [\\"洞察1\\"],\\n  \\"concepts\\": [\\"概念1\\"],\\n  \\"emotionalTone\\": {\\"primary\\": \\"情绪\\", \\"intensity\\": 0.7, \\"confidence\\": 0.8}\\n}"},{"role":"user"},{"role":"user"}],"temperature":0.7,"max_tokens":1500}',
+      allowAbsoluteUrls: true
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 609,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/json\r\n' +
+        'Authorization: Bearer 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\r\n' +
+        'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+        'X-Title: AI Emotional Support Chat\r\n' +
+        'User-Agent: axios/1.11.0\r\n' +
+        'Content-Length: 609\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: openrouter.ai\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/api/v1/chat/completions',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'openrouter.ai',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 65536,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: { error: [Object], user_id: 'user_2wkxJPOl2RF169lrhAd7hpKuzaP' }
+  },
+  status: 403
+}
+Error response: {
+  error: {
+    message: 'Provider returned error',
+    code: 403,
+    metadata: {
+      raw: '{"error":{"code":"unsupported_country_region_territory","message":"Country, region, or territory not supported","param":null,"type":"request_forbidden"}}',
+      provider_name: 'OpenAI'
+    }
+  },
+  user_id: 'user_2wkxJPOl2RF169lrhAd7hpKuzaP'
+}
+Error status: 403
+Error headers: Object [AxiosHeaders] {
+  date: 'Tue, 05 Aug 2025 10:15:01 GMT',
+  'content-type': 'application/json',
+  'transfer-encoding': 'chunked',
+  connection: 'keep-alive',
+  'access-control-allow-origin': '*',
+  vary: 'Accept-Encoding',
+  'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+  'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+  'x-content-type-options': 'nosniff',
+  server: 'cloudflare',
+  'cf-ray': '96a587e8bef78b7b-HKG'
+}
+Request config: {
+  model: 'openai/chatgpt-4o-latest',
+  apiKeyPresent: true,
+  apiKeyLength: 73,
+  apiKeyFirst6: 'sk-or-',
+  apiKeyLast4: '2a77',
+  url: 'https://openrouter.ai/api/v1/chat/completions'
+}
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: openrouter
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: openrouter
+当前缓存的服务: [ 'openrouter' ]
+
+创建AI服务: openrouter
+
+✅ 成功创建并缓存服务: openrouter
+返回的服务名称: openrouter
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: openrouter
+
+OpenRouter API error: AxiosError: Request failed with status code 403
+    at settle (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/settle.js:19:12)
+    at Unzip.handleStreamEnd (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/adapters/http.js:599:11)
+    at Unzip.emit (node:events:519:35)
+    at Unzip.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/Axios.js:45:41)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OpenRouterService.analyzeMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/services/ai/openRouterService.ts:74:24)
+    at async sendMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/controllers/chat.controller.ts:57:36) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function [FormData]], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer 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',
+      'HTTP-Referer': 'https://ai-emotional-support.app',
+      'X-Title': 'AI Emotional Support Chat',
+      'User-Agent': 'axios/1.11.0',
+      'Content-Length': '609',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    method: 'post',
+    url: 'https://openrouter.ai/api/v1/chat/completions',
+    data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"你是一个心理咨询师。请用简短的话回应用户（少于10个字）。\\n如果用户分享了图片，请在facts中描述图片内容（如人物、场景、氛围等）。\\n返回JSON格式：\\n{\\n  \\"response\\": \\"简短回应\\",\\n  \\"facts\\": [\\"事实1\\", \\"事实2\\", \\"图片描述\\"],\\n  \\"insights\\": [\\"洞察1\\"],\\n  \\"concepts\\": [\\"概念1\\"],\\n  \\"emotionalTone\\": {\\"primary\\": \\"情绪\\", \\"intensity\\": 0.7, \\"confidence\\": 0.8}\\n}"},{"role":"user"},{"role":"user"}],"temperature":0.7,"max_tokens":1500}',
+    allowAbsoluteUrls: true
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: false,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: true,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 609,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'Content-Type: application/json\r\n' +
+      'Authorization: Bearer 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\r\n' +
+      'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+      'X-Title: AI Emotional Support Chat\r\n' +
+      'User-Agent: axios/1.11.0\r\n' +
+      'Content-Length: 609\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: openrouter.ai\r\n' +
+      'Connection: keep-alive\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'POST',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/api/v1/chat/completions',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 403,
+      statusMessage: 'Forbidden',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 24,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'openrouter.ai',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 609,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'openrouter.ai',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'openrouter.ai',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 5000,
+      parser: null,
+      _httpMessage: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 158819,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 1897,
+        Symbol(triggerId): 1895,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'content-type': [Array],
+      authorization: [Array],
+      'http-referer': [Array],
+      'x-title': [Array],
+      'user-agent': [Array],
+      'content-length': [Array],
+      'accept-encoding': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 65536,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 403,
+    statusText: 'Forbidden',
+    headers: Object [AxiosHeaders] {
+      date: 'Tue, 05 Aug 2025 10:15:34 GMT',
+      'content-type': 'application/json',
+      'transfer-encoding': 'chunked',
+      connection: 'keep-alive',
+      'access-control-allow-origin': '*',
+      vary: 'Accept-Encoding',
+      'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+      'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+      'x-content-type-options': 'nosniff',
+      server: 'cloudflare',
+      'cf-ray': '96a588b43a5c09ef-HKG'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      method: 'post',
+      url: 'https://openrouter.ai/api/v1/chat/completions',
+      data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"你是一个心理咨询师。请用简短的话回应用户（少于10个字）。\\n如果用户分享了图片，请在facts中描述图片内容（如人物、场景、氛围等）。\\n返回JSON格式：\\n{\\n  \\"response\\": \\"简短回应\\",\\n  \\"facts\\": [\\"事实1\\", \\"事实2\\", \\"图片描述\\"],\\n  \\"insights\\": [\\"洞察1\\"],\\n  \\"concepts\\": [\\"概念1\\"],\\n  \\"emotionalTone\\": {\\"primary\\": \\"情绪\\", \\"intensity\\": 0.7, \\"confidence\\": 0.8}\\n}"},{"role":"user"},{"role":"user"}],"temperature":0.7,"max_tokens":1500}',
+      allowAbsoluteUrls: true
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 609,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/json\r\n' +
+        'Authorization: Bearer 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\r\n' +
+        'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+        'X-Title: AI Emotional Support Chat\r\n' +
+        'User-Agent: axios/1.11.0\r\n' +
+        'Content-Length: 609\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: openrouter.ai\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/api/v1/chat/completions',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'openrouter.ai',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 65536,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: { error: [Object], user_id: 'user_2wkxJPOl2RF169lrhAd7hpKuzaP' }
+  },
+  status: 403
+}
+Error response: {
+  error: {
+    message: 'Provider returned error',
+    code: 403,
+    metadata: {
+      raw: '{"error":{"code":"unsupported_country_region_territory","message":"Country, region, or territory not supported","param":null,"type":"request_forbidden"}}',
+      provider_name: 'OpenAI'
+    }
+  },
+  user_id: 'user_2wkxJPOl2RF169lrhAd7hpKuzaP'
+}
+Error status: 403
+Error headers: Object [AxiosHeaders] {
+  date: 'Tue, 05 Aug 2025 10:15:34 GMT',
+  'content-type': 'application/json',
+  'transfer-encoding': 'chunked',
+  connection: 'keep-alive',
+  'access-control-allow-origin': '*',
+  vary: 'Accept-Encoding',
+  'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+  'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+  'x-content-type-options': 'nosniff',
+  server: 'cloudflare',
+  'cf-ray': '96a588b43a5c09ef-HKG'
+}
+Request config: {
+  model: 'openai/chatgpt-4o-latest',
+  apiKeyPresent: true,
+  apiKeyLength: 73,
+  apiKeyFirst6: 'sk-or-',
+  apiKeyLast4: '2a77',
+  url: 'https://openrouter.ai/api/v1/chat/completions'
+}
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: []
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: siliconflow
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: siliconflow
+当前缓存的服务: [ 'siliconflow' ]
+
+创建AI服务: siliconflow
+
+✅ 成功创建并缓存服务: siliconflow
+返回的服务名称: siliconflow
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: siliconflow
+
+SiliconFlow API Error: {
+  code: 20012,
+  message: 'Model does not exist. Please check it carefully.',
+  data: null
+}
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: siliconflow
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001

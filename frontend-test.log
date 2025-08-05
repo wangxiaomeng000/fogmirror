@@ -1,0 +1,158 @@
+
+> clacky@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+ ⚠ Port 3001 is in use, trying 3002 instead.
+   ▲ Next.js 15.2.4
+   - Local:        http://localhost:3002
+   - Network:      http://192.168.108.203:3002
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1635ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.8s (2146 modules)
+ GET / 200 in 3287ms
+ ✓ Compiled in 510ms (1054 modules)
+ ✓ Compiled in 229ms (1054 modules)
+ ✓ Compiled in 173ms (1054 modules)
+ ✓ Compiled in 213ms (1054 modules)
+ GET / 200 in 81ms
+ ✓ Compiled in 141ms (1054 modules)
+ ✓ Compiled in 147ms (1054 modules)
+ ✓ Compiled in 126ms (1054 modules)
+ ✓ Compiled in 151ms (1054 modules)
+ ✓ Compiled in 166ms (1054 modules)
+ ✓ Compiled in 117ms (1054 modules)
+ ✓ Compiled in 119ms (1054 modules)
+ GET / 200 in 107ms
+ ✓ Compiled in 114ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/9.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/9.pack.gz'
+ ✓ Compiled in 241ms (1054 modules)
+ ✓ Compiled in 137ms (1054 modules)
+ ✓ Compiled in 138ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 138ms (1054 modules)
+ ✓ Compiled in 133ms (1054 modules)
+ ✓ Compiled in 143ms (1054 modules)
+ ✓ Compiled in 105ms (1054 modules)
+ ✓ Compiled in 299ms (1054 modules)
+ ✓ Compiled in 111ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 235ms (1054 modules)
+ ✓ Compiled in 147ms (1054 modules)
+ ✓ Compiled in 208ms (1054 modules)
+ ✓ Compiled in 146ms (1054 modules)
+ ✓ Compiled in 155ms (1054 modules)
+ ✓ Compiled in 129ms (1054 modules)
+ ✓ Compiled in 127ms (1054 modules)
+ ✓ Compiled in 109ms (1054 modules)
+ ✓ Compiled in 145ms (1054 modules)
+ ✓ Compiled in 151ms (1054 modules)
+ ✓ Compiled in 97ms (1054 modules)
+ ✓ Compiled in 130ms (1054 modules)
+ ✓ Compiled in 172ms (1054 modules)
+ ✓ Compiled in 163ms (1054 modules)
+ ✓ Compiled in 213ms (1054 modules)
+ ✓ Compiled in 195ms (1054 modules)
+ ✓ Compiled in 214ms (1054 modules)
+ ✓ Compiled in 99ms (1054 modules)
+ ✓ Compiled in 115ms (1054 modules)
+ ✓ Compiled in 109ms (1054 modules)
+ ✓ Compiled in 99ms (1054 modules)
+ ✓ Compiled in 113ms (1054 modules)
+ ✓ Compiled in 105ms (1054 modules)
+ ✓ Compiled in 106ms (1054 modules)
+ ✓ Compiled in 143ms (1054 modules)
+ ✓ Compiled in 157ms (1054 modules)
+ ✓ Compiled in 116ms (1054 modules)
+ ✓ Compiled in 134ms (1054 modules)
+ ✓ Compiled in 111ms (1054 modules)
+ ✓ Compiled in 204ms (1054 modules)
+ ✓ Compiled in 131ms (1054 modules)
+ ✓ Compiled in 125ms (1054 modules)
+ ✓ Compiled in 155ms (1054 modules)
+ ✓ Compiled in 114ms (1054 modules)
+ ✓ Compiled in 194ms (1054 modules)
+ ✓ Compiled in 145ms (1054 modules)
+ ✓ Compiled in 211ms (1054 modules)
+ ✓ Compiled in 148ms (1054 modules)
+ ✓ Compiled in 254ms (1054 modules)
+ ✓ Compiled in 281ms (1054 modules)
+ ✓ Compiled in 136ms (1054 modules)
+ ✓ Compiled in 159ms (1054 modules)
+ ✓ Compiled in 143ms (1054 modules)
+ ✓ Compiled in 122ms (1054 modules)
+ ✓ Compiled in 118ms (1054 modules)
+ ✓ Compiled in 166ms (1054 modules)
+ ✓ Compiled in 135ms (1054 modules)
+ ✓ Compiled in 138ms (1054 modules)
+ ✓ Compiled in 136ms (1054 modules)
+ ✓ Compiled in 176ms (1054 modules)
+ ✓ Compiled in 149ms (1054 modules)
+ ✓ Compiled in 119ms (1054 modules)
+ ✓ Compiled in 138ms (1054 modules)
+ ✓ Compiled in 182ms (1054 modules)
+ ✓ Compiled in 157ms (1054 modules)
+ ✓ Compiled in 151ms (1054 modules)
+ ✓ Compiled in 135ms (1054 modules)
+ ✓ Compiled in 232ms (1054 modules)
+ ✓ Compiled in 189ms (1054 modules)
+ ✓ Compiled in 150ms (1054 modules)
+ ✓ Compiled in 190ms (1054 modules)
+ ✓ Compiled in 118ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 152ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 212ms (1054 modules)
+ ✓ Compiled in 138ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz'
+[?25h
+les)
+ ✓ Compiled in 113ms (1054 modules)
+ ✓ Compiled in 103ms (1054 modules)
+ ✓ Compiled in 221ms (1054 modules)
+ ✓ Compiled in 132ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 100ms (1054 modules)
+ ✓ Compiled in 148ms (1054 modules)
+ ✓ Compiled in 113ms (1054 modules)
+ ✓ Compiled in 168ms (1054 modules)
+ ✓ Compiled in 128ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 212ms (1054 modules)
+ ✓ Compiled in 163ms (1054 modules)
+ ✓ Compiled in 277ms (1054 modules)
+ ✓ Compiled in 301ms (1054 modules)
+ ✓ Compiled in 152ms (1054 modules)
+ ✓ Compiled in 134ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 123ms (1054 modules)
+ ✓ Compiled in 109ms (1054 modules)
+ ✓ Compiled in 112ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 170ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 131ms (1054 modules)
+ ✓ Compiled in 146ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 132ms (1054 modules)
+ ✓ Compiled in 178ms (1054 modules)
+ ✓ Compiled in 163ms (1054 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mac/Documents/GitHub/ai-emotional-support-chat/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 124ms (1054 modules)
+ ✓ Compiled in 115ms (1054 modules)
+ ✓ Compiled in 126ms (1054 modules)
+ ✓ Compiled in 138ms (1054 modules)
+ ✓ Compiled in 152ms (1054 modules)
+ ✓ Compiled in 127ms (1054 modules)
+ ✓ Compiled in 144ms (1054 modules)
+ ✓ Compiled in 172ms (1054 modules)
+ ✓ Compiled in 141ms (1054 modules)
+ ✓ Compiled in 185ms (1054 modules)
+ ✓ Compiled in 110ms (1054 modules)
+ ✓ Compiled in 150ms (1054 modules)
+ ✓ Compiled in 173ms (1054 modules)
+ ✓ Compiled in 132ms (1054 modules)
+[?25h

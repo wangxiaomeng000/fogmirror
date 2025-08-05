@@ -1,0 +1,199 @@
+import { BaseAIService } from './aiInterface';
+import { AnalysisResult, EmotionalTone } from '../../types';
+import { minimalDialogueEngine } from '../../config/dialogueEngine';
+import { utteranceAnalyzer } from '../utteranceAnalyzer';
+
+export class MockAIService extends BaseAIService {
+  name = 'mock';
+
+  // 对话阶段追踪
+  private conversationStages = new Map<string, 'initial' | 'scene' | 'detail' | 'insight'>();
+
+  private emotions = ['困惑', '焦虑', '希望', '失落', '愤怒', '欣慰', '恐惧', '期待'];
+
+  private conceptTemplates = [
+    "完美主义倾向",
+    "自我保护机制",
+    "对确定性的追求",
+    "关系中的边界意识",
+    "成长型思维模式"
+  ];
+
+  async analyzeMessage(content: string, _imageBase64?: string, conversationHistory?: any[]) {
+    // 模拟延迟
+    await this.delay(300 + Math.random() * 200);
+
+    let response: string;
+    const sessionKey = conversationHistory?.[0]?.id || 'default';
+    
+    // 使用极简对话引擎
+    if (!conversationHistory || conversationHistory.length === 0) {
+      // 首次对话
+      response = minimalDialogueEngine.prompts.start[
+        Math.floor(Math.random() * minimalDialogueEngine.prompts.start.length)
+      ];
+      this.conversationStages.set(sessionKey, 'initial');
+    } else {
+      // 分析用户话语
+      const utterance = utteranceAnalyzer.analyze(content);
+      const stage = this.conversationStages.get(sessionKey) || 'scene';
+      
+      // 根据分析结果选择回复
+      if (utterance.facts.length > 0) {
+        // 如果包含事实细节，深入询问
+        const detailType = this.detectDetailType(content);
+        const detailPrompts = minimalDialogueEngine.prompts.detail[detailType as keyof typeof minimalDialogueEngine.prompts.detail] || 
+                            minimalDialogueEngine.prompts.continue;
+        response = detailPrompts[Math.floor(Math.random() * detailPrompts.length)];
+      } else if (utterance.avoidanceSignals.length > 0) {
+        // 如果有回避迹象，温和引导
+        response = minimalDialogueEngine.prompts.emotional[
+          Math.floor(Math.random() * minimalDialogueEngine.prompts.emotional.length)
+        ];
+      } else if (utterance.emotionalMarkers.length > 0) {
+        // 如果情绪明显，回显关键词
+        const keyword = this.extractKeyword(content);
+        response = keyword || minimalDialogueEngine.prompts.zoom[
+          Math.floor(Math.random() * minimalDialogueEngine.prompts.zoom.length)
+        ];
+      } else {
+        // 继续引导
+        response = minimalDialogueEngine.prompts.continue[
+          Math.floor(Math.random() * minimalDialogueEngine.prompts.continue.length)
+        ];
+      }
+      
+      // 确保回复不超过10个字符
+      if (response.length > 10) {
+        response = response.substring(0, 10);
+      }
+    }
+
+    const analysis = this.generateAnalysis(content);
+
+    return { response, analysis };
+  }
+
+  private detectDetailType(content: string): string {
+    if (content.includes('时') || content.includes('点') || content.includes('天')) return '时间';
+    if (content.includes('地') || content.includes('哪') || content.includes('方')) return '地点';
+    if (content.includes('人') || content.includes('谁') || content.includes('他') || content.includes('她')) return '人物';
+    if (content.includes('说') || content.includes('话') || content.includes('聊')) return '对话';
+    if (content.includes('觉') || content.includes('感') || content.includes('心')) return '感受';
+    return '过程';
+  }
+
+  private extractKeyword(content: string): string {
+    // 提取2-4字的关键词
+    const words = content.match(/[\u4e00-\u9fa5]{2,4}/g) || [];
+    const emotionalWords = words.filter(word => 
+      ['累', '烦', '怕', '急', '气', '难过', '开心', '紧张', '焦虑', '失望'].some(emotion => 
+        word.includes(emotion)
+      )
+    );
+    
+    if (emotionalWords.length > 0) {
+      return emotionalWords[0];
+    }
+    
+    // 返回最长的词
+    return words.reduce((a, b) => a.length > b.length ? a : b, '');
+  }
+
+  async analyzeImageForAbnormalities(_imageBase64: string): Promise<string[]> {
+    await this.delay(500);
+
+    return [
+      "图片整体色调偏暗，可能反映了某种情绪状态",
+      "注意到画面中央的焦点区域，这可能是你关注的重点",
+      "图片的构图显示出一定的秩序感，这可能反映了你的思维方式",
+      "色彩的对比度较高，可能暗示着内心的某种冲突"
+    ];
+  }
+
+  async generateDynamicModelParameters(messages: any[]) {
+    await this.delay(300);
+
+    const messageCount = messages.length;
+    const complexity = Math.min(0.3 + (messageCount * 0.05), 1);
+    const coherence = 0.6 + Math.random() * 0.3;
+    const evolution = Math.min(0.2 + (messageCount * 0.08), 1);
+
+    return {
+      complexity,
+      coherence,
+      evolution,
+      patterns: this.extractPatterns(messages)
+    };
+  }
+
+  private generateAnalysis(content: string): AnalysisResult {
+    const words = content.split(/\s+/);
+    const keywords = words.filter(w => w.length > 4).slice(0, 3);
+
+    // 生成事实层
+    const facts = [
+      `你提到了"${keywords[0] || '感受'}"这个关键词`,
+      `这段话共有${words.length}个词，表达了较为复杂的想法`,
+      `你使用了${content.includes('我') ? '第一人称' : '第三人称'}来叙述`
+    ];
+
+    // 生成洞见层
+    const insights = [
+      this.generateInsight(keywords[0] || '经历'),
+      `表达方式显示出对这个话题的${words.length > 20 ? '深入' : '初步'}思考`
+    ];
+
+    // 生成观念层
+    const concepts = [
+      this.conceptTemplates[Math.floor(Math.random() * this.conceptTemplates.length)]
+    ];
+
+    // 生成情绪分析
+    const emotionalTone: EmotionalTone = {
+      primary: this.emotions[Math.floor(Math.random() * this.emotions.length)],
+      intensity: 0.5 + Math.random() * 0.5,
+      confidence: 0.7 + Math.random() * 0.3
+    };
+
+    // 生成建议
+    const suggestions = [
+      "试着从不同角度看待这个问题，可能会有新的发现",
+      "记录下你的感受和想法，这有助于理清思路",
+      "与信任的人分享你的想法，外部视角可能会带来启发"
+    ];
+
+    return {
+      facts,
+      insights,
+      concepts,
+      emotionalTone,
+      suggestions
+    };
+  }
+
+  private generateInsight(keyword: string): string {
+    const templates = [
+      `你对"${keyword}"的关注可能反映了内心的某种需求`,
+      `这种表达方式暗示着对${keyword}相关事物的重视`,
+      `${keyword}这个概念在你的叙述中占据重要位置`
+    ];
+    
+    return templates[Math.floor(Math.random() * templates.length)];
+  }
+
+  private extractPatterns(messages: any[]): string[] {
+    const patterns = [
+      "情绪表达模式",
+      "问题解决倾向",
+      "人际关系关注",
+      "自我反思习惯"
+    ];
+
+    return patterns.slice(0, Math.min(messages.length / 3, 4));
+  }
+
+  private delay(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+}

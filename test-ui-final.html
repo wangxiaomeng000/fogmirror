@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UI测试验证</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #1a1a1a; color: white; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .test-section { margin: 20px 0; padding: 20px; background: #2a2a2a; border-radius: 8px; }
+        button { background: #3b82f6; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin: 5px; }
+        button:hover { background: #2563eb; }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        .info { color: #3b82f6; }
+        pre { background: #1a1a1a; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 认知考古系统UI测试</h1>
+        
+        <div class="test-section">
+            <h2>1. API连接测试</h2>
+            <button onclick="testAPI()">测试API</button>
+            <div id="apiResult"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>2. 前端页面测试</h2>
+            <button onclick="testFrontend()">测试前端</button>
+            <div id="frontendResult"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>3. 完整流程测试</h2>
+            <textarea id="testInput" placeholder="输入测试内容..." style="width: 100%; height: 80px; margin: 10px 0;"></textarea>
+            <br>
+            <button onclick="testFullFlow()">执行完整测试</button>
+            <div id="fullResult"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>4. 调试信息</h2>
+            <div id="debugInfo"></div>
+        </div>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const debugDiv = document.getElementById('debugInfo');
+            const color = type === 'success' ? 'success' : type === 'error' ? 'error' : 'info';
+            debugDiv.innerHTML += `<div class="${color}">${new Date().toLocaleTimeString()}: ${message}</div>`;
+        }
+
+        async function testAPI() {
+            const resultDiv = document.getElementById('apiResult');
+            log('开始测试API...');
+            
+            try {
+                const response = await fetch('http://localhost:3001/api/health');
+                const data = await response.json();
+                
+                if (data.status === 'ok') {
+                    resultDiv.innerHTML = '<div class="success">✅ API正常运行</div>';
+                    log('API测试成功', 'success');
+                } else {
+                    resultDiv.innerHTML = '<div class="error">❌ API状态异常</div>';
+                    log('API状态异常', 'error');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ API连接失败: ${error.message}</div>`;
+                log(`API连接失败: ${error.message}`, 'error');
+            }
+        }
+
+        async function testFrontend() {
+            const resultDiv = document.getElementById('frontendResult');
+            log('开始测试前端...');
+            
+            try {
+                const response = await fetch('http://localhost:3000/cognitive-archaeology');
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = '<div class="success">✅ 前端页面可访问</div>';
+                    log('前端测试成功', 'success');
+                } else {
+                    resultDiv.innerHTML = `<div class="error">❌ 前端响应错误: ${response.status}</div>`;
+                    log(`前端响应错误: ${response.status}`, 'error');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ 前端连接失败: ${error.message}</div>`;
+                log(`前端连接失败: ${error.message}`, 'error');
+            }
+        }
+
+        async function testFullFlow() {
+            const resultDiv = document.getElementById('fullResult');
+            const input = document.getElementById('testInput').value || '我感到很困惑，不知道该怎么办';
+            
+            log('开始完整流程测试...');
+            resultDiv.innerHTML = '<div class="info">测试中...</div>';
+            
+            try {
+                log('发送消息: ' + input);
+                
+                const response = await fetch('http://localhost:3001/api/cognitive/archaeology', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content: input,
+                        sessionId: null,
+                        history: []
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.innerHTML = `
+                        <div class="success">✅ 测试成功！</div>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                    log('完整测试成功', 'success');
+                    log(`AI回复: ${data.response}`, 'success');
+                    log(`节点数: ${data.cognitiveNodes?.length || 0}`, 'success');
+                } else {
+                    resultDiv.innerHTML = `<div class="error">❌ 响应错误</div>`;
+                    log('响应错误', 'error');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ 测试失败: ${error.message}</div>`;
+                log(`测试失败: ${error.message}`, 'error');
+            }
+        }
+
+        // 页面加载时自动测试
+        window.onload = async function() {
+            log('页面加载完成');
+            await testAPI();
+            await testFrontend();
+        };
+    </script>
+</body>
+</html>

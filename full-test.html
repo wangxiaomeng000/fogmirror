@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>完整系统测试</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI情感支持聊天系统 - 完整测试</h1>
+    
+    <div class="test-section">
+        <h2>系统状态检查</h2>
+        <button onclick="checkSystem()">检查系统</button>
+        <div id="systemStatus"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>功能测试</h2>
+        <button onclick="testTextMessage()">测试文字消息</button>
+        <button onclick="testImageUpload()">测试图片上传</button>
+        <button onclick="testMultipleMessages()">测试多轮对话</button>
+        <div id="testResults"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>测试日志</h2>
+        <pre id="testLog"></pre>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3001/api';
+        const FRONTEND_URL = 'http://localhost:3000';
+        let sessionId = null;
+        
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('testLog');
+            const timestamp = new Date().toLocaleTimeString();
+            logDiv.innerHTML += `[${timestamp}] ${type.toUpperCase()}: ${message}\n`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        function showStatus(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            element.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+        
+        async function checkSystem() {
+            log('开始系统检查...');
+            
+            // 检查前端
+            try {
+                const frontendRes = await fetch(FRONTEND_URL);
+                if (frontendRes.ok) {
+                    log('✅ 前端服务正常', 'success');
+                } else {
+                    log('❌ 前端服务异常', 'error');
+                }
+            } catch (e) {
+                log('❌ 无法连接前端服务', 'error');
+            }
+            
+            // 检查后端
+            try {
+                const backendRes = await fetch(API_URL + '/sessions');
+                const data = await backendRes.json();
+                if (data.success) {
+                    log('✅ 后端API正常', 'success');
+                    log(`当前会话数: ${data.sessions.length}`);
+                } else {
+                    log('❌ 后端API异常', 'error');
+                }
+            } catch (e) {
+                log('❌ 无法连接后端服务', 'error');
+            }
+            
+            showStatus('systemStatus', '系统检查完成', 'success');
+        }
+        
+        async function testTextMessage() {
+            log('测试发送文字消息...');
+            try {
+                const response = await fetch(API_URL + '/chat/message', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content: '你好，我想聊聊最近的烦恼',
+                        sessionId: sessionId
+                    })
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    sessionId = data.sessionId;
+                    log('✅ 文字消息发送成功', 'success');
+                    log(`AI回复: ${data.aiMessage.content}`);
+                    log(`分析情绪: ${data.aiMessage.analysis.emotionalTone.primary}`);
+                    showStatus('testResults', '文字消息测试通过', 'success');
+                } else {
+                    log(`❌ 发送失败: ${data.error}`, 'error');
+                    showStatus('testResults', '文字消息测试失败', 'error');
+                }
+            } catch (e) {
+                log(`❌ 测试失败: ${e.message}`, 'error');
+                showStatus('testResults', '文字消息测试失败', 'error');
+            }
+        }
+        
+        async function testImageUpload() {
+            log('测试图片上传...');
+            try {
+                // 创建测试图片
+                const canvas = document.createElement('canvas');
+                canvas.width = 100;
+                canvas.height = 100;
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = '#FF0000';
+                ctx.fillRect(0, 0, 100, 100);
+                
+                canvas.toBlob(async (blob) => {
+                    const formData = new FormData();
+                    formData.append('content', '这是我画的一幅画，你觉得怎么样？');
+                    formData.append('image', blob, 'test.png');
+                    if (sessionId) formData.append('sessionId', sessionId);
+                    
+                    const response = await fetch(API_URL + '/chat/message', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const data = await response.json();
+                    if (data.success) {
+                        sessionId = data.sessionId;
+                        log('✅ 图片上传成功', 'success');
+                        log(`AI回复: ${data.aiMessage.content}`);
+                        showStatus('testResults', '图片上传测试通过', 'success');
+                    } else {
+                        log(`❌ 上传失败: ${data.error}`, 'error');
+                        showStatus('testResults', '图片上传测试失败', 'error');
+                    }
+                });
+            } catch (e) {
+                log(`❌ 测试失败: ${e.message}`, 'error');
+                showStatus('testResults', '图片上传测试失败', 'error');
+            }
+        }
+        
+        async function testMultipleMessages() {
+            log('测试多轮对话...');
+            const messages = [
+                '我最近工作压力很大',
+                '主要是项目deadline太紧了',
+                '我担心自己做不好'
+            ];
+            
+            for (let i = 0; i < messages.length; i++) {
+                log(`发送消息 ${i + 1}: ${messages[i]}`);
+                try {
+                    const response = await fetch(API_URL + '/chat/message', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            content: messages[i],
+                            sessionId: sessionId
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    if (data.success) {
+                        sessionId = data.sessionId;
+                        log(`✅ AI回复: ${data.aiMessage.content}`, 'success');
+                        
+                        // 等待1秒再发送下一条
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                    } else {
+                        log(`❌ 发送失败: ${data.error}`, 'error');
+                        break;
+                    }
+                } catch (e) {
+                    log(`❌ 测试失败: ${e.message}`, 'error');
+                    break;
+                }
+            }
+            
+            showStatus('testResults', '多轮对话测试完成', 'success');
+        }
+        
+        // 页面加载时自动检查系统
+        window.onload = checkSystem;
+    </script>
+</body>
+</html>

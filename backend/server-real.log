@@ -1,0 +1,7 @@
+
+> backend@1.0.0 start
+> node dist/server.js
+
+[dotenv@17.2.1] injecting env (12) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+✅ Connected to MongoDB
+Server is running on port 3001

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Gemini视觉测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        
+        .upload-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .upload-btn:hover {
+            background: #357ae8;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        
+        .preview {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .preview img {
+            max-width: 400px;
+            max-height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .result {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+        
+        .section {
+            margin: 15px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        
+        .section h3 {
+            color: #4285f4;
+            margin: 0 0 10px 0;
+        }
+        
+        .loading {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .error {
+            color: #d93025;
+            background: #fce8e6;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .test-images {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .test-btn {
+            background: #34a853;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .test-btn:hover {
+            background: #2e8b44;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔮 Gemini 视觉分析测试</h1>
+        
+        <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+            选择图片
+        </button>
+        <input type="file" id="fileInput" accept="image/*" onchange="handleFile(event)">
+        
+        <div class="test-images">
+            <p>快速测试：</p>
+            <button class="test-btn" onclick="testRealImage('exhibition')">测试展览照片</button>
+            <button class="test-btn" onclick="testRealImage('river')">测试河流照片</button>
+            <button class="test-btn" onclick="testRealImage('document')">测试文档照片</button>
+        </div>
+        
+        <div class="preview" id="preview"></div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        async function handleFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            // 显示预览
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                document.getElementById('preview').innerHTML = 
+                    `<img src="${e.target.result}" alt="预览">`;
+            };
+            reader.readAsDataURL(file);
+            
+            // 分析图片
+            await analyzeImage(file);
+        }
+        
+        async function analyzeImage(file) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="loading">正在分析图片...</div>';
+            
+            const formData = new FormData();
+            formData.append('image', file);
+            
+            try {
+                const response = await fetch('http://localhost:3001/api/vision/gemini-test', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayResult(data.analysis);
+                } else {
+                    resultDiv.innerHTML = `<div class="error">错误: ${data.error}</div>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">网络错误: ${error.message}</div>`;
+            }
+        }
+        
+        function displayResult(analysis) {
+            const resultDiv = document.getElementById('result');
+            let html = '<h2>分析结果</h2>';
+            
+            const sections = [
+                { key: '场景描述', title: '📍 场景描述' },
+                { key: '人物信息', title: '👥 人物信息' },
+                { key: '物品细节', title: '📦 物品细节' },
+                { key: '时间线索', title: '⏰ 时间线索' },
+                { key: '文字内容', title: '📝 文字内容' },
+                { key: '情绪氛围', title: '💭 情绪氛围' },
+                { key: '特殊发现', title: '⚡ 特殊发现' }
+            ];
+            
+            sections.forEach(section => {
+                if (analysis[section.key]) {
+                    html += `
+                        <div class="section">
+                            <h3>${section.title}</h3>
+                            <p>${analysis[section.key]}</p>
+                        </div>
+                    `;
+                }
+            });
+            
+            // 显示完整描述
+            if (analysis.原始描述) {
+                html += `
+                    <details>
+                        <summary>查看完整描述</summary>
+                        <div class="section">
+                            <pre>${analysis.原始描述}</pre>
+                        </div>
+                    </details>
+                `;
+            }
+            
+            resultDiv.innerHTML = html;
+        }
+        
+        // 测试真实图片URL
+        async function testRealImage(type) {
+            const urls = {
+                exhibition: 'https://images.unsplash.com/photo-1572947650440-e8a3ef5c7b0c?w=400', // 艺术展览
+                river: 'https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=400', // 河流
+                document: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400' // 文档
+            };
+            
+            const url = urls[type];
+            if (!url) return;
+            
+            document.getElementById('preview').innerHTML = `<img src="${url}" alt="测试图片">`;
+            document.getElementById('result').innerHTML = '<div class="loading">正在获取图片...</div>';
+            
+            try {
+                // 获取图片数据
+                const response = await fetch(url);
+                const blob = await response.blob();
+                const file = new File([blob], `test-${type}.jpg`, { type: 'image/jpeg' });
+                
+                // 分析图片
+                await analyzeImage(file);
+            } catch (error) {
+                document.getElementById('result').innerHTML = 
+                    `<div class="error">获取图片失败: ${error.message}</div>`;
+            }
+        }
+        
+        // 检查服务器
+        async function checkServer() {
+            try {
+                const response = await fetch('http://localhost:3001/api/health');
+                const data = await response.json();
+                console.log('服务器状态:', data);
+            } catch (error) {
+                alert('请先启动 vision-direct-gemini.js 服务器');
+            }
+        }
+        
+        checkServer();
+    </script>
+</body>
+</html>

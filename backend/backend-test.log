@@ -1,0 +1,2293 @@
+
+> backend@1.0.0 dev
+> nodemon --exec ts-node src/server.ts
+
+[33m[nodemon] 3.1.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): src/**/*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: openrouter
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: openrouter
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: openrouter
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/chat-session.routes.ts(2,10): error TS2724: '"../models/Session"' has no exported member named 'Session'. Did you mean 'ISession'?
+src/routes/chat-session.routes.ts(11,19): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/routes/chat-session.routes.ts(31,49): error TS7030: Not all code paths return a value.
+src/routes/chat-session.routes.ts(53,24): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/routes/chat-session.routes.ts(62,30): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/routes/chat-session.routes.ts(76,55): error TS7030: Not all code paths return a value.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 2724, 2339, 7030, 2339, 7006, 7030 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/chat-session.routes.ts(10,25): error TS2552: Cannot find name 'Session'. Did you mean 'session'?
+src/routes/chat-session.routes.ts(11,19): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/routes/chat-session.routes.ts(31,49): error TS7030: Not all code paths return a value.
+src/routes/chat-session.routes.ts(33,27): error TS2552: Cannot find name 'Session'. Did you mean 'session'?
+src/routes/chat-session.routes.ts(53,24): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/routes/chat-session.routes.ts(56,28): error TS2552: Cannot find name 'Session'. Did you mean 'sessions'?
+src/routes/chat-session.routes.ts(62,30): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/routes/chat-session.routes.ts(76,55): error TS7030: Not all code paths return a value.
+src/routes/chat-session.routes.ts(78,27): error TS2552: Cannot find name 'Session'. Did you mean 'session'?
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [
+    2552, 2339, 7030,
+    2552, 2339, 2552,
+    7006, 7030, 2552
+  ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/chat-session.routes.ts(10,25): error TS2552: Cannot find name 'Session'. Did you mean 'session'?
+src/routes/chat-session.routes.ts(11,19): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/routes/chat-session.routes.ts(31,49): error TS7030: Not all code paths return a value.
+src/routes/chat-session.routes.ts(53,24): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/routes/chat-session.routes.ts(56,28): error TS2552: Cannot find name 'Session'. Did you mean 'sessions'?
+src/routes/chat-session.routes.ts(62,30): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/routes/chat-session.routes.ts(76,55): error TS7030: Not all code paths return a value.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [
+    2552, 2339,
+    7030, 2339,
+    2552, 7006,
+    7030
+  ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/index.ts(3,31): error TS2307: Cannot find module './chat-session.routes' or its corresponding type declarations.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 2307 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: openrouter
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/chat.routes.ts(47,49): error TS7030: Not all code paths return a value.
+src/routes/chat.routes.ts(92,55): error TS7030: Not all code paths return a value.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 7030, 7030 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/routes/chat.routes.ts(92,55): error TS7030: Not all code paths return a value.
+
+    at createTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1617:30)
+    at loadTS (node:internal/modules/cjs/loader:1826:10)
+    at Object.require.extensions.<computed> [as .ts] (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Module._load (node:internal/modules/cjs/loader:1286:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  diagnosticCodes: [ 7030 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.1] injecting env (13) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+
+=== AI服务配置 ===
+AI_SERVICE_TYPE: openrouter
+OPENROUTER_API_KEY: 已设置
+GEMINI_API_KEY: 已设置
+当前工作目录: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend
+.env文件路径: /Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/.env
+==================
+
+✅ Connected to MongoDB
+Server is running on port 3001
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: openrouter
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: openrouter
+当前缓存的服务: []
+
+创建AI服务: openrouter
+
+✅ 成功创建并缓存服务: openrouter
+返回的服务名称: openrouter
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: openrouter
+
+OpenRouter API error: AxiosError: Request failed with status code 401
+    at settle (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/settle.js:19:12)
+    at IncomingMessage.handleStreamEnd (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/adapters/http.js:599:11)
+    at IncomingMessage.emit (node:events:519:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/Axios.js:45:41)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OpenRouterService.analyzeMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/services/ai/openRouterService.ts:74:24)
+    at async sendMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/controllers/chat.controller.ts:57:36) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function [FormData]], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer your_openrouter_api_key_here',
+      'HTTP-Referer': 'https://ai-emotional-support.app',
+      'X-Title': 'AI Emotional Support Chat',
+      'User-Agent': 'axios/1.11.0',
+      'Content-Length': '748',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    method: 'post',
+    url: 'https://openrouter.ai/api/v1/chat/completions',
+    data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"你是一个心理咨询师。请用简短的话回应用户（少于10个字）。\\n如果用户分享了图片，请在facts中描述图片内容（如人物、场景、氛围等）。\\n返回JSON格式：\\n{\\n  \\"response\\": \\"简短回应\\",\\n  \\"facts\\": [\\"事实1\\", \\"事实2\\", \\"图片描述\\"],\\n  \\"insights\\": [\\"洞察1\\"],\\n  \\"concepts\\": [\\"概念1\\"],\\n  \\"emotionalTone\\": {\\"primary\\": \\"情绪\\", \\"intensity\\": 0.7, \\"confidence\\": 0.8}\\n}"},{"role":"user","content":"你好，我最近感觉压力很大"},{"role":"user","content":"你好，我最近感觉压力很大\\n\\n请确保返回有效的JSON格式。"}],"temperature":0.7,"max_tokens":1500}',
+    allowAbsoluteUrls: true
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: false,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: true,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 748,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'Content-Type: application/json\r\n' +
+      'Authorization: Bearer your_openrouter_api_key_here\r\n' +
+      'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+      'X-Title: AI Emotional Support Chat\r\n' +
+      'User-Agent: axios/1.11.0\r\n' +
+      'Content-Length: 748\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: openrouter.ai\r\n' +
+      'Connection: keep-alive\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'POST',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/api/v1/chat/completions',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 401,
+      statusMessage: 'Unauthorized',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 22,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'openrouter.ai',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 748,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'openrouter.ai',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'openrouter.ai',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 5000,
+      parser: null,
+      _httpMessage: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 13271,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 330,
+        Symbol(triggerId): 328,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'content-type': [Array],
+      authorization: [Array],
+      'http-referer': [Array],
+      'x-title': [Array],
+      'user-agent': [Array],
+      'content-length': [Array],
+      'accept-encoding': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 65536,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 401,
+    statusText: 'Unauthorized',
+    headers: Object [AxiosHeaders] {
+      date: 'Mon, 04 Aug 2025 18:15:42 GMT',
+      'content-type': 'application/json',
+      'transfer-encoding': 'chunked',
+      connection: 'keep-alive',
+      'access-control-allow-origin': '*',
+      vary: 'Accept-Encoding',
+      'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+      'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+      'x-content-type-options': 'nosniff',
+      server: 'cloudflare',
+      'cf-ray': '96a00aaa2b998e91-HKG'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      method: 'post',
+      url: 'https://openrouter.ai/api/v1/chat/completions',
+      data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"你是一个心理咨询师。请用简短的话回应用户（少于10个字）。\\n如果用户分享了图片，请在facts中描述图片内容（如人物、场景、氛围等）。\\n返回JSON格式：\\n{\\n  \\"response\\": \\"简短回应\\",\\n  \\"facts\\": [\\"事实1\\", \\"事实2\\", \\"图片描述\\"],\\n  \\"insights\\": [\\"洞察1\\"],\\n  \\"concepts\\": [\\"概念1\\"],\\n  \\"emotionalTone\\": {\\"primary\\": \\"情绪\\", \\"intensity\\": 0.7, \\"confidence\\": 0.8}\\n}"},{"role":"user","content":"你好，我最近感觉压力很大"},{"role":"user","content":"你好，我最近感觉压力很大\\n\\n请确保返回有效的JSON格式。"}],"temperature":0.7,"max_tokens":1500}',
+      allowAbsoluteUrls: true
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 748,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/json\r\n' +
+        'Authorization: Bearer your_openrouter_api_key_here\r\n' +
+        'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+        'X-Title: AI Emotional Support Chat\r\n' +
+        'User-Agent: axios/1.11.0\r\n' +
+        'Content-Length: 748\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: openrouter.ai\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/api/v1/chat/completions',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'openrouter.ai',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 65536,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: { error: [Object] }
+  },
+  status: 401
+}
+Error response: { error: { message: 'No auth credentials found', code: 401 } }
+Error status: 401
+Error headers: Object [AxiosHeaders] {
+  date: 'Mon, 04 Aug 2025 18:15:42 GMT',
+  'content-type': 'application/json',
+  'transfer-encoding': 'chunked',
+  connection: 'keep-alive',
+  'access-control-allow-origin': '*',
+  vary: 'Accept-Encoding',
+  'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+  'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+  'x-content-type-options': 'nosniff',
+  server: 'cloudflare',
+  'cf-ray': '96a00aaa2b998e91-HKG'
+}
+Request config: {
+  model: 'openai/chatgpt-4o-latest',
+  apiKeyPresent: true,
+  apiKeyLength: 28,
+  url: 'https://openrouter.ai/api/v1/chat/completions'
+}
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: openrouter
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: openrouter
+当前缓存的服务: [ 'openrouter' ]
+
+创建AI服务: openrouter
+
+✅ 成功创建并缓存服务: openrouter
+返回的服务名称: openrouter
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: openrouter
+
+OpenRouter API error: AxiosError: Request failed with status code 401
+    at settle (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/settle.js:19:12)
+    at IncomingMessage.handleStreamEnd (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/adapters/http.js:599:11)
+    at IncomingMessage.emit (node:events:519:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/Axios.js:45:41)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OpenRouterService.analyzeMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/services/ai/openRouterService.ts:74:24)
+    at async sendMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/controllers/chat.controller.ts:57:36) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function [FormData]], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer your_openrouter_api_key_here',
+      'HTTP-Referer': 'https://ai-emotional-support.app',
+      'X-Title': 'AI Emotional Support Chat',
+      'User-Agent': 'axios/1.11.0',
+      'Content-Length': '738131',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    method: 'post',
+    url: 'https://openrouter.ai/api/v1/chat/completions',
+    data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"你是一个心理咨询师。请用简短的话回应用户（少于10个字）。\\n如果用户分享了图片，请在facts中描述图片内容（如人物、场景、氛围等）。\\n返回JSON格式：\\n{\\n  \\"response\\": \\"简短回应\\",\\n  \\"facts\\": [\\"事实1\\", \\"事实2\\", \\"图片描述\\"],\\n  \\"insights\\": [\\"洞察1\\"],\\n  \\"concepts\\": [\\"概念1\\"],\\n  \\"emotionalTone\\": {\\"primary\\": \\"情绪\\", \\"intensity\\": 0.7, \\"confidence\\": 0.8}\\n}"},{"role":"user","content":"这是我和朋友们的合照"},{"role":"user","content":[{"type":"text","text":"这是我和朋友们的合照"},{"type":"image_url","image_url":{"url":"data:image/jpeg;base64,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'... 727927 more characters,
+    allowAbsoluteUrls: true
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: false,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: true,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 738131,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'Content-Type: application/json\r\n' +
+      'Authorization: Bearer your_openrouter_api_key_here\r\n' +
+      'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+      'X-Title: AI Emotional Support Chat\r\n' +
+      'User-Agent: axios/1.11.0\r\n' +
+      'Content-Length: 738131\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: openrouter.ai\r\n' +
+      'Connection: keep-alive\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'POST',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/api/v1/chat/completions',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 401,
+      statusMessage: 'Unauthorized',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 22,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: true,
+    host: 'openrouter.ai',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 738131,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'openrouter.ai',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'openrouter.ai',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 5000,
+      parser: null,
+      _httpMessage: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 15578,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 420,
+        Symbol(triggerId): 418,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'content-type': [Array],
+      authorization: [Array],
+      'http-referer': [Array],
+      'x-title': [Array],
+      'user-agent': [Array],
+      'content-length': [Array],
+      'accept-encoding': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 65536,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 401,
+    statusText: 'Unauthorized',
+    headers: Object [AxiosHeaders] {
+      date: 'Mon, 04 Aug 2025 18:15:44 GMT',
+      'content-type': 'application/json',
+      'transfer-encoding': 'chunked',
+      connection: 'keep-alive',
+      'access-control-allow-origin': '*',
+      vary: 'Accept-Encoding',
+      'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+      'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+      'x-content-type-options': 'nosniff',
+      server: 'cloudflare',
+      'cf-ray': '96a00aac3e6b8e91-HKG'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      method: 'post',
+      url: 'https://openrouter.ai/api/v1/chat/completions',
+      data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"你是一个心理咨询师。请用简短的话回应用户（少于10个字）。\\n如果用户分享了图片，请在facts中描述图片内容（如人物、场景、氛围等）。\\n返回JSON格式：\\n{\\n  \\"response\\": \\"简短回应\\",\\n  \\"facts\\": [\\"事实1\\", \\"事实2\\", \\"图片描述\\"],\\n  \\"insights\\": [\\"洞察1\\"],\\n  \\"concepts\\": [\\"概念1\\"],\\n  \\"emotionalTone\\": {\\"primary\\": \\"情绪\\", \\"intensity\\": 0.7, \\"confidence\\": 0.8}\\n}"},{"role":"user","content":"这是我和朋友们的合照"},{"role":"user","content":[{"type":"text","text":"这是我和朋友们的合照"},{"type":"image_url","image_url":{"url":"data:image/jpeg;base64,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'... 727927 more characters,
+      allowAbsoluteUrls: true
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 738131,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/json\r\n' +
+        'Authorization: Bearer your_openrouter_api_key_here\r\n' +
+        'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+        'X-Title: AI Emotional Support Chat\r\n' +
+        'User-Agent: axios/1.11.0\r\n' +
+        'Content-Length: 738131\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: openrouter.ai\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/api/v1/chat/completions',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: true,
+      host: 'openrouter.ai',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 65536,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: { error: [Object] }
+  },
+  status: 401
+}
+Error response: { error: { message: 'No auth credentials found', code: 401 } }
+Error status: 401
+Error headers: Object [AxiosHeaders] {
+  date: 'Mon, 04 Aug 2025 18:15:44 GMT',
+  'content-type': 'application/json',
+  'transfer-encoding': 'chunked',
+  connection: 'keep-alive',
+  'access-control-allow-origin': '*',
+  vary: 'Accept-Encoding',
+  'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+  'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+  'x-content-type-options': 'nosniff',
+  server: 'cloudflare',
+  'cf-ray': '96a00aac3e6b8e91-HKG'
+}
+Request config: {
+  model: 'openai/chatgpt-4o-latest',
+  apiKeyPresent: true,
+  apiKeyLength: 28,
+  url: 'https://openrouter.ai/api/v1/chat/completions'
+}
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: openrouter
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: openrouter
+当前缓存的服务: [ 'openrouter' ]
+
+创建AI服务: openrouter
+
+✅ 成功创建并缓存服务: openrouter
+返回的服务名称: openrouter
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: openrouter
+
+OpenRouter API error: AxiosError: Request failed with status code 401
+    at settle (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/settle.js:19:12)
+    at IncomingMessage.handleStreamEnd (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/adapters/http.js:599:11)
+    at IncomingMessage.emit (node:events:519:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/Axios.js:45:41)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OpenRouterService.analyzeMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/services/ai/openRouterService.ts:74:24)
+    at async sendMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/controllers/chat.controller.ts:57:36) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function [FormData]], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer your_openrouter_api_key_here',
+      'HTTP-Referer': 'https://ai-emotional-support.app',
+      'X-Title': 'AI Emotional Support Chat',
+      'User-Agent': 'axios/1.11.0',
+      'Content-Length': '784',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    method: 'post',
+    url: 'https://openrouter.ai/api/v1/chat/completions',
+    data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"你是一个心理咨询师。请用简短的话回应用户（少于10个字）。\\n如果用户分享了图片，请在facts中描述图片内容（如人物、场景、氛围等）。\\n返回JSON格式：\\n{\\n  \\"response\\": \\"简短回应\\",\\n  \\"facts\\": [\\"事实1\\", \\"事实2\\", \\"图片描述\\"],\\n  \\"insights\\": [\\"洞察1\\"],\\n  \\"concepts\\": [\\"概念1\\"],\\n  \\"emotionalTone\\": {\\"primary\\": \\"情绪\\", \\"intensity\\": 0.7, \\"confidence\\": 0.8}\\n}"},{"role":"user","content":"我觉得所有人都在针对我，没有人理解我"},{"role":"user","content":"我觉得所有人都在针对我，没有人理解我\\n\\n请确保返回有效的JSON格式。"}],"temperature":0.7,"max_tokens":1500}',
+    allowAbsoluteUrls: true
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: false,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: true,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 784,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'Content-Type: application/json\r\n' +
+      'Authorization: Bearer your_openrouter_api_key_here\r\n' +
+      'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+      'X-Title: AI Emotional Support Chat\r\n' +
+      'User-Agent: axios/1.11.0\r\n' +
+      'Content-Length: 784\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: openrouter.ai\r\n' +
+      'Connection: keep-alive\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'POST',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/api/v1/chat/completions',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 401,
+      statusMessage: 'Unauthorized',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 22,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: true,
+    host: 'openrouter.ai',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 784,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'openrouter.ai',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'openrouter.ai',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 5000,
+      parser: null,
+      _httpMessage: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 15778,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 499,
+        Symbol(triggerId): 497,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'content-type': [Array],
+      authorization: [Array],
+      'http-referer': [Array],
+      'x-title': [Array],
+      'user-agent': [Array],
+      'content-length': [Array],
+      'accept-encoding': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 65536,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 401,
+    statusText: 'Unauthorized',
+    headers: Object [AxiosHeaders] {
+      date: 'Mon, 04 Aug 2025 18:15:44 GMT',
+      'content-type': 'application/json',
+      'transfer-encoding': 'chunked',
+      connection: 'keep-alive',
+      'cf-ray': '96a00ab9c97a8e91-HKG',
+      'access-control-allow-origin': '*',
+      vary: 'Accept-Encoding',
+      'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+      'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+      'x-content-type-options': 'nosniff',
+      server: 'cloudflare'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      method: 'post',
+      url: 'https://openrouter.ai/api/v1/chat/completions',
+      data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"你是一个心理咨询师。请用简短的话回应用户（少于10个字）。\\n如果用户分享了图片，请在facts中描述图片内容（如人物、场景、氛围等）。\\n返回JSON格式：\\n{\\n  \\"response\\": \\"简短回应\\",\\n  \\"facts\\": [\\"事实1\\", \\"事实2\\", \\"图片描述\\"],\\n  \\"insights\\": [\\"洞察1\\"],\\n  \\"concepts\\": [\\"概念1\\"],\\n  \\"emotionalTone\\": {\\"primary\\": \\"情绪\\", \\"intensity\\": 0.7, \\"confidence\\": 0.8}\\n}"},{"role":"user","content":"我觉得所有人都在针对我，没有人理解我"},{"role":"user","content":"我觉得所有人都在针对我，没有人理解我\\n\\n请确保返回有效的JSON格式。"}],"temperature":0.7,"max_tokens":1500}',
+      allowAbsoluteUrls: true
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 784,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/json\r\n' +
+        'Authorization: Bearer your_openrouter_api_key_here\r\n' +
+        'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+        'X-Title: AI Emotional Support Chat\r\n' +
+        'User-Agent: axios/1.11.0\r\n' +
+        'Content-Length: 784\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: openrouter.ai\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/api/v1/chat/completions',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: true,
+      host: 'openrouter.ai',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 65536,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: { error: [Object] }
+  },
+  status: 401
+}
+Error response: { error: { message: 'No auth credentials found', code: 401 } }
+Error status: 401
+Error headers: Object [AxiosHeaders] {
+  date: 'Mon, 04 Aug 2025 18:15:44 GMT',
+  'content-type': 'application/json',
+  'transfer-encoding': 'chunked',
+  connection: 'keep-alive',
+  'cf-ray': '96a00ab9c97a8e91-HKG',
+  'access-control-allow-origin': '*',
+  vary: 'Accept-Encoding',
+  'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+  'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+  'x-content-type-options': 'nosniff',
+  server: 'cloudflare'
+}
+Request config: {
+  model: 'openai/chatgpt-4o-latest',
+  apiKeyPresent: true,
+  apiKeyLength: 28,
+  url: 'https://openrouter.ai/api/v1/chat/completions'
+}
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: openrouter
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: openrouter
+当前缓存的服务: [ 'openrouter' ]
+
+创建AI服务: openrouter
+
+✅ 成功创建并缓存服务: openrouter
+返回的服务名称: openrouter
+========== 结束获取AI服务 ==========
+
+Image analysis error: AxiosError: Request failed with status code 401
+    at settle (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/settle.js:19:12)
+    at IncomingMessage.handleStreamEnd (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/adapters/http.js:599:11)
+    at IncomingMessage.emit (node:events:519:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/Axios.js:45:41)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OpenRouterService.analyzeImageForAbnormalities (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/services/ai/openRouterService.ts:149:24)
+    at async analyzeImage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/controllers/chat.controller.ts:131:27) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function [FormData]], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer your_openrouter_api_key_here',
+      'HTTP-Referer': 'https://ai-emotional-support.app',
+      'X-Title': 'AI Emotional Support Chat',
+      'User-Agent': 'axios/1.11.0',
+      'Content-Length': '737810',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    method: 'post',
+    url: 'https://openrouter.ai/api/v1/chat/completions',
+    data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"分析图片中的异常点或重点，返回3-5个观察结果。关注情感相关的细节、环境、表情、物品等。以JSON数组格式返回。"},{"role":"user","content":[{"type":"image_url","image_url":{"url":"data:image/jpeg;base64,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'... 727664 more characters,
+    allowAbsoluteUrls: true
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: false,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: true,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 737810,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'Content-Type: application/json\r\n' +
+      'Authorization: Bearer your_openrouter_api_key_here\r\n' +
+      'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+      'X-Title: AI Emotional Support Chat\r\n' +
+      'User-Agent: axios/1.11.0\r\n' +
+      'Content-Length: 737810\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: openrouter.ai\r\n' +
+      'Connection: keep-alive\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'POST',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/api/v1/chat/completions',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 401,
+      statusMessage: 'Unauthorized',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 22,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: true,
+    host: 'openrouter.ai',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 737810,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'openrouter.ai',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'openrouter.ai',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 5000,
+      parser: null,
+      _httpMessage: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 18144,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 607,
+        Symbol(triggerId): 605,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'content-type': [Array],
+      authorization: [Array],
+      'http-referer': [Array],
+      'x-title': [Array],
+      'user-agent': [Array],
+      'content-length': [Array],
+      'accept-encoding': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 65536,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 401,
+    statusText: 'Unauthorized',
+    headers: Object [AxiosHeaders] {
+      date: 'Mon, 04 Aug 2025 18:15:47 GMT',
+      'content-type': 'application/json',
+      'transfer-encoding': 'chunked',
+      connection: 'keep-alive',
+      'cf-ray': '96a00abb6b9b8e91-HKG',
+      'access-control-allow-origin': '*',
+      vary: 'Accept-Encoding',
+      'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+      'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+      'x-content-type-options': 'nosniff',
+      server: 'cloudflare'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      method: 'post',
+      url: 'https://openrouter.ai/api/v1/chat/completions',
+      data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"分析图片中的异常点或重点，返回3-5个观察结果。关注情感相关的细节、环境、表情、物品等。以JSON数组格式返回。"},{"role":"user","content":[{"type":"image_url","image_url":{"url":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQICAQEBAQMCAgICAwMEBAMDAwMEBAYFBAQFBAMDBQcFBQYGBgYGBAUHBwcGBwYGBgb/2wBDAQEBAQEBAQMCAgMGBAMEBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgb/wAARCAT/BqoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9lV0gv93J+lTx6DMzAbHP4V6RJ4u+EvhJSdY1jSOP4m1fOK8M8Y/t2/sp+EA+74geD9q/eX+1f/rV/Rj4z4Xy9f71CV/Pt8vM7cNgquJvvp5HcDQWkXbGhZj0IXNdz4b8Cauo3bSgfleMV+RHxM/4LO/s9aCbhPC+k6zrk8ZYRf2SYwCw6YJFfA/jP/gud8VJmmi8HaEukxOSIpNVDFgOxwvBr5jMvF3hnA6Qcpt32Wn3nowyfMJO3s/x/wCAf1KXXhTSrXI15vKB+857Vyp8W/B/wm7/ANqeK4wFY/JnAHoCa/ix+Jv/AAVR/aZ8YCcQ+NLzTFnB3pFclV59CelfC/i/9qX41eKXnOt+M9U1XzCd6Lfuev0NfE43xexVeSWFoP5yS9OjOqHDuMkrt2P70fH37f37LvwyWUal4q0gtADxaapFKxI9VZs5r4U+I/8AwXX/AGdfBZmHh/TtS1yRM+UYIyFYj12g1/E5qPijxTrDu1xrlyoc5b7RcZI/M1zrzwwo0aSqzM2Zpi2S7dzXg1uJOLczu6tRRj001V/n+hnDKUr83Q/p2+KP/BxR451J5Ifhv4KGkoCRFNdsAQOx+YivgT4nf8Ftv2vfGReO18ef2EkxIKW00IK/QivxquJ16E8EcVTN0n98ficV4lSeOqP95Vb+djnjGnTdvZ3/AK9D6x8WftnftBePH1g+KfilqmtrOcvHNepcLg/73Ar55vfGvirUji48U6iwblo7q885T7YIIFciZFn+VVWZscR5zmt7StK16fPl+FJJcn5HOTmsfZUkruX4mqnPpAtyalPKieZMJWI5IXApiSSP0U/ga9U8KfAz4veNSq6J4Ouikx/dtFpjyDB9wK+v/hp/wTN+PnjQobuBNJjlxuNy6QkD6Mc14lfPckwl1WqqNvO56OCybNsxf7qk3+G5+eAcqQ45IPGa1Vj1YlYuqki5/Cv6E/hN/wAELJNeaC48eeP7O3OVZ4VmLn6fKK/TD4Xf8EYP2YvDX2Y+IkvNcaHG4w3eVb86+LzPxOyDAO0bz38j6/DeHGd1knJqJ/G/aeHtV1Yxvb6ff3TSEHZbWrPuz9BX0V4L/ZW+NfxHVR4R+E3jyV/4Tp2hkBvz7V/d58MP2F/2U/A0Nqnhf4a6Cs9uAGvb2zE0hx6kjGa+2/Dfgbwd4cgtrfSNFsraOMYiS3tVRePQACvg818cI4V2p4dNO+8v+AfU5f4Y4WnF/WJ8z+6x/Br8Mf8AgkH+1t458k33wxl0KOXGJ/EOo/ZyAe5XH6V91eBP+DfT433zwSeJPFHhfQYyQXjjt/tDAexNf2Z2gtwFWC0iTscRitqO1ZiAoVOOcJXwWM8ZeJKsn9X5aaflf8f+Ae/S4JyLBq/J95/OB8Pf+DeX4Rwi1f4i+O9Q1xl2mSLTIPsAPqMw8/rX214S/wCCH37F/hAWzy+AJ9fnh2mOXVdRubjkdOXm/pX7CW+jSjY/mFQDwFxXXQxPtRWDMFQDk+lfM4rxA4ux9+evL5aGVWeEyqS9hBL/AIGx8HeCf+Cfn7P/AILSH+wPhp4Z0logvlSW+lRyuMdDl1Y5r2pP2bdHhjC2MEEaoPkWOFYuPouK+oYlwAFHJ7CrgV1AHI49a8Wpm2a4pe/Ubv5m1bi/OWrKdkfJ6fAM27EiGM4PUN/9etCP4RfZgMwJx/tf/Xr6akVMcqTu6ZNZ8tpG+Tz9K4Z08XZv2jIhxNnEt6jPmmbwDeQNiNF8hTggntVRvC2nREBUHmA/OccV77fWd1uYRj9z34rk7+0scME2rM3BwOhry7zjfmZ7+AzqtVtzSueXv4S0uZVO4bv4hwOazLnSLTTgQo47ZrvJtNks8uyvgknANZNysEwO9Dn6Vwus2z1qWOc7I8e1lQSQyErnlT6V8pfFn4feFPiH8/izSd8mjc6Tx1NfYetom5woyAeOa8V8UWXnBi69ORngV1U/ekrHpKSaPliS/i0xTbXV3NEuMAEbc15v4gmtWd57SWZmOfmQbxXt/ii30eIP9uurK0IHWZg5r5j8a+JPCujmVhrsAC/wwyBRX2OApYjTQ48ViUkeW+MZb2VneSSFUGcMPkevnTxfAt/GUW487b95b4ZGO+K7jxn8ZfCdmJdkkdwy9ZCN9fJ/jb9oXRV3rHp63mG4AHl4r7nL6WIaWh81i8THU5jxLb20MjLFFGrCXnaMDNeJ+K4gVmaV4lUEZBNcz4x+OzzSOsVrbQ5l+Vd/TNeG+JPHWr6sk0iOm0sMhHr9AwGXttaHx2KzLc7/AFPVNOslnBaIkIO9eWa9q9nceYQIgPLH8VeN+KfFt9aC4WWOYnaPmFeWXWt6hqLu8c88YEedu7FfcYHAWSPnMVmDdz0/XNZ0xFbJRPUj1rzO88RaWm8iQOT0QN1riNW1R7hTGGZnTg/P371w7i7Z88hS3JIzivoqWCskeFVx129TtdS8R20zFUfysniLPWsfzHnR3jg+z/L/AK71rmLlZIcOV8w9d/TFFvrHkACSbzx3iJ6V6tPCRSR5VTGNtkCTXNyzrO2AD/FWBqiLbsWRs47A12Jmtb1T5UYRm/CsK+0l2DdSD0xXW6CicirubOS/tLf8g9e9BcsCy9akl0wxuTg8HvUYKRHBPQ85rpWiM9yP7VqHK5O33p4aV/8AWE+4NWhPAy4IoKxsMqTn0rpOcq+WhP3QTT1iAYEJyD6U8pKvKDNNWS+LbPK4PfFAE8iPKqgHpSwjyfvEcdaebOfaGL4JHQGlSykfq2feg5yKcxS9efxpsRt4hjHUVO9q0fVc00W5dT8h9uKAM99mSVJOT6UzJHI/SrjWpDEdB9aTyFU884oOcp+c45wR70xriUg4zWhsjHUD8aG8lVOFyfpQBiRmZnJYHB9qttEjIQx5xTTPlyAmBTmXzFHJFAGTPaQk5BB5quLbHQgVdntnGdpJqiROhxzj2FAENx0/CsWXr+JrauPu89cc1iy9fxNdAGfN0b6msSfq3+e9bc3RvqaxJ+rf570AU3+6ahqZ/umoaAIn6j6VG3Q/SpH6j6UygCgUAY4BJpwQnrxVny/f9KesYPQZ9zQBAq8YAJp4Q9yBVkIO5zUgj44X86AMaRDx7dKt2KHePc81bltx6fWmQ/u2GOua6DnO1sVGwe1Wp1XaT39q5uG/Ma4z0HTNI+qFiFzjNAE8zgknsKzJj1/KrbPvAPr1qjJk4Pqea5wKznt+dOU5AzTSmSTng1KFPYcUAJQGVSGZdyg8r607Y3p+tGxvT9aANFd8RGp6URp0qdMnqa/X79mv9oz/AIWfoNv4Y1Z8+KNLhjy7nm78kdfxr8eQSQIyfkPVe1dH4b8R6x4I1i08Q+H7qa0urOUOVgkKkgHkcetceMpSnC66Hdga8KU2n1P1Y+M/wvPinR8sCP7PU4O2vy18QaNeaJq13p11G0dhDMwGR1GetfrZ8GPjNovxk8IC2uZIINdtodt9ayEDOByQPWvCvjf8Ibe8juL6xt0WZdx2AYDj1FefluY041nCatc7sZSlVp3j0PzU1W3+zvhR+6cAxN6iuRufvflXqOuafJbvPpt0pS4t2/clxzjPSvLbwhXZG+8Oor6Q+cl8RUEgz3HvUglHsf0qngFjkfjmnDj3+poEX1lA749iKk80Y7fnVIDjoV/Gk+ZTn7w9KALZmk/vqB7tQLqQf8tV/Gqoli4HlZP0NOzH/wA82/KgC19ulH/LVf1NKNRm7yMffFVB5ZONrD3K07yoz05/GgCydQkPWRvyqI30h6s/500QLkfK3404wqP4BQA03jnqXP1NRm5c9cn6tVj7Pj/ln+lO8o91A+ooAq/aH9P1pvmSnjGc/wCzVwQv2jP4CnpGxYZVse60AUDC55wxz/sU4W7HrkD/AHa31tgQOue/y0/7HzjB6f3aAMQ22O36U0W+SBjr/s1vPFGOjD34quFiDgbl/OgCoLQkA4PP/TOl+yMOcEY/6Z10kNoJFGwbvo1T/wBmynjymOe2aAOZUYGMEY7EYqxGEYgMQOOflrqo/C99KAVtJTu6EitWDwTqD7SYVjHq0gFAHI+VCihlwWPtUX2iRDtVTj1r0BvBtzB8z7WHsc1Rn0yO2VvMVSR146UAcwkzkDIIPepSxIwcfWppDbhsIVz6A5pjKMcAU7MDMf7xpRHI3IRj9BVl4zgsACByBXp/wru1TVHzDvKISyle2KLMDzyy8Pa9qODYaLqt4rdHt7B3X8wMV1dn8K/G97t26Q9uG6m6mWMj8Cc17bL8Vtc0t2bRvCLSDJ5QgE/Ssa5+LHxT1JsWfhq9sg5480/ypqEmByVt8DPGTAGW9itweuOcVt2/7O97cFJb3xCiBTlvnXiruPjp4iAEVv8AZg3OXkwcUq/C7443BBmvmiWTqBJVeza3E9jpIfgn4ciRV1XxYrKo+YGYU5vhp8ItPHmXesw3EidQ2MGoLT9m74j6iUk1HxLKocDMauTXc6V+yXezuv8AaGqajPu+9tjaolKjDeSONwnfY4tbj4FaTxJDpkrIcAmEZqU/Eb4O2S7bTT9MYqOALbr+le46b+xbolxtIt9Wu5j1DxHrXf6d+w/cgqbPwjczqejSQZ4rL63g4v4hck+x8dyfHjwfZMV0nw7DNIDgGO0yCfyqMftCeMJcLo3hFin8JEBH9K/SHw9+wr4gYRvF4U06HOP9dEAR9a9t0L9h7xDCFMmmaLbY6HyhkGu15tgKa+JfeilSqvZM/Gtvi38ddXITT/DV3ArcAtCQKsxJ+0drZ3NaSxRMOcsRiv3h0X9i7UztF7rOnW6AcpDABxXpmmfsYeGY1Vr7WJpXIGRFwP0rjq8SYGlszWODxEuh/O+nwu+NmrnF3qzWik/MnmGta0/Zr8Z353ajr97IzfeSIE1/R7p/7Jvw+sDmXNwRjbvFdlY/AvwLppAg0uBin8TRivPq8WUV8KNo5fVe7P5utM/Y8vLtwLq81W43Hn92a9H0j9h+wG1rm11mVif+WkmBX9D9v8MPCduylNIs1weqwiuvs/CPh+1UeVplqMd/JFcVTiuo9jeOXJbs/n30/wDYUVvLaDwlf34Y/K5uXbI/KvXvDn7BlyAjf8ITHaDqWuWDEfnX7kRWVrbACG3ihCjjagFSSOmCCc8cAV51XiTESJq5XTq212Pyo8P/ALDpiVN1nZWhA6+UOP0r1rRf2Nba1Km41KFUXHyKlfeLysCcZGfeoHkznJyfTFcM87xMxLKqEVufKtl+yr4QiK+fdhyDyVXOa6+0/Zj+HcYHmPIxA/hSveo5HJBEJI9aurOqjDRBSR3FYvNcQzn/ALOop7HkOnfAb4daeQV05J9vQsua7Sz+H/hGwUC20SzUDoxjFdWVmJyiqqntUflXJPBHJ4Gaylj8RNmscJSgtjPi07RbY4TT7ZCB/wA8s/0q6k2nRcJAFx/djFWWtJQA0phQY6sapPPp0B/f3NuOecYqHVxc31KUaMS+LyJxtCfQYp6xJKwIQk9uMVmnW/DEAUyX0Ck9jS/8Jd4XjUt9ujKjrsPNVH67fZkyeHtujoPs9yqjEUigdDmq5juQwHmOMHhciuYTx74anfZZJqt5JngQxEg1fj1nVbrDaf4M8SXuT8hjsXOf0ruUMbJLc86pVwkW7yX3nTwiTC71x7q3NakXlqATJcA+gU4rGs9I+LV8VOn+BGtoz9172ULj6iuxs/hr8a70AT/2NpkbdUKbmFarA4ue5508bhYP4intOcAMfQsOaQEKct0HXjNdbb/s8eMdQAbVfF7WoY/OLNAK3LH9mDRyVOreO/El22eUWUgV0LLqnVmEszw8Tzp9U0+AYlu4oCOvmIFxVA+K9Dhcbtd05SDyv2rBx9K+irH9mr4X2pVrpdb1VxyDc35IJ+ldlYfCT4ZaaVWDwZYzlf8AlpdWvmH8a2hl0bq7OaebxT0R8nn4keGECrBqbX0g42WcDSc/lU0XjfULx9ml+FPEV+W+5KujtsP4190af4Z8I6aqnT/CWj25HdNIVT+eK6WC48gBILJLeM9oYguPwAr1aeBoRjsc1TNarWh8KWtj8YtWx/ZngeaONvuvcDZge4rpbP4T/HTUirzWunabGSMl3yw/DNfZ/wBol6rJImeoD4/lSAyscm7lHtuNbxoUo7I8qpmNeUtz5psvgP8AEO72nVvHlvZqPvJDpwbj0zXT2/7OmlOoGs+L9dvm/iFliMGvoIOxUAuze7HNWk+8K0UYrYwli68up4bZ/s9/De2YGfT9a1IhvvXd2T/Wu8074QfDnTyrWvhezdlP37ggkfnXoik4HJ6etWQCTgVRk6tR7szbLw7oNkqrBpVhCV6DygcV0UC2sOFjjijAPRIgP6VVEJOPfpU6QHjj8K6CG2zTS4jHQMeOhPFWFukX7qqM9eaz0gOfepxAT7+ooEa6ncoPqKWmrwqj/ZFSJ94UAHllvlIwG71+NX7efwmbS9XGuBSw1Y7jgV+06opUcYz6V4L+0f4BtPiB8OtRtXtY59V0yJntX8sFio6AflQNOzufy2atD5O6IgZiJU5HpXLP9017l8TPCVz4f1q8tpYXj/et8pXGGzyK8VuIHQsMEAnjNKWx9nlNaDVu6/I5q46/jWPIAxKnoa27iNsnjoax5EfJAHP1rhlue4N8tcYBJK80bmfDndheKmRPKAlZSQ9SfIP3YQgv7VzHQQCGMfvSSC/0pvEDBF3Hcc9ak8gv8g4Cds0FkVTIRkpx1NAFVRgbRzicOD/tVs2/STB6zBl/rWUcCTgHHkGQD3rUtThY/QQlgPUmucmfwm/YEeedveUbPp3r6E8Jn9xkdsAf7tfOmntiaHHZcDHvX0D4UlC2qkHOE2j6etKWx51bZnuHhkb9R0sLz/pS8/jX73/Bb914D0kHvbL1+lfgh4LwNS0zeRgXS4z9a/e74UsE8A6SV6fZl/lXF9s+TzXc9Juplw30rk72ZSG47CtC6mbDfSuUvJm5/CvVjseQk7nNao6/OcDHpXnOoSKC+e3Suu1SdgH+leZandMGfkY9CaZ6CqqxnahOgVvbOa871G6RXZu4NbWp3rBWrzPU759zemaCo1VcxdX1BZLhwTxg15lq11GjTNkcjtWrrl0ySsyk/ga8z1S6mYvnPNB61IwdZ1lVSZcj8TXjviG/jls5csvIPFdb4gcpHISeua+fPFettbwyoHwe3NB6dLc8U8Z3pLSpLKskeT/qxivFp5gXdUSUR+pkrovEepF3kiaR5RnkuMVw3nSyExpHGF7PvoPSjsUr2ZA7K+zy89StY0rysCsDkReqnFadzJMpMThyvdgmaxJlR28rdsGfvMcUDM+Qsu87irr/AB+hr51+Pn7nwy39mfuv7QJ/tQMcfaK+i51aNCsg3oBw6jnH9a+c/wBolQnhmwaM4CuSRjpmnHccdz4LWMIwTYE28bMdPar6AbDwOg7VRU5fI6EmtGIAjB6YGa74dDujsVhlwEYYG7k+3f8ATFbkcS+VFg8jGfr/APrxWaiCWbYBjI54/D+lattC53E9ueT68/0repsM6DTZH82PaOnf/PvmuvcLIyEkcD/P6ZrlNIkUFs8lDx+HP9a6kqZIgUOOcDn04/rXBV6gWdjE7VP7vqOarPDdMSCBtH3DipESfaEz8oHBpjXV0MqVOI+h9a5zoKLw3bAmQEED5aqmBz80hIkHSrsl5czZLJt2HjiqTG4kPmNlW7rQA4BlwSSpzwUp322YcC+1UY7BaZ0wX3AH7xUc1aFvbY/49td/Acf+i6AP1X8TfEr4x65eyJ4h8a+JLuNtwZZtVBB61waQTz2jteSXt45LbmlusknJrf166ubW7czWdjL8x/490LVBZ3ep3FvstNJucZ/5Z2YxX51Ugp2P2GTox6IzU06F40xbMw2jBlYn61Vm0iMq25YoxzgEd67hNF1q4jTNuYQV/wCWh201fBV5M6m6vIIVP3gH5ojGae4SqRseBa5piQ7zOyyKM4VRXCsllkxxafOz5+UxqeDX2C/gnw1CqtczNdP/ABA8c1p2Gj+GLTAi062BB6lc16cMaqS03OGUpSdj4iTwv4g1FyLbRrl1duC8RrYtfgh431dkEdk1uHPDuMYr7qgvNOt8Lb2UAA6ER1pR6vdEfuYkVPZcVFTiHMloiHlvNrc+TNC/Y/8AEl1sfUddijRsFk38gV7Vof7HnhiII2ra155H3kVuvtXs2m30skiiSRwc8jPFeoaWlvIiFgSePm3ZxXj1s7zSpf3rF08qo31OZ8DfsyfCewCCbSYZ2XGHaAtkivrLwV8IPh3puw2ej6eGTG0vZ5/pXKeGXmQKPtku3jahhzivc/DTMx2G4nJboPIAFfH5vjsfPeo/vPrMoy3DKOy+4998CaRpVp5HlW1ugjC4CxgCvrHw7eRr5SQhVPGAB0r5m8H2uyJXZ3A2jBYc1794SUyTxjO4A45r83zOvVrTu3ex+gZThIYWFkrXPrDwldsojO7IIHOK+g/D94AAdnmZ/gz19q+aPDsgjEYzyoA/KvcvD1w4aI4POCDivlsReTPZPpXTL7Gi+bpelebqoGRpxPX8a6L4d+NbzxXps11qvhLWPDuoaM5W70y8XDbv9muV8J3ckU8Eygq+AC4HNe8aNtdScACT72O9fI5lBzqpDW5et7vz9j2tvIM84Za6u1lK7GuVZAOwFQRQkcwqASPTvWp8kYU3zLGP4XYVxxhytHj46pzR0OgswL4qts0qFf8AnpmunthdWgVZEjm3YAZjXE2msaVCyouqxSuP+WcfWuwstXvJigsdHmvw3Rh3r2KcVK1kfAZs/Zpt6HXro97tWTNv84yQtTC1lj4aNyx/uDNVIofE0u0HRprNjj7z5wavHQvFEiqZNQSzVjgBlG4fSvQeHaWsfwPjYYyKesvxKk1m/JEbDPrXPzxFSeSBj1rfm8J3wBNx4kvYnP8Ad2jBrz3xZ4WsdM0yTUtavfEO'... 727664 more characters,
+      allowAbsoluteUrls: true
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 737810,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/json\r\n' +
+        'Authorization: Bearer your_openrouter_api_key_here\r\n' +
+        'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+        'X-Title: AI Emotional Support Chat\r\n' +
+        'User-Agent: axios/1.11.0\r\n' +
+        'Content-Length: 737810\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: openrouter.ai\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/api/v1/chat/completions',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: true,
+      host: 'openrouter.ai',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 65536,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: { error: [Object] }
+  },
+  status: 401
+}
+
+========== 获取当前AI服务 ==========
+环境变量 AI_SERVICE_TYPE: openrouter
+环境变量 OPENROUTER_API_KEY 存在? true
+环境变量 GEMINI_API_KEY 存在? true
+最终决定的服务类型: openrouter
+当前缓存的服务: [ 'openrouter' ]
+
+创建AI服务: openrouter
+
+✅ 成功创建并缓存服务: openrouter
+返回的服务名称: openrouter
+========== 结束获取AI服务 ==========
+
+
+使用的AI服务: openrouter
+
+OpenRouter API error: AxiosError: Request failed with status code 401
+    at settle (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/settle.js:19:12)
+    at IncomingMessage.handleStreamEnd (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/adapters/http.js:599:11)
+    at IncomingMessage.emit (node:events:519:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/node_modules/axios/lib/core/Axios.js:45:41)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OpenRouterService.analyzeMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/services/ai/openRouterService.ts:74:24)
+    at async sendMessage (/Users/mac/Documents/GitHub/ai-emotional-support-chat/backend/src/controllers/chat.controller.ts:57:36) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function [FormData]], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer your_openrouter_api_key_here',
+      'HTTP-Referer': 'https://ai-emotional-support.app',
+      'X-Title': 'AI Emotional Support Chat',
+      'User-Agent': 'axios/1.11.0',
+      'Content-Length': '609',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    method: 'post',
+    url: 'https://openrouter.ai/api/v1/chat/completions',
+    data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"你是一个心理咨询师。请用简短的话回应用户（少于10个字）。\\n如果用户分享了图片，请在facts中描述图片内容（如人物、场景、氛围等）。\\n返回JSON格式：\\n{\\n  \\"response\\": \\"简短回应\\",\\n  \\"facts\\": [\\"事实1\\", \\"事实2\\", \\"图片描述\\"],\\n  \\"insights\\": [\\"洞察1\\"],\\n  \\"concepts\\": [\\"概念1\\"],\\n  \\"emotionalTone\\": {\\"primary\\": \\"情绪\\", \\"intensity\\": 0.7, \\"confidence\\": 0.8}\\n}"},{"role":"user"},{"role":"user"}],"temperature":0.7,"max_tokens":1500}',
+    allowAbsoluteUrls: true
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: false,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: true,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 609,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'Content-Type: application/json\r\n' +
+      'Authorization: Bearer your_openrouter_api_key_here\r\n' +
+      'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+      'X-Title: AI Emotional Support Chat\r\n' +
+      'User-Agent: axios/1.11.0\r\n' +
+      'Content-Length: 609\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: openrouter.ai\r\n' +
+      'Connection: keep-alive\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'POST',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/api/v1/chat/completions',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 401,
+      statusMessage: 'Unauthorized',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 22,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'openrouter.ai',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 609,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'openrouter.ai',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'openrouter.ai',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 5000,
+      parser: null,
+      _httpMessage: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 56524471,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 73418,
+        Symbol(triggerId): 73416,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'content-type': [Array],
+      authorization: [Array],
+      'http-referer': [Array],
+      'x-title': [Array],
+      'user-agent': [Array],
+      'content-length': [Array],
+      'accept-encoding': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 65536,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 401,
+    statusText: 'Unauthorized',
+    headers: Object [AxiosHeaders] {
+      date: 'Tue, 05 Aug 2025 09:57:33 GMT',
+      'content-type': 'application/json',
+      'transfer-encoding': 'chunked',
+      connection: 'keep-alive',
+      'access-control-allow-origin': '*',
+      vary: 'Accept-Encoding',
+      'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+      'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+      'x-content-type-options': 'nosniff',
+      server: 'cloudflare',
+      'cf-ray': '96a56e5468610959-HKG'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      method: 'post',
+      url: 'https://openrouter.ai/api/v1/chat/completions',
+      data: '{"model":"openai/chatgpt-4o-latest","messages":[{"role":"system","content":"你是一个心理咨询师。请用简短的话回应用户（少于10个字）。\\n如果用户分享了图片，请在facts中描述图片内容（如人物、场景、氛围等）。\\n返回JSON格式：\\n{\\n  \\"response\\": \\"简短回应\\",\\n  \\"facts\\": [\\"事实1\\", \\"事实2\\", \\"图片描述\\"],\\n  \\"insights\\": [\\"洞察1\\"],\\n  \\"concepts\\": [\\"概念1\\"],\\n  \\"emotionalTone\\": {\\"primary\\": \\"情绪\\", \\"intensity\\": 0.7, \\"confidence\\": 0.8}\\n}"},{"role":"user"},{"role":"user"}],"temperature":0.7,"max_tokens":1500}',
+      allowAbsoluteUrls: true
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 609,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/json\r\n' +
+        'Authorization: Bearer your_openrouter_api_key_here\r\n' +
+        'HTTP-Referer: https://ai-emotional-support.app\r\n' +
+        'X-Title: AI Emotional Support Chat\r\n' +
+        'User-Agent: axios/1.11.0\r\n' +
+        'Content-Length: 609\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: openrouter.ai\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/api/v1/chat/completions',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'openrouter.ai',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 65536,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: { error: [Object] }
+  },
+  status: 401
+}
+Error response: { error: { message: 'No auth credentials found', code: 401 } }
+Error status: 401
+Error headers: Object [AxiosHeaders] {
+  date: 'Tue, 05 Aug 2025 09:57:33 GMT',
+  'content-type': 'application/json',
+  'transfer-encoding': 'chunked',
+  connection: 'keep-alive',
+  'access-control-allow-origin': '*',
+  vary: 'Accept-Encoding',
+  'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")',
+  'referrer-policy': 'no-referrer, strict-origin-when-cross-origin',
+  'x-content-type-options': 'nosniff',
+  server: 'cloudflare',
+  'cf-ray': '96a56e5468610959-HKG'
+}
+Request config: {
+  model: 'openai/chatgpt-4o-latest',
+  apiKeyPresent: true,
+  apiKeyLength: 28,
+  url: 'https://openrouter.ai/api/v1/chat/completions'
+}
