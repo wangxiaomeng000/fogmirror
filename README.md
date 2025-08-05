@@ -29,7 +29,7 @@
 
 ### 部署到 Vercel（推荐）
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/fogmirror/fogmirror&env=MONGODB_URI,JWT_SECRET,SILICONFLOW_API_KEY,AI_SERVICE_TYPE&envDescription=需要配置的环境变量&envLink=https://github.com/fogmirror/fogmirror/blob/main/deploy-guide.md)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/wangxiaomeng000/fogmirror&env=MONGODB_URI,JWT_SECRET,SILICONFLOW_API_KEY,AI_SERVICE_TYPE&envDescription=需要配置的环境变量&envLink=https://github.com/wangxiaomeng000/fogmirror/blob/main/deploy-guide.md)
 
 点击上方按钮，然后：
 1. 登录 Vercel 账号
@@ -41,7 +41,7 @@
 
 ```bash
 # 1. 克隆项目
-git clone https://github.com/fogmirror/fogmirror.git
+git clone https://github.com/wangxiaomeng000/fogmirror.git
 cd fogmirror
 
 # 2. 安装依赖
@@ -107,4 +107,4 @@ MIT License
 
 ---
 
-**问题反馈**: 请在 [GitHub Issues](https://github.com/fogmirror/fogmirror/issues) 提交
+**问题反馈**: 请在 [GitHub Issues](https://github.com/wangxiaomeng000/fogmirror/issues) 提交
