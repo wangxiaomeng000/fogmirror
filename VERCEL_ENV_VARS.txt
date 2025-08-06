@@ -1,0 +1,25 @@
+# Vercel 环境变量配置
+
+## MongoDB URI（已准备好）
+MONGODB_URI=mongodb+srv://nbutwxm:DzpisvVpDp9Xi7Xu@cluster0.tumyjeh.mongodb.net/fogmirror?retryWrites=true&w=majority
+
+## JWT Secret（运行下面命令生成）
+# node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+JWT_SECRET=（粘贴生成的32位密钥）
+
+## SiliconFlow API Key（需要你提供）
+SILICONFLOW_API_KEY=（你的SiliconFlow API密钥）
+
+## AI 服务类型（固定值）
+AI_SERVICE_TYPE=siliconflow
+
+---
+
+## 快速生成 JWT Secret:
+在终端运行：
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+
+## 获取 SiliconFlow API Key:
+1. 访问 https://siliconflow.cn
+2. 注册/登录
+3. 进入控制台获取 API Key

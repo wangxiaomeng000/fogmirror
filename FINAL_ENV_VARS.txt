@@ -1,0 +1,11 @@
+# 🎉 FogMirror 雾镜 - 完整环境变量
+
+复制以下所有内容到 Vercel：
+
+MONGODB_URI=mongodb+srv://nbutwxm:DzpisvVpDp9Xi7Xu@cluster0.tumyjeh.mongodb.net/fogmirror?retryWrites=true&w=majority
+
+JWT_SECRET=bd1b1bcc8ae1385e891bee129320b5b0861a9a2439b49816bac23083e17de705
+
+SILICONFLOW_API_KEY=sk-wxbgtaaggkaoghcwaklmdfviedodujilineebqdinriymqvm
+
+AI_SERVICE_TYPE=siliconflow
