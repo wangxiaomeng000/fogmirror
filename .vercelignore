@@ -1,0 +1,14 @@
+# Vercel ignore file
+.git
+.gitignore
+README.md
+DEPLOY_*.md
+QUICK_*.md
+*.log
+test-*.js
+test-*.html
+*.sh
+backend/test-*.js
+backend/*.log
+backend/mongodb-*
+认知考古*
