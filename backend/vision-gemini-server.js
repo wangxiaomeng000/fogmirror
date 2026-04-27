@@ -17,7 +17,11 @@ app.use(cors());
 app.use(express.json());
 
 // 初始化Gemini
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || 'AIzaSyAvKVLijPt8kojQW6xLRdIEnUaTL2b9v9k');
+if (!process.env.GEMINI_API_KEY) {
+  console.error('GEMINI_API_KEY environment variable is required. See backend/.env.example');
+  process.exit(1);
+}
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // 使用Gemini Pro Vision分析图片
 async function analyzeImageWithGemini(imageBuffer, mimeType) {
@@ -146,7 +150,7 @@ app.listen(PORT, () => {
 测试端点: POST /api/vision/analyze
 模型: Gemini Pro Vision
 
-${process.env.GEMINI_API_KEY || 'AIzaSyAvKVLijPt8kojQW6xLRdIEnUaTL2b9v9k' ? '✅ Gemini API已配置' : '❌ 缺少Gemini API密钥'}
+${process.env.GEMINI_API_KEY ? '✅ Gemini API已配置' : '❌ 缺少Gemini API密钥'}
 ==================================
   `);
 });

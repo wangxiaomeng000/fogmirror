@@ -1,11 +1,14 @@
-# 🎉 FogMirror 雾镜 - 完整环境变量
+# 🎉 FogMirror 雾镜 - 环境变量模板
 
-复制以下所有内容到 Vercel：
+# ⚠️ 安全提示：实际值请填到 .env / Vercel Dashboard / 凭证库，不要提交到仓库。
+# 历史版本曾包含真实凭证，已于 2026-04-28 撤销并轮换。请使用新凭证。
 
-MONGODB_URI=mongodb+srv://nbutwxm:DzpisvVpDp9Xi7Xu@cluster0.tumyjeh.mongodb.net/fogmirror?retryWrites=true&w=majority
+复制以下变量到 Vercel：
 
-JWT_SECRET=bd1b1bcc8ae1385e891bee129320b5b0861a9a2439b49816bac23083e17de705
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/fogmirror?retryWrites=true&w=majority
 
-SILICONFLOW_API_KEY=sk-wxbgtaaggkaoghcwaklmdfviedodujilineebqdinriymqvm
+JWT_SECRET=<run: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))">
+
+SILICONFLOW_API_KEY=<your_siliconflow_key>
 
 AI_SERVICE_TYPE=siliconflow
