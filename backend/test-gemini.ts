@@ -3,7 +3,11 @@ import * as fs from 'fs';
 
 console.log('测试 Gemini API 连接...\n');
 
-const apiKey = 'AIzaSyBGFJ2I0p8HTe9RjHEaR3U_M3rJ8wfx9Ck';
+const apiKey = process.env.GEMINI_API_KEY;
+if (!apiKey) {
+  console.error('GEMINI_API_KEY environment variable is required. See backend/.env.example');
+  process.exit(1);
+}
 const genAI = new GoogleGenerativeAI(apiKey);
 
 async function testGeminiText() {

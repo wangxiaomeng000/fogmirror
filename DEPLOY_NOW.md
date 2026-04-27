@@ -7,14 +7,16 @@
 ## 📋 环境变量（复制这些到 Vercel）：
 
 ```
-MONGODB_URI=mongodb+srv://nbutwxm:DzpisvVpDp9Xi7Xu@cluster0.tumyjeh.mongodb.net/fogmirror?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/fogmirror?retryWrites=true&w=majority
 
-JWT_SECRET=bd1b1bcc8ae1385e891bee129320b5b0861a9a2439b49816bac23083e17de705
+JWT_SECRET=<生成32位随机字符串：node -e "console.log(require('crypto').randomBytes(32).toString('hex'))">
 
-SILICONFLOW_API_KEY=（需要你提供 SiliconFlow API 密钥）
+SILICONFLOW_API_KEY=<your_siliconflow_key>
 
 AI_SERVICE_TYPE=siliconflow
 ```
+
+> ⚠️ 历史版本曾包含明文凭证，已于 2026-04-28 撤销并轮换。请使用新凭证。
 
 ## 🎯 现在就部署：
 

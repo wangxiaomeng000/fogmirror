@@ -6,7 +6,11 @@ async function testGeminiAPI() {
   
   try {
     // 初始化 Gemini
-    const genAI = new GoogleGenerativeAI('AIzaSyAvKVLijPt8kojQW6xLRdIEnUaTL2b9v9k');
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      throw new Error('GEMINI_API_KEY environment variable is required. See .env.example');
+    }
+    const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
     
     // 读取图片

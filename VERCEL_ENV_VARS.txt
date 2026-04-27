@@ -1,7 +1,9 @@
 # Vercel 环境变量配置
 
 ## MongoDB URI（已准备好）
-MONGODB_URI=mongodb+srv://nbutwxm:DzpisvVpDp9Xi7Xu@cluster0.tumyjeh.mongodb.net/fogmirror?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/fogmirror?retryWrites=true&w=majority
+
+# ⚠️ 历史版本曾包含明文凭证，已于 2026-04-28 撤销并轮换。请使用新凭证。
 
 ## JWT Secret（运行下面命令生成）
 # node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"

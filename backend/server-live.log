@@ -67,7 +67,7 @@ OpenRouter API error: AxiosError: Request failed with status code 403
     headers: Object [AxiosHeaders] {
       Accept: 'application/json, text/plain, */*',
       'Content-Type': 'application/json',
-      Authorization: 'Bearer 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',
+      Authorization: 'Bearer <REDACTED_OPENROUTER_KEY>',
       'HTTP-Referer': 'https://ai-emotional-support.app',
       'X-Title': 'AI Emotional Support Chat',
       'User-Agent': 'axios/1.11.0',
@@ -115,7 +115,7 @@ OpenRouter API error: AxiosError: Request failed with status code 403
     _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
       'Accept: application/json, text/plain, */*\r\n' +
       'Content-Type: application/json\r\n' +
-      'Authorization: Bearer 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\r\n' +
+      'Authorization: Bearer <REDACTED_OPENROUTER_KEY>\r\n' +
       'HTTP-Referer: https://ai-emotional-support.app\r\n' +
       'X-Title: AI Emotional Support Chat\r\n' +
       'User-Agent: axios/1.11.0\r\n' +
@@ -368,7 +368,7 @@ OpenRouter API error: AxiosError: Request failed with status code 403
       _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
         'Accept: application/json, text/plain, */*\r\n' +
         'Content-Type: application/json\r\n' +
-        'Authorization: Bearer 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\r\n' +
+        'Authorization: Bearer <REDACTED_OPENROUTER_KEY>\r\n' +
         'HTTP-Referer: https://ai-emotional-support.app\r\n' +
         'X-Title: AI Emotional Support Chat\r\n' +
         'User-Agent: axios/1.11.0\r\n' +
@@ -496,7 +496,7 @@ OpenRouter API error: AxiosError: Request failed with status code 403
     headers: Object [AxiosHeaders] {
       Accept: 'application/json, text/plain, */*',
       'Content-Type': 'application/json',
-      Authorization: 'Bearer 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',
+      Authorization: 'Bearer <REDACTED_OPENROUTER_KEY>',
       'HTTP-Referer': 'https://ai-emotional-support.app',
       'X-Title': 'AI Emotional Support Chat',
       'User-Agent': 'axios/1.11.0',
@@ -544,7 +544,7 @@ OpenRouter API error: AxiosError: Request failed with status code 403
     _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
       'Accept: application/json, text/plain, */*\r\n' +
       'Content-Type: application/json\r\n' +
-      'Authorization: Bearer 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\r\n' +
+      'Authorization: Bearer <REDACTED_OPENROUTER_KEY>\r\n' +
       'HTTP-Referer: https://ai-emotional-support.app\r\n' +
       'X-Title: AI Emotional Support Chat\r\n' +
       'User-Agent: axios/1.11.0\r\n' +
@@ -797,7 +797,7 @@ OpenRouter API error: AxiosError: Request failed with status code 403
       _header: 'POST /api/v1/chat/completions HTTP/1.1\r\n' +
         'Accept: application/json, text/plain, */*\r\n' +
         'Content-Type: application/json\r\n' +
-        'Authorization: Bearer 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\r\n' +
+        'Authorization: Bearer <REDACTED_OPENROUTER_KEY>\r\n' +
         'HTTP-Referer: https://ai-emotional-support.app\r\n' +
         'X-Title: AI Emotional Support Chat\r\n' +
         'User-Agent: axios/1.11.0\r\n' +
